@@ -3,12 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage0", "Stage0\Stage0.csproj", "{8E596B47-83CD-4D3B-A048-EF86C1E87BE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stage0", "Stage0\Stage0.csproj", "{8E596B47-83CD-4D3B-A048-EF86C1E87BE3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F05D90CC-1B40-46AC-8E2F-322B59A9329F}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalFacade", "DalFacade\DalFacade.csproj", "{F521617C-164E-4647-BE01-9D651600A929}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalList", "DalList\DalList.csproj", "{505262C8-1C74-4BFB-A2F3-B166947B9AE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalTest", "DalTest\DalTest.csproj", "{5B87563A-9392-4475-BB17-74037F8F24E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +26,18 @@ Global
 		{8E596B47-83CD-4D3B-A048-EF86C1E87BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E596B47-83CD-4D3B-A048-EF86C1E87BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E596B47-83CD-4D3B-A048-EF86C1E87BE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F521617C-164E-4647-BE01-9D651600A929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F521617C-164E-4647-BE01-9D651600A929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F521617C-164E-4647-BE01-9D651600A929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F521617C-164E-4647-BE01-9D651600A929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505262C8-1C74-4BFB-A2F3-B166947B9AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505262C8-1C74-4BFB-A2F3-B166947B9AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505262C8-1C74-4BFB-A2F3-B166947B9AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505262C8-1C74-4BFB-A2F3-B166947B9AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B87563A-9392-4475-BB17-74037F8F24E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B87563A-9392-4475-BB17-74037F8F24E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B87563A-9392-4475-BB17-74037F8F24E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B87563A-9392-4475-BB17-74037F8F24E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
