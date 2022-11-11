@@ -1,0 +1,193 @@
+﻿
+using DO;
+
+using System;
+//using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Numerics;
+using System.Text;
+using System.Xml.Linq;
+
+namespace Dal;
+
+internal sealed class DataSource
+{
+    internal static DataSource DSInstance { get; } = new DataSource();
+    private DataSource()
+    {
+        s_Initialize();
+    }
+    private static readonly Random s_rand = new();
+
+    internal static class Config
+    {
+        internal const int s_startOrderNumber = 1000;
+        private static int s_nextOrderNumber = s_startOrderNumber;
+        internal static int NextOrderNumber { get => s_nextOrderNumber++; }
+    }
+
+    internal static List<Product?> ProductsList { get; } = new List<Product?>();
+    internal static List<Order?> OrdersList { get; } = new List<Order?>();
+    internal static List<OrderItem?> OrderItemsList { get; } = new List<OrderItem?>();
+    
+    private void s_Initialize()
+    {
+        createAndInitProducts();
+        createAndInitOrders();
+        createAndInitOrderItems();
+    }
+
+
+    private static void createAndInitProducts()
+    {
+        string[] philosophyBooks = new string[]
+        {
+            "The myth of Sisyphus", "Waiting for Godot", "Existentialism is Humanism",
+            "Thus said Zarathustra", "Euthyferon", "Protagoras", "Phaedon",
+            "Gorgias", "The birth of tragedy", "The nausea"
+        };
+
+        int[] philosophyInStock = new int[]
+        {
+            8, 15, 16, 17, 18, 19, 20, 21, 0, 24
+        };
+
+        for (int i = 0; i < 10; i++)
+        {
+            Product p = new Product();
+            p.ID = s_rand.Next(100000, 9999999);
+            p.Name = philosophyBooks[i];
+            p.Category = Enums.Category.Philosophy;
+            p.InStock = philosophyInStock[i];
+            p.Price = s_rand.Next(50, 110);
+
+            ProductsList.Add(p);
+        }
+
+
+
+        string[] BiographyBooks = new string[]
+        {
+            "The shepherd", "Sharon", "Bibi", "The adviser", "Hitler", "Karl Marx",
+            "Churchill", "Golda", "Ben Gurion", "Beyond the physical"
+        };
+
+        int[] BiographyInStock = new int[]
+        {
+            8, 15, 16, 17, 18, 19, 20, 21, 0, 24
+        };
+
+        for (int i = 0; i < 10; i++)
+        {
+            Product p = new Product();
+            p.ID = s_rand.Next(100000, 9999999);
+            p.Name = BiographyBooks[i];
+            p.Category = Enums.Category.Biography;
+            p.InStock = BiographyInStock[i];
+            p.Price = s_rand.Next(50, 110);
+
+            ProductsList.Add(p);
+        }
+        
+
+
+        string[] HolocaustBooks = new string[]
+        {
+            "The Dollhouse", "Salamander", "The Cipher", "Kristallnacht", "The Sky Inside Me",
+            "The Clock", "Anatomy of Evil", "Female Murderers in Hitler's Service",
+            "Encyclopedia of the Holocaust", "The Eichmann Trial in Jerusalem"
+        };
+
+        int[] HolocaustInStock = new int[]
+        {
+            8, 15, 16, 17, 18, 19, 20, 21, 0, 24
+        };
+
+        for (int i = 0; i < 10; i++)
+        {
+            Product p = new Product();
+            p.ID = s_rand.Next(100000, 9999999);
+            p.Name = HolocaustBooks[i];
+            p.Category = Enums.Category.Holocaust;
+            p.InStock = HolocaustInStock[i];
+            p.Price = s_rand.Next(50, 110);
+
+            ProductsList.Add(p);
+        }
+
+
+
+        string[] PsychoanalysisBooks = new string[]
+        {
+            "Psychopathology of everyday life", "Beyond the pleasure principle",
+            "Civilization and Its Discontents", "The Ego and the Id", "Psychology of the Unconscious",
+            "The Joke and Its Relation to the Unconscious", "Psychoanalysis of children",
+            "Ecrits_of_Lakan", "The interpretation of dreams", "Inhibitions, Symptoms and Anxiety"
+        };
+        for (int i = 0; i < 10; i++)
+        {
+            Product p = new Product();
+            p.ID = s_rand.Next(100000, 9999999);
+            p.Name = PsychoanalysisBooks[i];
+            p.Category = Enums.Category.Psychoanalysis;
+            p.InStock = s_rand.Next(4, 10);
+            p.Price = s_rand.Next(50, 110);
+
+            ProductsList.Add(p);
+        }
+
+
+
+        string[] RussianLiteratureBooks = new string[]
+        {
+            "The Brothers Karamazov", "demons", "crime and Punishment", "Kholstomer", "The Cossacks",
+            "The death of Ivan Ilyich", "The teenager", "the idiot", "A writer's diary", "war and Peace"
+        };
+        for (int i = 0; i < 10; i++)
+        {
+            Product p = new Product();
+            p.ID = s_rand.Next(100000, 9999999);
+            p.Name = RussianLiteratureBooks[i];
+            p.Category = Enums.Category.RussianLiterature;
+            p.InStock = s_rand.Next(4, 10);
+            p.Price = s_rand.Next(50, 110);
+
+            ProductsList.Add(p);
+        }
+    }
+
+
+
+
+    private static void createAndInitOrders()
+    {
+        //string[] CustomersNames = new string[]
+        //{
+        //    "Avi", "Shneor", "David", "Elishah", "Yehoshua", "Dov", "Moshe", "Yosef", "Nadav", "Nechumale"
+        //};
+
+        //string[] CustomersEmails = new string[]
+        //{
+        //    "A@gmail.com", "S@gmail.com", "D@gmail.com", "E@gmail.com",
+        //    "Y@gmail.com", "D@gmail.com", "M@gmail.com", "Y@gmail.com", "N@gmail.com", "K@gmail.com"
+        //};
+
+        for (int i = 0; i < 100; i++)
+        {
+            Order o = new Order();
+            //o.ID = 
+            //o.CustomerName = (Enums.CustomersNames)s_rand.Next();
+            //o.CustomerEmail = CustomersEmails[i];
+            //o.CustomerAdress = 
+            //o.OrderDate = 
+            //o.DeliveryDate
+            //o.ShipDate
+        }
+    }
+
+    private static void createAndInitOrderItems()
+    {
+
+    }
+}
