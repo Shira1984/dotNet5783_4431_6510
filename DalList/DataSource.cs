@@ -175,7 +175,7 @@ internal sealed class DataSource
             "London", "Mexico", "Jerusalem", "Jerusalem", "Ofakim", "Nahlaot", "Herzelia",
             "Tel Aviv", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq"
         };
-
+        DateTime mydate = DateTime.Today;
         for (int i = 0; i < 4; i++)
         {
             Order o = new Order();
@@ -183,7 +183,7 @@ internal sealed class DataSource
             o.CustomerName = CustomersNames[i];
             o.CustomerEmail = CustomersNames[i] + "walla.com";
             o.CustomerAdress = CustomerAdresses[i];
-            //o.OrderDate = //Date of ordering
+            o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i);
             o.DeliveryDate = null; //Date of being sent
             o.ShipDate = null; //Date of arrivial
         }
@@ -195,8 +195,8 @@ internal sealed class DataSource
             o.CustomerName = CustomersNames[i];
             o.CustomerEmail = CustomersNames[i] + "walla.com";
             o.CustomerAdress = CustomerAdresses[i];
-            o.OrderDate = //Date of ordering
-            //o.DeliveryDate //Date of being sent
+            o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(- i);
+            o.DeliveryDate= new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-2*i+ s_rand.Next(4,8));
             o.ShipDate = null; //Date of arrivial
         }
 
@@ -207,14 +207,28 @@ internal sealed class DataSource
             o.CustomerName = CustomersNames[i];
             o.CustomerEmail = CustomersNames[i] + "walla.com";
             o.CustomerAdress = CustomerAdresses[i];
-            //o.OrderDate = //Date of ordering
-            //o.DeliveryDate //Date of being sent
-            //o.ShipDate //Date of arrivial
+            o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-2*i);
+            o.DeliveryDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-2*i+ s_rand.Next(2,5));
+            o.ShipDate = o.DeliveryDate.GetValueOrDefault().AddDays(s_rand.Next(1, 3));
+           
+
+
         }
     }
 
+    internal static List<Order?> OrdersList2 { get; } = OrdersList;
     private static void createAndInitOrderItems()
     {
-
+        foreach (Order or in OrdersList)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                OrderItem oi = new OrderItem();
+                oi.OrderItemID = Config.NextOrderNumber;
+                oi.OrderID = or.ID;
+                //oi.ProductID =
+    
+        }
+        }
     }
 }
