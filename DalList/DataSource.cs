@@ -2,6 +2,7 @@
 using DO;
 
 using System;
+using System.Data;
 //using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -67,28 +68,28 @@ internal sealed class DataSource
 
 
 
-        string[] BiographyBooks = new string[]
-        {
-            "The shepherd", "Sharon", "Bibi", "The adviser", "Hitler", "Karl Marx",
-            "Churchill", "Golda", "Ben Gurion", "Beyond the physical"
-        };
+        //string[] BiographyBooks = new string[]
+        //{
+        //    "The shepherd", "Sharon", "Bibi", "The adviser", "Hitler", "Karl Marx",
+        //    "Churchill", "Golda", "Ben Gurion", "Beyond the physical"
+        //};
 
-        int[] BiographyInStock = new int[]
-        {
-            8, 15, 16, 17, 18, 19, 20, 21, 0, 24
-        };
+        //int[] BiographyInStock = new int[]
+        //{
+        //    8, 15, 16, 17, 18, 19, 20, 21, 0, 24
+        //};
 
-        for (int i = 0; i < 10; i++)
-        {
-            Product p = new Product();
-            p.ID = s_rand.Next(100000, 9999999);
-            p.Name = BiographyBooks[i];
-            p.Category = Enums.Category.Biography;
-            p.InStock = BiographyInStock[i];
-            p.Price = s_rand.Next(50, 110);
+        //for (int i = 0; i < 10; i++)
+        //{
+        //    Product p = new Product();
+        //    p.ID = s_rand.Next(100000, 9999999);
+        //    p.Name = BiographyBooks[i];
+        //    p.Category = Enums.Category.Biography;
+        //    p.InStock = BiographyInStock[i];
+        //    p.Price = s_rand.Next(50, 110);
 
-            ProductsList.Add(p);
-        }
+        //    ProductsList.Add(p);
+        //}
         
 
 
@@ -162,27 +163,53 @@ internal sealed class DataSource
 
     private static void createAndInitOrders()
     {
-        //string[] CustomersNames = new string[]
-        //{
-        //    "Avi", "Shneor", "David", "Elishah", "Yehoshua", "Dov", "Moshe", "Yosef", "Nadav", "Nechumale"
-        //};
+        string[] CustomersNames = new string[]
+        {
+            "Avi", "Shneor", "David", "Elishah", "Yehoshua", "Dov", "Moshe", "Yosef", "Nadav", "Nechumale",
+            "Neomi", "Shalom", "Mendi", "Baruch", "Gavriel", "Leo", "Tuval", "Tomas", "Doron", "Etan"
+        };
 
-        //string[] CustomersEmails = new string[]
-        //{
-        //    "A@gmail.com", "S@gmail.com", "D@gmail.com", "E@gmail.com",
-        //    "Y@gmail.com", "D@gmail.com", "M@gmail.com", "Y@gmail.com", "N@gmail.com", "K@gmail.com"
-        //};
+        string[] CustomerAdresses = new string[]
+        {
+            "Jerusalem", "Ramat Gan", "Ofakim", "Nahlaot", "Herzelia", "Tel Aviv",
+            "London", "Mexico", "Jerusalem", "Jerusalem", "Ofakim", "Nahlaot", "Herzelia",
+            "Tel Aviv", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq"
+        };
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 4; i++)
         {
             Order o = new Order();
-            //o.ID = 
-            //o.CustomerName = (Enums.CustomersNames)s_rand.Next();
-            //o.CustomerEmail = CustomersEmails[i];
-            //o.CustomerAdress = 
-            //o.OrderDate = 
-            //o.DeliveryDate
-            //o.ShipDate
+            o.ID = Config.NextOrderNumber;
+            o.CustomerName = CustomersNames[i];
+            o.CustomerEmail = CustomersNames[i] + "walla.com";
+            o.CustomerAdress = CustomerAdresses[i];
+            //o.OrderDate = //Date of ordering
+            o.DeliveryDate = null; //Date of being sent
+            o.ShipDate = null; //Date of arrivial
+        }
+
+        for (int i = 4; i < 8; i++)
+        {
+            Order o = new Order();
+            o.ID = Config.NextOrderNumber;
+            o.CustomerName = CustomersNames[i];
+            o.CustomerEmail = CustomersNames[i] + "walla.com";
+            o.CustomerAdress = CustomerAdresses[i];
+            o.OrderDate = //Date of ordering
+            //o.DeliveryDate //Date of being sent
+            o.ShipDate = null; //Date of arrivial
+        }
+
+        for (int i = 8; i < 20; i++)
+        {
+            Order o = new Order();
+            o.ID = Config.NextOrderNumber;
+            o.CustomerName = CustomersNames[i];
+            o.CustomerEmail = CustomersNames[i] + "walla.com";
+            o.CustomerAdress = CustomerAdresses[i];
+            //o.OrderDate = //Date of ordering
+            //o.DeliveryDate //Date of being sent
+            //o.ShipDate //Date of arrivial
         }
     }
 
