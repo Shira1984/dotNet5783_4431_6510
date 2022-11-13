@@ -225,8 +225,8 @@ internal sealed class DataSource
             {
                 OrderItem oi = new OrderItem();
                 oi.OrderItemID = Config.NextOrderNumber;
-                oi.OrderID = or.ID;
-                //oi.ProductID =
+                //oi.OrderID = OrdersList[s_rand.Next(0, 20)].ID;
+                //oi.ProductID = ProductsList[s_rand.Next(0, 50)].ID;
     
         }
         }
