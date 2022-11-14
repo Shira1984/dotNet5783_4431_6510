@@ -8,12 +8,12 @@ public class DalOrder
 {
     public int Add(Order order)
     {
-        //bool a = DataSource.OrdersList.Any(or => or.Value.ID == order.ID);
-        //if (a == true)
-        //{
-        //    throw new Exception("ID not exist");
-        //}
-        //else
+        bool a = DataSource.OrdersList.Any(or => or.Value.ID == order.ID);
+        if (a == true)
+        {
+            throw new Exception("ID not exist");
+        }
+        else
         {
             DataSource.OrdersList.Add(order);
             return order.ID;
@@ -23,17 +23,17 @@ public class DalOrder
     public Order GetById(int id)
     {
         Order? o = DataSource.OrdersList.Find(or => or.Value.ID == id);
-        //if (o == null)
-        //    throw new Exception("Order not exist");
-        //else
+        if (o == null)
+            throw new Exception("Order not exist");
+        else
             return (Order)o;
     }
 
     public void Update(Order order)
     {
-        //bool a = DataSource.OrdersList.Exists(or => or.Value.ID == order.ID);
-        //if (a == true)
-        //{
+        bool a = DataSource.OrdersList.Exists(or => or.Value.ID == order.ID);
+        if (a == true)
+        {
             Order oldO = (Order)DataSource.OrdersList.Find(pro => pro.Value.ID == p.ID);
             oldO.ID = order.ID;
             oldO.OrderDate = order.OrderDate;
@@ -42,9 +42,9 @@ public class DalOrder
             oldO.CustomerEmail = order.CustomerEmail;
             oldO.CustomerName = order.CustomerName;
             oldO.DeliveryDate = order.DeliveryDate;
-        //}
-        //else
-        //    throw new Exception("No Product to update");
+        }
+        else
+            throw new Exception("No Product to update");
     }
 
 

@@ -8,12 +8,12 @@ public class DalOrderItem
 {
     public int Add(OrderItem oi)
     {
-        //bool a = DataSource.OrderItemsList.Any(ori => ori.Value.OrderItemID == oi.OrderItemID);
-        //if (a == true)
-        //{
-        //    throw new Exception("ID not exist");
-        //}
-        //else
+        bool a = DataSource.OrderItemsList.Any(ori => ori.Value.OrderItemID == oi.OrderItemID);
+        if (a == true)
+        {
+            throw new Exception("ID not exist");
+        }
+        else
         {
             DataSource.OrderItemsList.Add(oi);
             return oi.OrderItemID;
@@ -23,9 +23,9 @@ public class DalOrderItem
     public OrderItem GetById(int id)
     {
         OrderItem? oi = DataSource.OrderItemsList.Find(ori => ori.Value.OrderItemID == id);
-        //if (oi == null)
-        //    throw new Exception("Order not exist");
-        //else
+        if (oi == null)
+            throw new Exception("Order not exist");
+        else
             return (OrderItem)oi;
     }
 
@@ -50,7 +50,7 @@ public class DalOrderItem
 
     public List ItemsInOrder(int id)
     {
-
+        List<Product> products = DataSource.OrderItemsList.FindAll(it => it.Value.OrderID == id);
     }
 
     public Product GetByOrNumNProNum(int orNum, int proNum)

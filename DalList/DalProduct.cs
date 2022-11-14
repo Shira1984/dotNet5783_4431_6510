@@ -23,12 +23,12 @@ public class DalProduct
     {
         //bool a = DataSource.ProductsList.Exists(pro => pro.Value.ID == id);
         //if (a == true)
-        
+
         Product? p = DataSource.ProductsList.Find(pro => pro.Value.ID == id);
-        //if (p == null)
-        //    throw new Exception("Product not exist");
-        //else
-        return (Product)p;
+        if (p == null)
+            throw new Exception("Product not exist");
+        else
+            return (Product)p;
 
         //else
         //    throw new Exception("Product not exist");
@@ -55,8 +55,11 @@ public class DalProduct
         DataSource.ProductsList.Remove(a);
     }
 
-    //public Enumerable<Product?> GetAll()
-    //{
-    //    return DataSource.ProductsList;
-    //}
+    public Enumerable<Product?> GetAll()
+    {
+        List<Product?> list = new List<Product?>();
+        foreach (var item in DataSource.ProductsList)
+            list.Add(item);
+        return list;
+    }
 }
