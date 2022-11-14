@@ -7,12 +7,12 @@ public class DalProduct
 {
     public int Add(Product p)
     {
-        //bool a = DataSource.ProductsList.Any(pro => pro.Value.ID == p.ID);
-        //if (a == true)
-        //{
-        //    throw new Exception("ID not exist");
-        //}
-        //else
+        bool a = DataSource.ProductsList.Any(pro => pro.Value.ID == p.ID);
+        if (a == true)
+        {
+            throw new Exception("ID not exist");
+        }
+        else
         {
             DataSource.ProductsList.Add(p);
             return p.ID;

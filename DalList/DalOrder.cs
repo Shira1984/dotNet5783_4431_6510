@@ -56,7 +56,10 @@ public class DalOrder
 
     public Enumerable<Order?> GetAll()
     {
-
+        List<Order?> list = new List<Order?>();
+        foreach (var item in DataSource.OrdersList)
+            list.Add(item);
+        return list;
     }
 
 }
