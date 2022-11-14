@@ -1,4 +1,6 @@
-﻿internal class Main
+﻿using Dal;
+
+internal class Main
 {
 
     class Program
@@ -21,6 +23,8 @@ Enter 0 to EXIT,
             bool b= int. TryParse(Console.ReadLine(), out opt);
             mo = (MainMenu)opt;
             //bool flag = true;
+            DO.Product p= new DO.Product();
+            
             switch (mo)
                 {
                     case MainMenu.EXIT:
@@ -44,7 +48,16 @@ Enter 1 to add,
                                 break;
                             case ProductMenu.Add:
                                 {
+                                    
+                                    Console.WriteLine("Please enter: ID,name, category, price, inStock");
+                                    p.ID = Console.Read();
+                                    p.Name = Console.ReadLine();
+                                    p.Category = 
+                                    p.Price=Console.Read();
+                                    p.InStock=Console.Read();
 
+                                    return;
+                               
                                 }
                             case ProductMenu.GetById:
                                 {
