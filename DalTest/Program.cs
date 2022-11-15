@@ -35,14 +35,14 @@ d for OrderItem options");
             {
                 switch (m)
                 {
-                    case 'a':
+                    case 'a':  //EXIT
                         break;
                     case 'b':   //Product
                         {
 
                             Console.WriteLine(@"
 Enter a to EXIT,
-Enter b to add,
+b to add,
 c to get by ID,
 d to update,
 e to delete,
@@ -57,9 +57,9 @@ f to GetAll");
                             {
                                 switch (m)
                                 {
-                                    case 'a':
+                                    case 'a': //EXIT
                                         break;
-                                    case 'b':
+                                    case 'b': //add
                                         {
 
                                             Console.WriteLine("Please enter ID, name, category, price, inStock: ");
@@ -75,14 +75,14 @@ f to GetAll");
                                             break;
 
                                         }
-                                    case 'c':
+                                    case 'c': //get by ID
                                         {
                                             Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
                                             Product p = dalp.GetById(y);
                                             break;
                                         }
-                                    case 'd':
+                                    case 'd': //update
                                         {
                                             Console.WriteLine("Please enter ID, name, category, price, inStock: ");
                                             Product p = new Product();
@@ -96,7 +96,7 @@ f to GetAll");
                                             dalp.Update(p);
                                             break;
                                         }
-                                    case 'e':
+                                    case 'e'://delete
                                         {
                                             Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
@@ -105,9 +105,9 @@ f to GetAll");
                                             break;
                                         }
 
-                                    case 'f':
+                                    case 'f': //getall
                                         {
-                                            dalp.GetAll();
+                                            List<Product?> p = (List<Product?>)dalp.GetAll();
                                             break;
                                         }
 
@@ -123,7 +123,7 @@ f to GetAll");
 
                             Console.WriteLine(@"
 Enter 'a' to EXIT,
-Enter 'b' to add,
+'b' to add,
 'c' to get by ID,
 'd' to update,
 'e' to delete,
@@ -137,9 +137,9 @@ f to GetAll");
                             {
                                 switch (m)
                                 {
-                                    case 'a':
+                                    case 'a': //EXIT
                                         break;
-                                    case 'b':
+                                    case 'b': //add
                                         {
 
                                             Console.WriteLine("Please enter: ID,costumerName, costumerEmaill, costumerAdress, OrderDate");
@@ -155,14 +155,14 @@ f to GetAll");
                                             break;
 
                                         }
-                                    case 'c':
+                                    case 'c': //get by id
                                         {
                                             Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
                                             Order o = dalo.GetById(y);
                                             break;
                                         }
-                                    case 'd':
+                                    case 'd'://update
                                         {
 
                                             Console.WriteLine("Please enter ID, name, category, price, inStock: ");
@@ -174,7 +174,7 @@ f to GetAll");
                                             dalo.Update(o);
                                             break;
                                         }
-                                    case 'e':
+                                    case 'e': //delete
                                         {
                                             Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
@@ -182,9 +182,9 @@ f to GetAll");
                                             dalo.Delete(y);
                                             break;
                                         }
-                                    case 'f':
+                                    case 'f': //get all
                                         {
-                                            dalo.GetAll();
+                                            List<Order?> p = (List<Order?>)dalo.GetAll();
                                             break;
                                         }
                                         break;
@@ -196,12 +196,12 @@ f to GetAll");
                         }
 
 
-                    case 'd':
+                    case 'd': //OrderItem
                         {
                           
                             Console.WriteLine(@"
 Enter a to EXIT,
-Enter b to add,
+b to add,
 c to get by ID,
 d to update,
 e to delete,
@@ -215,9 +215,9 @@ h to GetByOrNumNProNum ");
                             {
                                 switch (m)
                                 {
-                                    case 'a':
+                                    case 'a'://EXIT
                                         break;
-                                    case 'b':
+                                    case 'b'://all
                                         {
 
                                             Console.WriteLine("Please enter: OrderItemID,ProductID, OrderID, Price, Amount");
@@ -231,14 +231,14 @@ h to GetByOrNumNProNum ");
                                             break;
 
                                         }
-                                    case 'c':
+                                    case 'c'://get by id
                                         {
                                             Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
                                             OrderItem o = daloi.GetById(y);
                                             break;
                                         }
-                                    case 'd':
+                                    case 'd'://update
                                         {
 
                                             Console.WriteLine("Please enter: OrderItemID,ProductID, OrderID, Price, Amount");
@@ -251,7 +251,7 @@ h to GetByOrNumNProNum ");
                                             daloi.Update(oi);
                                             break;
                                         }
-                                    case 'e':
+                                    case 'e'://delete
                                         {
                                             Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
@@ -259,12 +259,12 @@ h to GetByOrNumNProNum ");
                                             daloi.Delete(y);
                                             break;
                                         }
-                                    case 'f':
+                                    case 'f'://get all
                                         {
-                                            daloi.GetAll();
+                                            List<OrderItem?> p = (List<OrderItem?>)daloi.GetAll();
                                             break;
                                         }
-                                    case 'g':
+                                    case 'g': //ItemsInOrder
                                         {
 
                                             Console.WriteLine("Please enter ID: ");
@@ -273,7 +273,7 @@ h to GetByOrNumNProNum ");
                                             List<OrderItem?> products=daloi.ItemsInOrder(y);
                                             break;
                                         }
-                                    case 'h':
+                                    case 'h': //GetByOrNumNProNum
                                         {
                                             Console.WriteLine("Please enter order ID and product ID:");
                                             int y = Console.Read(); //order ID
