@@ -159,8 +159,6 @@ internal sealed class DataSource
     }
 
 
-
-
     private static void createAndInitOrders()
     {
         string[] CustomersNames = new string[]
@@ -216,7 +214,7 @@ internal sealed class DataSource
         }
     }
 
-    internal static List<Order?> OrdersList2 { get; } = OrdersList;
+    //internal static List<Order?> OrdersList2 { get; } = OrdersList;
     private static void createAndInitOrderItems()
     {
         foreach (Order or in OrdersList)
@@ -225,10 +223,11 @@ internal sealed class DataSource
             {
                 OrderItem oi = new OrderItem();
                 oi.OrderItemID = Config.NextOrderNumber;
-                //oi.OrderID = OrdersList[s_rand.Next(0, 20)].ID;
-                //oi.ProductID = ProductsList[s_rand.Next(0, 50)].ID;
-    
-        }
+                oi.OrderID = or.ID;
+                oi.ProductID = ProductsList[s_rand.Next(0, 50)].Value.ID;
+                oi.Price = ProductsList[oi.ProductID].Value.Price;
+                oi.Amount = s_rand.Next(1, 3);
+            }
         }
     }
 }

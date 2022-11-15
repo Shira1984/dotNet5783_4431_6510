@@ -5,6 +5,7 @@ namespace Dal;
 
 public class DalProduct
 {
+    //craete
     public int Add(Product p)
     {
         bool a = DataSource.ProductsList.Any(pro => pro.Value.ID == p.ID);
@@ -19,6 +20,7 @@ public class DalProduct
         }
     }
 
+    //request
     public Product GetById(int id)
     {
         //bool a = DataSource.ProductsList.Exists(pro => pro.Value.ID == id);
@@ -34,6 +36,7 @@ public class DalProduct
         //    throw new Exception("Product not exist");
     }
 
+    //update
     public void Update(Product p)
     {
         bool a = DataSource.ProductsList.Exists(pro => pro.Value.ID == p.ID);
@@ -49,13 +52,16 @@ public class DalProduct
         else
             throw new Exception("No Product to update");
     }
+
+    //delete
     public void Delete(int id)
     {
         Product? a = DataSource.ProductsList.Find(pro => pro.Value.ID == id);
         DataSource.ProductsList.Remove(a);
     }
 
-    public Enumerable<Product?> GetAll()
+    //get list
+    public IEnumerable<Product?> GetAll()
     {
         List<Product?> list = new List<Product?>();
         foreach (var item in DataSource.ProductsList)

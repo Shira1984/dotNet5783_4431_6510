@@ -6,6 +6,7 @@ namespace Dal;
 
 public class DalOrder
 {
+    //craete
     public int Add(Order order)
     {
         bool a = DataSource.OrdersList.Any(or => or.Value.ID == order.ID);
@@ -20,6 +21,7 @@ public class DalOrder
         }
     }
     
+    //request
     public Order GetById(int id)
     {
         Order? o = DataSource.OrdersList.Find(or => or.Value.ID == id);
@@ -29,12 +31,13 @@ public class DalOrder
             return (Order)o;
     }
 
+    //update
     public void Update(Order order)
     {
         bool a = DataSource.OrdersList.Exists(or => or.Value.ID == order.ID);
         if (a == true)
         {
-            Order oldO = (Order)DataSource.OrdersList.Find(pro => pro.Value.ID == p.ID);
+            Order oldO = (Order)DataSource.OrdersList.Find(pro => pro.Value.ID == order.ID);
             oldO.ID = order.ID;
             oldO.OrderDate = order.OrderDate;
             oldO.ShipDate = order.ShipDate;
@@ -47,14 +50,15 @@ public class DalOrder
             throw new Exception("No Product to update");
     }
 
-
+    //delete
     public void Delete(int id)
     {
         Order? a = DataSource.OrdersList.Find(or => or.Value.ID == id);
         DataSource.OrdersList.Remove(a);
     }
 
-    public Enumerable<Order?> GetAll()
+    //get list
+    public IEnumerable<Order?> GetAll()
     {
         List<Order?> list = new List<Order?>();
         foreach (var item in DataSource.OrdersList)
