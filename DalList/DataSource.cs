@@ -27,11 +27,16 @@ internal sealed class DataSource
         private static int s_nextOrderNumber = s_startOrderNumber;
         internal static int NextOrderNumber { get => s_nextOrderNumber++; }
     }
-
+    /// <summary>
+    /// Repositories initialization
+    /// </summary>
     internal static List<Product?> ProductsList { get; } = new List<Product?>();
     internal static List<Order?> OrdersList { get; } = new List<Order?>();
     internal static List<OrderItem?> OrderItemsList { get; } = new List<OrderItem?>();
-    
+
+    /// <summary>
+    /// The initialization functions
+    /// </summary>
     private void s_Initialize()
     {
         createAndInitProducts();
@@ -39,7 +44,9 @@ internal sealed class DataSource
         createAndInitOrderItems();
     }
 
-
+    /// <summary>
+    /// Products initialization
+    /// </summary>
     private static void createAndInitProducts()
     {
         string[] philosophyBooks = new string[]
@@ -158,7 +165,9 @@ internal sealed class DataSource
         }
     }
 
-
+    /// <summary>
+    /// Orders initialization
+    /// </summary>
     private static void createAndInitOrders()
     {
         string[] CustomersNames = new string[]
@@ -214,7 +223,9 @@ internal sealed class DataSource
         }
     }
 
-    //internal static List<Order?> OrdersList2 { get; } = OrdersList;
+    /// <summary>
+    /// Order Items initialization
+    /// </summary>
     private static void createAndInitOrderItems()
     {
         foreach (Order or in OrdersList)
