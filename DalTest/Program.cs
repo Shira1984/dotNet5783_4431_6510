@@ -19,7 +19,7 @@ internal class Main
             DalProduct dalp = new DalProduct();
             DalOrder dalo = new DalOrder();
             DalOrderItem daloi = new DalOrderItem();
-            
+
             Console.WriteLine(@"Welcom!
 Enter a to EXIT,
 b for product options,
@@ -37,9 +37,9 @@ d for OrderItem options");
                 {
                     case 'a':
                         break;
-                    case 'b':
+                    case 'b':   //Product
                         {
-                           
+
                             Console.WriteLine(@"
 Enter a to EXIT,
 Enter b to add,
@@ -48,9 +48,9 @@ d to update,
 e to delete,
 f to GetAll");
 
-                           
+
                             c = Console.ReadLine();
-                            
+
                             if (!char.TryParse(c, out m))
                                 throw new Exception("couldnt parse");
                             try
@@ -62,8 +62,8 @@ f to GetAll");
                                     case 'b':
                                         {
 
-                                            Console.WriteLine("Please enter: ID,name, category, price, inStock");
-                                            Product p= new Product();
+                                            Console.WriteLine("Please enter ID, name, category, price, inStock: ");
+                                            Product p = new Product();
                                             p.ID = Console.Read();
                                             p.Name = Console.ReadLine();
                                             int x;
@@ -77,14 +77,14 @@ f to GetAll");
                                         }
                                     case 'c':
                                         {
-                                            Console.WriteLine("Please enter: ID");
-                                            int y=Console.Read();
+                                            Console.WriteLine("Please enter ID: ");
+                                            int y = Console.Read();
                                             Product p = dalp.GetById(y);
                                             break;
                                         }
                                     case 'd':
                                         {
-                                            Console.WriteLine("Please enter: ID,name, category, price, inStock");
+                                            Console.WriteLine("Please enter ID, name, category, price, inStock: ");
                                             Product p = new Product();
                                             p.ID = Console.Read();
                                             p.Name = Console.ReadLine();
@@ -98,36 +98,36 @@ f to GetAll");
                                         }
                                     case 'e':
                                         {
-                                            Console.WriteLine("Please enter: ID");
+                                            Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
-                                            
+
                                             dalp.Delete(y);
                                             break;
                                         }
 
                                     case 'f':
                                         {
+                                            dalp.GetAll();
                                             break;
                                         }
 
                                         break;
                                 }
 
-                                catch(Exception e){ Console.WriteLine(e.Message); }
-
-                                
                             }
-                           break;
+                            catch (Exception e) { Console.WriteLine(e.Message); }
+                            break;
                         }
-                    case 'c':
+                    case 'c':  //order
                         {
-                            
+
                             Console.WriteLine(@"
 Enter 'a' to EXIT,
 Enter 'b' to add,
 'c' to get by ID,
 'd' to update,
-'e' to delete");
+'e' to delete,
+f to GetAll");
 
                             c = Console.ReadLine();
 
@@ -143,49 +143,62 @@ Enter 'b' to add,
                                         {
 
                                             Console.WriteLine("Please enter: ID,costumerName, costumerEmaill, costumerAdress, OrderDate");
+                                            Order o = new Order();
                                             o.ID = Console.Read();
                                             o.CustomerName = Console.ReadLine();
                                             o.CustomerEmail = Console.ReadLine();
                                             o.CustomerAdress = Console.ReadLine();
-                                    //        string date = Console.ReadLine();
-                                    //if (!DateTime.TryParse(date, out OrderDate))
-                                        int r = DalOrder.Add(o);
+                                            //string date = Console.ReadLine();
+                                            //if (!DateTime.TryParse(date, out o.OrderDate))
+                                                int r = dalo.Add(o);
 
-
-                                                break;
+                                            break;
 
                                         }
                                     case 'c':
                                         {
+                                            Console.WriteLine("Please enter ID: ");
+                                            int y = Console.Read();
+                                            Order o = dalo.GetById(y);
                                             break;
                                         }
                                     case 'd':
                                         {
+
+                                            Console.WriteLine("Please enter ID, name, category, price, inStock: ");
+                                            Order o= new Order();
+                                            o.ID = Console.Read();
+                                            o.CustomerName= Console.ReadLine();
+                                            o.CustomerAdress= Console.ReadLine();
+                                            //o.OrderDate
+                                            dalo.Update(o);
                                             break;
                                         }
                                     case 'e':
                                         {
+                                            Console.WriteLine("Please enter ID: ");
+                                            int y = Console.Read();
+
+                                            dalo.Delete(y);
                                             break;
                                         }
                                     case 'f':
                                         {
+                                            dalo.GetAll();
                                             break;
                                         }
                                         break;
+
                                 }
-
-                               
-
-                                
                             }
+                            catch (Exception e) { Console.WriteLine(e.Message); }
                             break;
                         }
-                            
-                            
+
 
                     case 'd':
                         {
-                            OrderItemMenu moOi;
+                          
                             Console.WriteLine(@"
 Enter a to EXIT,
 Enter b to add,
@@ -208,52 +221,80 @@ h to GetByOrNumNProNum ");
                                         {
 
                                             Console.WriteLine("Please enter: OrderItemID,ProductID, OrderID, Price, Amount");
-                                            oi.OrderItemID = Console.Read();
+                                            OrderItem oi = new OrderItem();
+                                            oi.OrderID = Console.Read();
                                             oi.ProductID = Console.Read();
                                             oi.OrderID = Console.Read();
                                             oi.Price = Console.Read();
                                             oi.Amount = Console.Read();
-                                            int w = DalOrderItem.Add(oi);
+                                            int w = daloi.Add(oi);
                                             break;
 
                                         }
                                     case 'c':
                                         {
+                                            Console.WriteLine("Please enter ID: ");
+                                            int y = Console.Read();
+                                            OrderItem o = daloi.GetById(y);
                                             break;
                                         }
                                     case 'd':
                                         {
+
+                                            Console.WriteLine("Please enter: OrderItemID,ProductID, OrderID, Price, Amount");
+                                            OrderItem oi = new OrderItem();
+                                            oi.OrderItemID = Console.Read();
+                                            oi.ProductID= Console.Read();
+                                            oi.OrderID= Console.Read();
+                                            oi.Price= Console.Read();
+                                            oi.Amount= Console.Read();
+                                            daloi.Update(oi);
                                             break;
                                         }
                                     case 'e':
                                         {
+                                            Console.WriteLine("Please enter ID: ");
+                                            int y = Console.Read();
+
+                                            daloi.Delete(y);
                                             break;
                                         }
                                     case 'f':
                                         {
+                                            daloi.GetAll();
                                             break;
                                         }
                                     case 'g':
                                         {
+
+                                            Console.WriteLine("Please enter ID: ");
+                                            int y = Console.Read();
+
+                                            List<OrderItem?> products=daloi.ItemsInOrder(y);
                                             break;
                                         }
                                     case 'h':
                                         {
+                                            Console.WriteLine("Please enter order ID and product ID:");
+                                            int y = Console.Read(); //order ID
+                                            int z = Console.Read();//product ID
+                                            OrderItem? op = daloi.GetByOrNumNProNum(y, z);
                                             break;
                                         }
 
                                         break;
                                 }
-                                Catch(Exception  e){
-                                    Console.WriteLine(e.Message);
-                                }
-                                break;
                             }
+                            catch (Exception e) { Console.WriteLine(e.Message); }
                             break;
                         }
-
-
+                        break;
+                }
             }
-    }
+            catch (Exception e) { Console.WriteLine(e.Message); }
+           
+
+        }
+        
     }
 }
