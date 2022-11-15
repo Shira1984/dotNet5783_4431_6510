@@ -64,11 +64,11 @@ internal sealed class DataSource
         for (int i = 0; i < 10; i++)
         {
             Product p = new Product();
-            p.ID = s_rand.Next(100000, 9999999);
+            p.ID = 100000 + i;
             p.Name = philosophyBooks[i];
             p.Category = Enums.Category.Philosophy;
             p.InStock = philosophyInStock[i];
-            p.Price = s_rand.Next(50, 110);
+            p.Price = 100+i;
 
             ProductsList.Add(p);
         }
@@ -115,11 +115,11 @@ internal sealed class DataSource
         for (int i = 0; i < 10; i++)
         {
             Product p = new Product();
-            p.ID = s_rand.Next(100000, 9999999);
+            p.ID = 200000 + i;
             p.Name = HolocaustBooks[i];
             p.Category = Enums.Category.Holocaust;
             p.InStock = HolocaustInStock[i];
-            p.Price = s_rand.Next(50, 110);
+            p.Price = 100 + i;
 
             ProductsList.Add(p);
         }
@@ -136,11 +136,11 @@ internal sealed class DataSource
         for (int i = 0; i < 10; i++)
         {
             Product p = new Product();
-            p.ID = s_rand.Next(100000, 9999999);
+            p.ID = 300000 + i;
             p.Name = PsychoanalysisBooks[i];
             p.Category = Enums.Category.Psychoanalysis;
             p.InStock = s_rand.Next(4, 10);
-            p.Price = s_rand.Next(50, 110);
+            p.Price = 100 + i;
 
             ProductsList.Add(p);
         }
@@ -155,11 +155,11 @@ internal sealed class DataSource
         for (int i = 0; i < 10; i++)
         {
             Product p = new Product();
-            p.ID = s_rand.Next(100000, 9999999);
+            p.ID = 400000 + i;
             p.Name = RussianLiteratureBooks[i];
             p.Category = Enums.Category.RussianLiterature;
             p.InStock = s_rand.Next(4, 10);
-            p.Price = s_rand.Next(50, 110);
+            p.Price = 100 + i;
 
             ProductsList.Add(p);
         }
