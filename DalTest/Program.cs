@@ -148,8 +148,8 @@ f to GetAll");
                                             o.CustomerName = Console.ReadLine();
                                             o.CustomerEmail = Console.ReadLine();
                                             o.CustomerAdress = Console.ReadLine();
-                                            //string date = Console.ReadLine();
-                                            //if (!DateTime.TryParse(date, out o.OrderDate))
+                                            o.OrderDate = DateTime.Now;
+                                    
                                                 int r = dalo.Add(o);
 
                                             break;
@@ -170,7 +170,7 @@ f to GetAll");
                                             o.ID = Console.Read();
                                             o.CustomerName= Console.ReadLine();
                                             o.CustomerAdress= Console.ReadLine();
-                                            //o.OrderDate
+                                            o.OrderDate = DateTime.Now;
                                             dalo.Update(o);
                                             break;
                                         }
