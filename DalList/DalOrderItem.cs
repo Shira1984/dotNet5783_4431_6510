@@ -9,7 +9,7 @@ public class DalOrderItem
     //craete
     public int Add(OrderItem oi)
     {
-        bool a = DataSource.OrderItemsList.Any(ori => ori.Value.OrderItemID == oi.OrderItemID);
+        bool a = DataSource.OrderItemsList.Any(ori => ori?.OrderItemID == oi.OrderItemID);
         if (a == true)
         {
             throw new Exception("ID not exist");
@@ -24,7 +24,7 @@ public class DalOrderItem
     //request
     public OrderItem GetById(int id)
     {
-        OrderItem? oi = DataSource.OrderItemsList.Find(ori => ori.Value.OrderItemID == id);
+        OrderItem? oi = DataSource.OrderItemsList.Find(ori => ori?.OrderItemID == id);
         if (oi == null)
             throw new Exception("Order not exist");
         else
@@ -34,10 +34,10 @@ public class DalOrderItem
     //update
     public void Update(OrderItem oi)
     {
-        bool a = DataSource.OrderItemsList.Exists(ori => ori.Value.OrderItemID == oi.OrderItemID);
+        bool a = DataSource.OrderItemsList.Exists(ori => ori?.OrderItemID == oi.OrderItemID);
         if (a == true)
         {
-            OrderItem oldOi = (OrderItem)DataSource.OrderItemsList.Find(ori => ori.Value.OrderItemID == oi.OrderItemID);
+            OrderItem oldOi = (OrderItem)DataSource.OrderItemsList.Find(ori => ori?.OrderItemID == oi.OrderItemID);
             oldOi.OrderItemID = oi.OrderItemID;
             oldOi.OrderID = oi.OrderID;
             oldOi.ProductID = oi.ProductID;
@@ -51,7 +51,7 @@ public class DalOrderItem
     //delete
     public void Delete(int id)
     {
-        OrderItem? a = DataSource.OrderItemsList.Find(pro => pro.Value.OrderItemID == id);
+        OrderItem? a = DataSource.OrderItemsList.Find(pro => pro?.OrderItemID == id);
         DataSource.OrderItemsList.Remove(a);
 
         //OrderItem? a = DataSource.OrderItemsList.Find(or => or.Value.OrderItemID == id);
@@ -70,7 +70,7 @@ public class DalOrderItem
     //get the order's items
     public List<OrderItem?> ItemsInOrder(int id)
     {
-        List<OrderItem?> products0 = DataSource.OrderItemsList.FindAll(it => it.Value.OrderID == id);
+        List<OrderItem?> products0 = DataSource.OrderItemsList.FindAll(it => it?.OrderID == id);
         List<OrderItem?> products1 = products0;
         return products1;
     }
@@ -78,10 +78,10 @@ public class DalOrderItem
     //request by order ID and product ID
     public OrderItem? GetByOrNumNProNum(int orNum, int proNum)
     {
-        bool a = DataSource.OrderItemsList.Exists(p => p.Value.OrderID == orNum && p.Value.ProductID == proNum);
+        bool a = DataSource.OrderItemsList.Exists(p => p?.OrderID == orNum && p?.ProductID == proNum);
         if (a)
         {
-            OrderItem? p = DataSource.OrderItemsList.Find(p => p.Value.OrderID == orNum && p.Value.ProductID == proNum);
+            OrderItem? p = DataSource.OrderItemsList.Find(p => p?.OrderID == orNum && p?.ProductID == proNum);
             return p;
         }
         else
