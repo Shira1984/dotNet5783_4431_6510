@@ -14,8 +14,8 @@ namespace Dal;
 
 internal sealed class DataSource
 {
-    internal static DataSource DSInstance { get; } = new DataSource();
-    private DataSource()
+    //internal static DataSource DSInstance { get; } = new DataSource();
+    static DataSource()
     {
         s_Initialize();
     }
@@ -37,8 +37,10 @@ internal sealed class DataSource
     /// <summary>
     /// The initialization functions
     /// </summary>
-    private void s_Initialize()
+    private static void s_Initialize()
     {
+        //ProductsList = new List<Product?>();
+        //ProductsList.Add(new Product());
         createAndInitProducts();
         createAndInitOrders();
         createAndInitOrderItems();
@@ -70,7 +72,7 @@ internal sealed class DataSource
             p.InStock = philosophyInStock[i];
             p.Price = 100+i;
 
-            ProductsList.Add(p);
+            DataSource.ProductsList.Add(p);
         }
 
 
@@ -121,7 +123,7 @@ internal sealed class DataSource
             p.InStock = HolocaustInStock[i];
             p.Price = 100 + i;
 
-            ProductsList.Add(p);
+            DataSource.ProductsList.Add(p);
         }
 
 
@@ -142,7 +144,7 @@ internal sealed class DataSource
             p.InStock = s_rand.Next(4, 10);
             p.Price = 100 + i;
 
-            ProductsList.Add(p);
+            DataSource.ProductsList.Add(p);
         }
 
 
@@ -161,7 +163,7 @@ internal sealed class DataSource
             p.InStock = s_rand.Next(4, 10);
             p.Price = 100 + i;
 
-            ProductsList.Add(p);
+            DataSource.ProductsList.Add(p);
         }
     }
 
@@ -193,6 +195,9 @@ internal sealed class DataSource
             o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i);
             o.DeliveryDate = null; //Date of being sent
             o.ShipDate = null; //Date of arrivial
+
+            //DataSource.OrdersList.Add(o);
+
         }
 
         for (int i = 4; i < 8; i++)

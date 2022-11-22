@@ -26,7 +26,7 @@ b for product options,
 c for Order options,
 d for OrderItem options");
 
-            string c;
+            string? c;
             c = Console.ReadLine();
             char m;
             if (!char.TryParse(c, out m))
@@ -41,7 +41,8 @@ d for OrderItem options");
                         {
 
                             Console.WriteLine(@"
-Enter a to EXIT,
+Enter
+a to EXIT,
 b to add,
 c to get by ID,
 d to update,
@@ -62,53 +63,46 @@ f to GetAll");
                                     case 'b': //add
                                         {
 
-                                            Console.WriteLine("Please enter ID, name, a for Philosophy b for Psychoanalysis c for RussianLiterature d for Holocaust e for Biography, price, inStock: ");
                                             Product p = new Product();
+                                            Console.WriteLine("Please enter ID");
                                             p.ID = Console.Read();
+                                            Console.WriteLine("Please enter name");
                                             p.Name = Console.ReadLine();
+                                            Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to Biography, 4 to RussianLiterature:");
+                                            DO.Enums.Category cat;
+                                            int ca = int.Parse(Console.ReadLine());
+                                            cat = (DO.Enums.Category)ca;
 
-                                            //int x;
-
-                                            //bool k = int.TryParse(Console.ReadLine(), out x);
-                                            c = Console.ReadLine();
-
-                                            if (!char.TryParse(c, out m))
-                                                throw new Exception("couldnt parse");
-                                            //try
-                                            //{
-                                                switch (m)
-                                                {
-                                                    case 'a':
-                                                        {
-                                                        p.Category = Enums.Category.Philosophy;
-                                                            break; }
-                                                    case 'b':
-                                                        {
-                                                        p.Category = Enums.Category.Psychoanalysis;
-                                                            break; }
-                                                    case 'c':
-                                                        {
-                                                        p.Category = Enums.Category.RussianLiterature;
-                                                            break; }
-                                                    case 'd':
-                                                        {
-                                                        p.Category = Enums.Category.Holocaust;
-                                                            break; }
-                                                    case 'e':
-                                                        {
-                                                        p.Category = Enums.Category.Biography;
-                                                            break; }
-                                                    break;
-                                                }
-                                             //   catch (Exception e) { Console.WriteLine(e.Message); }
-                                             //}
-
-                                            //p.Category = (Category)x;
-                                            p.Price = Console.Read();
-                                            p.InStock = Console.Read();
-                                            int id = dalp.Add(p);
+                                            
+                                            switch (cat)
+                                            {
+                                                case DO.Enums.Category.Philosophy:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Philosophy;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.Holocaust:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Holocaust;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.Psychoanalysis:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Psychoanalysis;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.Biography:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Biography;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.RussianLiterature:
+                                                    {
+                                                        p.Category = DO.Enums.Category.RussianLiterature;
+                                                        break;
+                                                    }
+                                            }
                                             break;
-
                                         }
                                     case 'c': //get by ID
                                         {
@@ -119,13 +113,48 @@ f to GetAll");
                                         }
                                     case 'd': //update
                                         {
-                                            Console.WriteLine("Please enter ID, name, category, price, inStock: ");
+                                            Console.WriteLine("Please enter ID, name, category, price, inStock: ");//לשנות כמו מה שנעשה בהוספה למעלה
                                             Product p = new Product();
                                             p.ID = Console.Read();
                                             p.Name = Console.ReadLine();
                                             int x;
                                             bool k = int.TryParse(Console.ReadLine(), out x);
-                                            p.Category = (Category)x;
+                                            Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to Biography, 4 to RussianLiterature:");
+                                            DO.Enums.Category cat;
+                                            int ca = int.Parse(Console.ReadLine());
+                                            cat = (DO.Enums.Category)ca;
+
+
+                                            switch (cat)
+                                            {
+                                                case DO.Enums.Category.Philosophy:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Philosophy;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.Holocaust:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Holocaust;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.Psychoanalysis:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Psychoanalysis;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.Biography:
+                                                    {
+                                                        p.Category = DO.Enums.Category.Biography;
+                                                        break;
+                                                    }
+                                                case DO.Enums.Category.RussianLiterature:
+                                                    {
+                                                        p.Category = DO.Enums.Category.RussianLiterature;
+                                                        break;
+                                                    }
+                                            }
+                                            break;
+                                            Console.WriteLine("Please enter price, inStock: ");
                                             p.Price = Console.Read();
                                             p.InStock = Console.Read();
                                             dalp.Update(p);
@@ -143,10 +172,10 @@ f to GetAll");
                                     case 'f': //getall
                                         {
                                             List<Product?> p = (List<Product?>)dalp.GetAll();
+                                            foreach(Product pr in p)
+                                                Console.WriteLine(pr);
                                             break;
                                         }
-
-                                        break;
                                 }
 
                             }
@@ -219,10 +248,11 @@ f to GetAll");
                                         }
                                     case 'f': //get all
                                         {
-                                            List<Order?> p = (List<Order?>)dalo.GetAll();
+                                            List<Order?> ord = (List<Order?>)dalo.GetAll();
+                                            foreach (Order or in ord)
+                                                Console.WriteLine(or);
                                             break;
                                         }
-                                        break;
 
                                 }
                             }
@@ -316,14 +346,11 @@ h to GetByOrNumNProNum ");
                                             OrderItem? op = daloi.GetByOrNumNProNum(y, z);
                                             break;
                                         }
-
-                                        break;
                                 }
                             }
                             catch (Exception e) { Console.WriteLine(e.Message); }
                             break;
                         }
-                        break;
                 }
             }
             catch (Exception e) { Console.WriteLine(e.Message); }

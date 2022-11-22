@@ -8,7 +8,7 @@ public class DalProduct
     //craete
     public int Add(Product p)
     {
-        bool a = DataSource.ProductsList.Any(pro => pro.Value.ID == p.ID);
+        bool a = DataSource.ProductsList.Any(pro => pro?.ID == p.ID);
         if (a == true)
         {
             throw new Exception("ID not exist");
@@ -26,7 +26,7 @@ public class DalProduct
         //bool a = DataSource.ProductsList.Exists(pro => pro.Value.ID == id);
         //if (a == true)
 
-        Product? p = DataSource.ProductsList.Find(pro => pro.Value.ID == id);
+        Product? p = DataSource.ProductsList.Find(pro => pro?.ID == id);
         if (p == null)
             throw new Exception("Product not exist");
         else
@@ -39,10 +39,10 @@ public class DalProduct
     //update
     public void Update(Product p)
     {
-        bool a = DataSource.ProductsList.Exists(pro => pro.Value.ID == p.ID);
+        bool a = DataSource.ProductsList.Exists(pro => pro?.ID == p.ID);
         if (a == true)
         {
-            Product oldP = (Product)DataSource.ProductsList.Find(pro => pro.Value.ID == p.ID);
+            Product oldP = (Product)DataSource.ProductsList.Find(pro => pro?.ID == p.ID);
             oldP.ID = p.ID;
             oldP.Name = p.Name;
             oldP.InStock = p.InStock;
@@ -56,7 +56,7 @@ public class DalProduct
     //delete
     public void Delete(int id)
     {
-        Product? a = DataSource.ProductsList.Find(pro => pro.Value.ID == id);
+        Product? a = DataSource.ProductsList.Find(pro => pro?.ID == id);
         DataSource.ProductsList.Remove(a);
     }
 

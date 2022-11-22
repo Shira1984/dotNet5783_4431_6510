@@ -9,7 +9,7 @@ public class DalOrder
     //craete
     public int Add(Order order)
     {
-        bool a = DataSource.OrdersList.Any(or => or.Value.ID == order.ID);
+        bool a = DataSource.OrdersList.Any(or => or?.ID == order.ID);
         if (a == true)
         {
             throw new Exception("ID not exist");
@@ -24,7 +24,7 @@ public class DalOrder
     //request
     public Order GetById(int id)
     {
-        Order? o = DataSource.OrdersList.Find(or => or.Value.ID == id);
+        Order? o = DataSource.OrdersList.Find(or => or?.ID == id);
         if (o == null)
             throw new Exception("Order not exist");
         else
@@ -34,10 +34,10 @@ public class DalOrder
     //update
     public void Update(Order order)
     {
-        bool a = DataSource.OrdersList.Exists(or => or.Value.ID == order.ID);
+        bool a = DataSource.OrdersList.Exists(or => or?.ID == order.ID);
         if (a == true)
         {
-            Order oldO = (Order)DataSource.OrdersList.Find(pro => pro.Value.ID == order.ID);
+            Order oldO = (Order)DataSource.OrdersList.Find(pro => pro?.ID == order.ID);
             oldO.ID = order.ID;
             oldO.OrderDate = order.OrderDate;
             oldO.ShipDate = order.ShipDate;
@@ -53,7 +53,7 @@ public class DalOrder
     //delete
     public void Delete(int id)
     {
-        Order? a = DataSource.OrdersList.Find(or => or.Value.ID == id);
+        Order? a = DataSource.OrdersList.Find(or => or?.ID == id);
         DataSource.OrdersList.Remove(a);
     }
 
