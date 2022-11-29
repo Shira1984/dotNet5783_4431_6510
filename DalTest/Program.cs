@@ -216,15 +216,18 @@ f to GetAll");
                                     case 'b': //add
                                         {
 
-                                            Console.WriteLine("Please enter: ID,costumerName, costumerEmaill, costumerAdress, OrderDate");
+                                          
                                             Order o = new Order();
+                                            Console.WriteLine("Please enter: ID");
                                             o.ID =int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: costumerName");
                                             o.CustomerName = Console.ReadLine();
+                                            Console.WriteLine("Please enter: costumerEmaill");
                                             o.CustomerEmail = Console.ReadLine();
+                                            Console.WriteLine("Please enter: costumerAdress");
                                             o.CustomerAdress = Console.ReadLine();
                                             o.OrderDate = DateTime.Now;
-                                    
-                                                int r = dalo.Add(o);
+                                            int r = dalo.Add(o);
 
                                             break;
 
@@ -239,11 +242,15 @@ f to GetAll");
                                     case 'd'://update
                                         {
 
-                                            Console.WriteLine("Please enter ID, name, category, price, inStock: ");
-                                            Order o= new Order();
+                                            Order o = new Order();
+                                            Console.WriteLine("Please enter: ID");
                                             o.ID = int.Parse(Console.ReadLine());
-                                            o.CustomerName= Console.ReadLine();
-                                            o.CustomerAdress= Console.ReadLine();
+                                            Console.WriteLine("Please enter: costumerName");
+                                            o.CustomerName = Console.ReadLine();
+                                            Console.WriteLine("Please enter: costumerEmaill");
+                                            o.CustomerEmail = Console.ReadLine();
+                                            Console.WriteLine("Please enter: costumerAdress");
+                                            o.CustomerAdress = Console.ReadLine();
                                             o.OrderDate = DateTime.Now;
                                             dalo.Update(o);
                                             break;
@@ -295,41 +302,50 @@ h to GetByOrNumNProNum ");
                                     case 'b'://all
                                         {
 
-                                            Console.WriteLine("Please enter: OrderItemID,ProductID, OrderID, Price, Amount");
                                             OrderItem oi = new OrderItem();
-                                            oi.OrderID = Console.Read();
-                                            oi.ProductID = Console.Read();
-                                            oi.OrderID = Console.Read();
-                                            oi.Price = Console.Read();
-                                            oi.Amount = Console.Read();
+                                            Console.WriteLine("Please enter: OrderItemID");
+                                            oi.OrderID = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: ProductID");
+                                            oi.ProductID = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: OrderID");
+                                            oi.OrderID = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: Price");
+                                            oi.Price = double.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: Amount");
+                                            oi.Amount = int.Parse(Console.ReadLine());
                                             int w = daloi.Add(oi);
+                                            Console.WriteLine(w);
                                             break;
 
                                         }
                                     case 'c'://get by id
                                         {
                                             Console.WriteLine("Please enter ID: ");
-                                            int y = Console.Read();
+                                            int y = int.Parse(Console.ReadLine());
                                             OrderItem o = daloi.GetById(y);
                                             break;
                                         }
                                     case 'd'://update
                                         {
 
-                                            Console.WriteLine("Please enter: OrderItemID,ProductID, OrderID, Price, Amount");
                                             OrderItem oi = new OrderItem();
-                                            oi.OrderItemID = Console.Read();
-                                            oi.ProductID= Console.Read();
-                                            oi.OrderID= Console.Read();
-                                            oi.Price= Console.Read();
-                                            oi.Amount= Console.Read();
+                                            Console.WriteLine("Please enter: OrderItemID");
+                                            oi.OrderID = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: ProductID");
+                                            oi.ProductID = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: OrderID");
+                                            oi.OrderID = int.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: Price");
+                                            oi.Price = double.Parse(Console.ReadLine());
+                                            Console.WriteLine("Please enter: Amount");
+                                            oi.Amount = int.Parse(Console.ReadLine());
                                             daloi.Update(oi);
                                             break;
                                         }
                                     case 'e'://delete
                                         {
                                             Console.WriteLine("Please enter ID: ");
-                                            int y = Console.Read();
+                                            int y = int.Parse(Console.ReadLine());
 
                                             daloi.Delete(y);
                                             break;
@@ -343,7 +359,7 @@ h to GetByOrNumNProNum ");
                                         {
 
                                             Console.WriteLine("Please enter ID: ");
-                                            int y = Console.Read();
+                                            int y = int.Parse(Console.ReadLine());
 
                                             IEnumerable<OrderItem?> products=daloi.ItemsInOrder(y);
                                             break;
@@ -351,8 +367,8 @@ h to GetByOrNumNProNum ");
                                     case 'h': //GetByOrNumNProNum
                                         {
                                             Console.WriteLine("Please enter order ID and product ID:");
-                                            int y = Console.Read(); //order ID
-                                            int z = Console.Read();//product ID
+                                            int y = int.Parse(Console.ReadLine()); //order ID
+                                            int z = int.Parse(Console.ReadLine());//product ID
                                             OrderItem? op = daloi.GetByOrNumNProNum(y, z);
                                             break;
                                         }
