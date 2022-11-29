@@ -11,7 +11,7 @@ internal class DalProduct : IProduct
         bool a = DataSource.ProductsList.Any(pro => pro?.ID == p.ID);
         if (a == true)
         {
-            throw new Exception("ID not exist");
+            throw new Exception("ID already exist");
         }
         else
         {
@@ -23,14 +23,13 @@ internal class DalProduct : IProduct
     //request
     public Product GetById(int id)
     {
-        //bool a = DataSource.ProductsList.Exists(pro => pro.Value.ID == id);
-        //if (a == true)
+        
 
-        Product? p = DataSource.ProductsList.Find(pro => pro?.ID == id);
-        if (p == null)
-            throw new Exception("Product not exist");
-        else
-            return (Product)p;
+        Product p = DataSource.ProductsList.Find(pro => pro?.ID == id) ?? throw new Exception("Product not exist");
+        //if (p == null)
+        //    throw new Exception("Product not exist");
+        
+            return p;
 
         //else
         //    throw new Exception("Product not exist");

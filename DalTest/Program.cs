@@ -2,7 +2,8 @@
 using DO;
 using System.Linq.Expressions;
 using static DO.Enums;
-
+using System;
+using System.Collections.Generic;
 
 internal class Main
 {
@@ -65,7 +66,7 @@ f to GetAll");
 
                                             Product p = new Product();
                                             Console.WriteLine("Please enter ID");
-                                            p.ID = Console.Read();
+                                            p.ID = int.Parse(Console.ReadLine());
                                             Console.WriteLine("Please enter name");
                                             p.Name = Console.ReadLine();
                                             Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to Biography, 4 to RussianLiterature:");
@@ -101,21 +102,30 @@ f to GetAll");
                                                         p.Category = DO.Enums.Category.RussianLiterature;
                                                         break;
                                                     }
+                                                        
+
                                             }
+                                            
+                                            Console.WriteLine("Please enter price");
+                                            p.Price =double.Parse( Console.ReadLine());
+                                            Console.WriteLine("Please enter inStok");
+                                            p.InStock = int.Parse(Console.ReadLine());
                                             break;
+
                                         }
                                     case 'c': //get by ID
                                         {
                                             Console.WriteLine("Please enter ID: ");
-                                            int y = Console.Read();
+                                            int y = int.Parse(Console.ReadLine());
                                             Product p = dalp.GetById(y);
+                                            Console.WriteLine(p);
                                             break;
                                         }
                                     case 'd': //update
                                         {
                                             Console.WriteLine("Please enter ID, name, category, price, inStock: ");//לשנות כמו מה שנעשה בהוספה למעלה
                                             Product p = new Product();
-                                            p.ID = Console.Read();
+                                            p.ID = int.Parse(Console.ReadLine());
                                             p.Name = Console.ReadLine();
                                             int x;
                                             bool k = int.TryParse(Console.ReadLine(), out x);
@@ -155,15 +165,15 @@ f to GetAll");
                                             }
                                             break;
                                             Console.WriteLine("Please enter price, inStock: ");
-                                            p.Price = Console.Read();
-                                            p.InStock = Console.Read();
+                                            p.Price = int.Parse(Console.ReadLine());
+                                            p.InStock = int.Parse(Console.ReadLine());
                                             dalp.Update(p);
                                             break;
                                         }
                                     case 'e'://delete
                                         {
                                             Console.WriteLine("Please enter ID: ");
-                                            int y = Console.Read();
+                                            int y = int.Parse(Console.ReadLine());
 
                                             dalp.Delete(y);
                                             break;
@@ -208,7 +218,7 @@ f to GetAll");
 
                                             Console.WriteLine("Please enter: ID,costumerName, costumerEmaill, costumerAdress, OrderDate");
                                             Order o = new Order();
-                                            o.ID = Console.Read();
+                                            o.ID =int.Parse(Console.ReadLine());
                                             o.CustomerName = Console.ReadLine();
                                             o.CustomerEmail = Console.ReadLine();
                                             o.CustomerAdress = Console.ReadLine();
@@ -222,7 +232,7 @@ f to GetAll");
                                     case 'c': //get by id
                                         {
                                             Console.WriteLine("Please enter ID: ");
-                                            int y = Console.Read();
+                                            int y = int.Parse(Console.ReadLine());
                                             Order o = dalo.GetById(y);
                                             break;
                                         }
@@ -231,7 +241,7 @@ f to GetAll");
 
                                             Console.WriteLine("Please enter ID, name, category, price, inStock: ");
                                             Order o= new Order();
-                                            o.ID = Console.Read();
+                                            o.ID = int.Parse(Console.ReadLine());
                                             o.CustomerName= Console.ReadLine();
                                             o.CustomerAdress= Console.ReadLine();
                                             o.OrderDate = DateTime.Now;
@@ -241,7 +251,7 @@ f to GetAll");
                                     case 'e': //delete
                                         {
                                             Console.WriteLine("Please enter ID: ");
-                                            int y = Console.Read();
+                                            int y = int.Parse(Console.ReadLine());
 
                                             dalo.Delete(y);
                                             break;
