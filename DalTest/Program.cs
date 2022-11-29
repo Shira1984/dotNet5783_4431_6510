@@ -335,7 +335,7 @@ h to GetByOrNumNProNum ");
                                             Console.WriteLine("Please enter ID: ");
                                             int y = Console.Read();
 
-                                            List<OrderItem?> products=daloi.ItemsInOrder(y);
+                                            IEnumerable<OrderItem?> products=daloi.ItemsInOrder(y);
                                             break;
                                         }
                                     case 'h': //GetByOrNumNProNum

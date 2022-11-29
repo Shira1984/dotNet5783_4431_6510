@@ -1,10 +1,10 @@
-﻿
+﻿using DalApi;
 using DO;
 using System.Diagnostics.Contracts;
 
 namespace Dal;
 
-public class DalOrder
+internal class DalOrder : IOrder
 {
     //craete
     public int Add(Order order)

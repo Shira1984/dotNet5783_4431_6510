@@ -1,10 +1,10 @@
-﻿
+﻿using DalApi;
 using DO;
 using System.Collections.Generic;
 
 namespace Dal;
 
-public class DalOrderItem
+internal class DalOrderItem : IOrderItem
 {
     //craete
     public int Add(OrderItem oi)

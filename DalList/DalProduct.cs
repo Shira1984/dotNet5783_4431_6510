@@ -1,9 +1,9 @@
-﻿
+﻿using DalApi;
 using DO;
 using System.Collections.Generic;
 namespace Dal;
 
-public class DalProduct
+internal class DalProduct : IProduct
 {
     //craete
     public int Add(Product p)
