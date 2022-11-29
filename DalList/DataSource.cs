@@ -26,6 +26,9 @@ internal sealed class DataSource
         internal const int s_startOrderNumber = 1000;
         private static int s_nextOrderNumber = s_startOrderNumber;
         internal static int NextOrderNumber { get => s_nextOrderNumber++; }
+        internal const int s_startOrderItemNumber = 1000;
+        private static int s_nextOrderItemNumber = s_startOrderNumber;
+        internal static int NextOrderItemNumber { get => s_nextOrderNumber++; }
     }
     /// <summary>
     /// Repositories initialization
@@ -72,7 +75,7 @@ internal sealed class DataSource
             p.InStock = philosophyInStock[i];
             p.Price = 100+i;
 
-            DataSource.ProductsList.Add(p);
+            ProductsList.Add(p);
         }
 
 
@@ -163,7 +166,7 @@ internal sealed class DataSource
             p.InStock = s_rand.Next(4, 10);
             p.Price = 100 + i;
 
-            DataSource.ProductsList.Add(p);
+            ProductsList.Add(p);
         }
     }
 
@@ -175,14 +178,14 @@ internal sealed class DataSource
         string[] CustomersNames = new string[]
         {
             "Avi", "Shneor", "David", "Elishah", "Yehoshua", "Dov", "Moshe", "Yosef", "Nadav", "Nechumale",
-            "Neomi", "Shalom", "Mendi", "Baruch", "Gavriel", "Leo", "Tuval", "Tomas", "Doron", "Etan"
+            "Neomi", "Shalom", "Mendi", "Baruch", "Gavriel", "Leo", "Tuval", "Tomas", "Doron", "Etan", "Tomas"
         };
 
         string[] CustomerAdresses = new string[]
         {
             "Jerusalem", "Ramat Gan", "Ofakim", "Nahlaot", "Herzelia", "Tel Aviv",
             "London", "Mexico", "Jerusalem", "Jerusalem", "Ofakim", "Nahlaot", "Herzelia",
-            "Tel Aviv", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq"
+            "Tel Aviv", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq", "Bnei Braq" , "Herzelia"
         };
         DateTime mydate = DateTime.Today;
         for (int i = 0; i < 4; i++)
@@ -193,10 +196,11 @@ internal sealed class DataSource
             o.CustomerEmail = CustomersNames[i] + "walla.com";
             o.CustomerAdress = CustomerAdresses[i];
             o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i);
+
             o.DeliveryDate = null; //Date of being sent
             o.ShipDate = null; //Date of arrivial
 
-            //DataSource.OrdersList.Add(o);
+           OrdersList.Add(o);
 
         }
 
@@ -207,25 +211,29 @@ internal sealed class DataSource
             o.CustomerName = CustomersNames[i];
             o.CustomerEmail = CustomersNames[i] + "walla.com";
             o.CustomerAdress = CustomerAdresses[i];
-            o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(- i);
-            o.DeliveryDate= new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-2*i+ s_rand.Next(4,8));
+            o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i);
+            o.DeliveryDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i + s_rand.Next(4, 8));
             o.ShipDate = null; //Date of arrivial
+
+           OrdersList.Add(o);
         }
+      
+            for (int i = 8; i < 20; i++)
+            {
+                Order o = new Order();
+                o.ID = Config.NextOrderNumber;
+                o.CustomerName = CustomersNames[i];
+                o.CustomerEmail = CustomersNames[i] + "walla.com";
+                o.CustomerAdress = CustomerAdresses[i];
 
-        for (int i = 8; i < 20; i++)
-        {
-            Order o = new Order();
-            o.ID = Config.NextOrderNumber;
-            o.CustomerName = CustomersNames[i];
-            o.CustomerEmail = CustomersNames[i] + "walla.com";
-            o.CustomerAdress = CustomerAdresses[i];
-            o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-2*i);
-            o.DeliveryDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-2*i+ s_rand.Next(2,5));
-            o.ShipDate = o.DeliveryDate.GetValueOrDefault().AddDays(s_rand.Next(1, 3));
-           
+                o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i);
+                o.DeliveryDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i + s_rand.Next(2, 5));
+                o.ShipDate = o.DeliveryDate.GetValueOrDefault().AddDays(s_rand.Next(1, 3));
 
+                OrdersList.Add(o);
 
-        }
+            }
+
     }
 
     /// <summary>
@@ -240,10 +248,13 @@ internal sealed class DataSource
                 OrderItem oi = new OrderItem();
                 oi.OrderItemID = Config.NextOrderNumber;
                 oi.OrderID = or.ID;
-                oi.ProductID = ProductsList[s_rand.Next(0, 50)].Value.ID;
-                oi.Price = ProductsList[oi.ProductID].Value.Price;
+                int hh = s_rand.Next(0, 40);
+                oi.ProductID = ProductsList[hh].Value.ID;
+                oi.Price = ProductsList[hh].Value.Price;
                 oi.Amount = s_rand.Next(1, 3);
+                OrderItemsList.Add(oi);
             }
+            
         }
     }
 }
