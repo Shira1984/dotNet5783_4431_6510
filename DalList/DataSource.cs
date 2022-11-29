@@ -248,9 +248,9 @@ internal sealed class DataSource
                 OrderItem oi = new OrderItem();
                 oi.OrderItemID = Config.NextOrderNumber;
                 oi.OrderID = or.ID;
-                int hh = s_rand.Next(0, 40);
-                oi.ProductID = ProductsList[hh].Value.ID;
-                oi.Price = ProductsList[hh].Value.Price;
+                int someProd = s_rand.Next(0, 40);
+                oi.ProductID = ProductsList[someProd].Value.ID;
+                oi.Price = ProductsList[someProd].Value.Price;
                 oi.Amount = s_rand.Next(1, 3);
                 OrderItemsList.Add(oi);
             }

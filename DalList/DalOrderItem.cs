@@ -68,7 +68,7 @@ internal class DalOrderItem : IOrderItem
     }
 
     //get the order's items
-    public List<OrderItem?> ItemsInOrder(int id)
+    public IEnumerable<OrderItem?> ItemsInOrder(int id)
     {
         List<OrderItem?> products0 = DataSource.OrderItemsList.FindAll(it => it?.OrderID == id);
         List<OrderItem?> products1 = products0;
