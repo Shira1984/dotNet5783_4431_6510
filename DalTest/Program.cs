@@ -125,12 +125,11 @@ f to GetAll");
                                             }
                                         case 'd': //update
                                             {
-                                                Console.WriteLine("Please enter ID, name, category, price, inStock: ");//לשנות כמו מה שנעשה בהוספה למעלה
                                                 Product p = new Product();
+                                                Console.WriteLine("Please enter ID");
                                                 p.ID = int.Parse(Console.ReadLine());
+                                                Console.WriteLine("Please enter name");
                                                 p.Name = Console.ReadLine();
-                                                int x;
-                                                bool k = int.TryParse(Console.ReadLine(), out x);
                                                 Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to RussianLiterature:");
                                                 DO.Enums.Category cat;
                                                 int ca = int.Parse(Console.ReadLine());
@@ -159,13 +158,59 @@ f to GetAll");
                                                             p.Category = DO.Enums.Category.RussianLiterature;
                                                             break;
                                                         }
+
+
                                                 }
-                                                break;
-                                                Console.WriteLine("Please enter price, inStock: ");
-                                                p.Price = int.Parse(Console.ReadLine());
+
+                                                Console.WriteLine("Please enter price");
+                                                p.Price = double.Parse(Console.ReadLine());
+                                                Console.WriteLine("Please enter inStok");
                                                 p.InStock = int.Parse(Console.ReadLine());
                                                 dal.Product.Update(p);
                                                 break;
+
+
+                                                //Console.WriteLine("Please enter ID, name, category, price, inStock: ");//לשנות כמו מה שנעשה בהוספה למעלה
+                                                //Product p = new Product();
+                                                //p.ID = int.Parse(Console.ReadLine());
+                                                //p.Name = Console.ReadLine();
+                                                //int x;
+                                                //bool k = int.TryParse(Console.ReadLine(), out x);
+                                                //Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to RussianLiterature:");
+                                                //DO.Enums.Category cat;
+                                                //int ca = int.Parse(Console.ReadLine());
+                                                //cat = (DO.Enums.Category)ca;
+
+
+                                                //switch (cat)
+                                                //{
+                                                //    case DO.Enums.Category.Philosophy:
+                                                //        {
+                                                //            p.Category = DO.Enums.Category.Philosophy;
+                                                //            break;
+                                                //        }
+                                                //    case DO.Enums.Category.Holocaust:
+                                                //        {
+                                                //            p.Category = DO.Enums.Category.Holocaust;
+                                                //            break;
+                                                //        }
+                                                //    case DO.Enums.Category.Psychoanalysis:
+                                                //        {
+                                                //            p.Category = DO.Enums.Category.Psychoanalysis;
+                                                //            break;
+                                                //        }
+                                                //    case DO.Enums.Category.RussianLiterature:
+                                                //        {
+                                                //            p.Category = DO.Enums.Category.RussianLiterature;
+                                                //            break;
+                                                //        }
+                                                //}
+                                                //break;
+                                                //Console.WriteLine("Please enter price, inStock: ");
+                                                //p.Price = int.Parse(Console.ReadLine());
+                                                //p.InStock = int.Parse(Console.ReadLine());
+                                                //dal.Product.Update(p);
+                                                //break;
                                             }
                                         case 'e'://delete
                                             {
@@ -212,8 +257,6 @@ f to GetAll");
                                             break;
                                         case 'b': //add
                                             {
-
-
                                                 Order o = new Order();
                                                 Console.WriteLine("Please enter: ID");
                                                 o.ID = int.Parse(Console.ReadLine());
@@ -227,7 +270,6 @@ f to GetAll");
                                                 int r = dal.Order.Add(o);
 
                                                 break;
-
                                             }
                                         case 'c': //get by id
                                             {
@@ -238,7 +280,6 @@ f to GetAll");
                                             }
                                         case 'd'://update
                                             {
-
                                                 Order o = new Order();
                                                 Console.WriteLine("Please enter: ID");
                                                 o.ID = int.Parse(Console.ReadLine());
