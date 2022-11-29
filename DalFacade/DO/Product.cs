@@ -13,10 +13,8 @@ public struct Product
     public Category Category { get; set; }
     public int InStock { get; set; }
 
-    public override string ToString() => $@"
-ID = {ID},
-Name = {Name},
-Price = {Price},
-InStock = {InStock}
-";
+    public override string ToString()
+    {
+        return Tools.ToStringProperty(this);
+    }
 }

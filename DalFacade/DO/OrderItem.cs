@@ -13,10 +13,8 @@ public struct OrderItem
     public int Amount { get; set; }
 
 
-    public override string ToString() => $@"
-ProductID = {ProductID},
-OrderID = {OrderID},
-Price = {Price},
-Amount = {Amount}
-";
+    public override string ToString()
+    {
+        return Tools.ToStringProperty(this);
+    }
 }
