@@ -75,7 +75,7 @@ f to GetAll");
                                                 p.ID = int.Parse(Console.ReadLine());
                                                 Console.WriteLine("Please enter name");
                                                 p.Name = Console.ReadLine();
-                                                Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to Biography, 4 to RussianLiterature:");
+                                                Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to RussianLiterature:");
                                                 DO.Enums.Category cat;
                                                 int ca = int.Parse(Console.ReadLine());
                                                 cat = (DO.Enums.Category)ca;
@@ -96,11 +96,6 @@ f to GetAll");
                                                     case DO.Enums.Category.Psychoanalysis:
                                                         {
                                                             p.Category = DO.Enums.Category.Psychoanalysis;
-                                                            break;
-                                                        }
-                                                    case DO.Enums.Category.Biography:
-                                                        {
-                                                            p.Category = DO.Enums.Category.Biography;
                                                             break;
                                                         }
                                                     case DO.Enums.Category.RussianLiterature:
@@ -136,7 +131,7 @@ f to GetAll");
                                                 p.Name = Console.ReadLine();
                                                 int x;
                                                 bool k = int.TryParse(Console.ReadLine(), out x);
-                                                Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to Biography, 4 to RussianLiterature:");
+                                                Console.WriteLine("Enter 0 to Philosophy, 1 to Holocaust, 2 to Psychoanalysis, 3 to RussianLiterature:");
                                                 DO.Enums.Category cat;
                                                 int ca = int.Parse(Console.ReadLine());
                                                 cat = (DO.Enums.Category)ca;
@@ -157,11 +152,6 @@ f to GetAll");
                                                     case DO.Enums.Category.Psychoanalysis:
                                                         {
                                                             p.Category = DO.Enums.Category.Psychoanalysis;
-                                                            break;
-                                                        }
-                                                    case DO.Enums.Category.Biography:
-                                                        {
-                                                            p.Category = DO.Enums.Category.Biography;
                                                             break;
                                                         }
                                                     case DO.Enums.Category.RussianLiterature:
