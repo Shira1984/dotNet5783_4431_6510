@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,4 +9,9 @@ namespace BlApi;
 
 public interface IOrder
 {
+    IEnumerable<OrderForList?> GetOrderForList();
+    Order GetByOrderIdM(int orderId);
+    Order UpdateDeliveryDateM(int orderId);
+    Order UpdateShipDateM(int orderId);
+    OrderTracking FollowOrderM(int orderId);
 }
