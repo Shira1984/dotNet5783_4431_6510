@@ -15,6 +15,6 @@ public struct Product
 
     public override string ToString()
     {
-        return Tools.ToStringProperty(this);
+        return this.ToStringProperty();
     }
 }

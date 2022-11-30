@@ -13,6 +13,6 @@ public struct Order
 
     public override string ToString()
     {
-        return Tools.ToStringProperty(this);
+        return this.ToStringProperty();
     }
 }
