@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    internal class OrderTrackingcs
+    internal class OrderTracking
     {
         public int ID { get; set; }
-        public OrderStatus status { get; set; }
+        public OrderStatus Status { get; set; }
     }
 }
