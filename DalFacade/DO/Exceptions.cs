@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    public  class NoFind:Exception
+    public  class NoFindException : Exception
     {
-      public NoFind(string? message) : base(message) { }
+      public NoFindException(string? message) : base(message) { }
     }
-    public class AlredyFind : Exception
+    public class AlredyFindException : Exception
     {
-        public AlredyFind(string? message) : base(message) { }
+        public AlredyFindException(string? message) : base(message) { }
     }
 
 }
