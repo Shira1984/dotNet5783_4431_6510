@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    internal class OrderTrackingcs
+    internal class Exception
     {
-        public int ID { get; set; }
-        public OrderStatus status { get; set; }
     }
 }
