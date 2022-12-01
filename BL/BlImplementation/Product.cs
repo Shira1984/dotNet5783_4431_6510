@@ -1,5 +1,4 @@
 ﻿using BlApi;
-using BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +44,7 @@ internal class Product : IProduct
         };
     }
 
-    public ProductItem GetProductC(int id, BO.Cart c)
+    public BO.ProductItem GetProductC(int id, BO.Cart c)
     {
         DO.Product doProduct = dal.Product.GetById(id);
         return new BO.ProductItem()
@@ -62,18 +61,12 @@ internal class Product : IProduct
 
     public void AddProductM(BO.Product p)
     {
-        try
-        {
-            if (p.Id < 100000 ||
-                p.Id > 999999 ||
-                p.Name.Length == 0 ||
-                p.InStock < 0)
-                throw new NotImplementedException();
-        }
-        catch()
-        {
-            throw new NotImplementedException();
-        }
+    if (p.Id < 100000 ||
+        p.Id > 999999 ||
+        p.Name.Length == 0 ||
+        p.InStock < 0)
+        throw new BO.NotGoodValueException();
+       
 
         dal.Product.Add(new DO.Product()
         {

@@ -1,7 +1,5 @@
 ﻿using BlApi;
-using BO;
 using DalApi;
-using DO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -102,10 +100,7 @@ internal class Cart : ICart
             oi.TotalPrice -= oi.Amount * p.Price;
             cart.TotalPrice -= oi.Amount * p.Price;
             cart.Items[i]= null;
-            if (cart.Items.Remove([i]))
-            {
-               cart.Items.RemoveAt(i);
-            }
+            cart.Items.RemoveAt(i);
         }
         
         return cart;
