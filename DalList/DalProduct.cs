@@ -66,10 +66,15 @@ internal class DalProduct : IProduct
         if (filter == null)
             return list = DataSource.ProductsList.Select(item => item);
         else
-            return list = DataSource.ProductsList.Where(filter);
+            return list = DataSource.ProductsList.Where(Func());
         //List<Product?> list = new List<Product?>();
         //foreach (var item in DataSource.ProductsList)
         //    list.Add(item);
         //return list;
+    }
+
+    private Func<Product?, bool> Func() //עקב פוטנשל פיקסס
+    {
+        throw new NotImplementedException();
     }
 }

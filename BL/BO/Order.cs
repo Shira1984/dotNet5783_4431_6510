@@ -23,7 +23,7 @@ namespace BO
 
         public override string ToString()
         {
-            return base.ToString();
+            return this.ToStringProperty();
         }
     }
 }
