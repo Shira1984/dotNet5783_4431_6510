@@ -9,7 +9,7 @@ namespace BlApi;
 
 public interface IOrder
 {
-    IEnumerable<OrderForList?> GetOrderForList();
+    IEnumerable<OrderForList?> GetOrderForListM();
     Order GetByOrderIdM(int orderId);
     Order UpdateDeliveryDateM(int orderId);
     Order UpdateShipDateM(int orderId);

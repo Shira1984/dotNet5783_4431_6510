@@ -9,5 +9,12 @@ namespace BO;
 public class Enums
 {
     public enum Category { Philosophy, Holocaust, Psychoanalysis, RussianLiterature };
-    public enum OrderStatus { Ordered, processed, Sent };
+    public enum OrderStatus
+    {
+        Initiated,
+        Ordered,
+        Paid,
+        Shipped,
+        Delivered,
+    };
 }
