@@ -1,7 +1,10 @@
 ﻿using BlApi;
 using BO;
+using DalApi;
+using DO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -20,9 +23,9 @@ internal class Cart : ICart
         {
             P = dal.Product.GetById(IdProduct);
         }
-        catch (NoFindException e)
+        catch (BO.NoFindException e)
         {
-            throw new NoFindException(e.Message);
+            throw new BO.NoFindException(e.Message);
         }
         if(!cart.Items.Exists(x=>x.ProductID== IdProduct))
         {
@@ -53,38 +56,83 @@ internal class Cart : ICart
     }
     public BO.Cart UpdateProductInCartCV(BO.Cart cart, int IdProduct, int n)
     {
+        DO.Product p = new DO.Product();
+        try
+        {
+            p = dal.Product.GetById(IdProduct);
+        }
+        catch (BO.NoFindException e)
+        {
+            throw new BO.NoFindException(e.Message);
+        }
         int i = cart.Items.FindIndex(x => x.ProductID == IdProduct);
+        BO.OrderItem oi= cart.Items.FirstOrDefault(x => x.ProductID == IdProduct);
         if (cart.Items[i].Amount<n)
         {
-            for (int j = 0; j < n- cart.Items[i].Amount; j++)
-            {
-                DO.Product P = dal.Product.GetById(IdProduct);
-                if (P.InStock > 0)
+            int r = cart.Items[i].Amount - n;
+             
+                if(p.InStock >=r )
                 {
-                    BO.OrderItem oi = new BO.OrderItem();
-                    {
-                        oi.ProductID = IdProduct;
-                        oi.Name = P.Name;
-                        oi.Amount = 1;
-                        oi.OrderItemID = 000000;
-                        oi.Price = P.Price;
-                        oi.TotalPrice = P.Price;
 
-                    };
-                    cart.Items.Add(oi);
-                    cart.TotalPrice += P.Price;
+                   oi.Amount += r;
+                       
+                   oi.TotalPrice += r*p.Price;
+                   p.InStock--;
+                  
+                   cart.TotalPrice += r*p.Price;
+                    
                 }
+                else
+                    throw  new BO.NotGoodValueException("we can't add this amount becouse ther is not enaf in the stok");
+            
+              
+        }
+        
+        if (cart.Items[i].Amount > n)
+        {
+            int r = n - cart.Items[i].Amount;
+            oi.Amount -= r;
+            oi.TotalPrice -= r* p.Price;
+            cart.TotalPrice -= r * p.Price;
+            
+        }
+        else if (n == 0)
+        {
+
+            oi.TotalPrice -= oi.Amount * p.Price;
+            cart.TotalPrice -= oi.Amount * p.Price;
+            cart.Items[i]= null;
+            if (cart.Items.Remove([i]))
+            {
+               cart.Items.RemoveAt(i);
             }
         }
         
-        else if (cart.Items[i].Amount > n)
+        return cart;
+    }
+    public void OrderCart(BO.Cart cart, string? name, string? email, string? address)
+    {
+        if (name == null || new EmailAddressAttribute().IsValid(email) || address == null)
+            throw new BO.NoFindException("the values not exist in the system");
+        DO.Order order = new DO.Order() {CustomerName= name, CustomerEmail= email, CustomerAdress=address,
+        OrderDate=DateTime.Now, DeliveryDate=null, ShipDate=null};
+        int oId= dal.Order.Add(order);
+        DO.Product p = new DO.Product();
+        foreach (BO.OrderItem oi in cart.Items)
         {
-            for (int j = 0; j < cart.Items[i].Amount-n; j++)
-            {
-                cart.Items[i].Amount -= 1;
-                cart.Items[i].TotalPrice -= cart.Items[i].Price;
-                cart.TotalPrice -= cart.Items[i].Price;
-            }
+            //new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price });
+            if (p.InStock == 0)
+                throw new BO.NotGoodValueException("The product in the cart are not in stock");
+            dal.OrderItem.Add(new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price });
+            p = dal.Product.GetById(oi.ProductID);
+            p.InStock -= oi.Amount;
+            dal.Product.Update(p);
+
         }
+
     }
 }
+
+
+
+

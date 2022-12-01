@@ -38,13 +38,22 @@ namespace BO
           protected NoFindException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 
-        [Serializable]
-        public class AlredyFindException : Exception
-        {
-            public AlredyFindException() : base() { }
-            public AlredyFindException(string? message) : base(message) { }
-            public AlredyFindException(string message, Exception inner) : base(message, inner) { }
-            protected AlredyFindException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+    [Serializable]
+    public class AlredyFindException : Exception
+    {
+        public AlredyFindException() : base() { }
+        public AlredyFindException(string? message) : base(message) { }
+        public AlredyFindException(string message, Exception inner) : base(message, inner) { }
+        protected AlredyFindException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
-    
+    public class NotGoodValueException : Exception
+    {
+        public NotGoodValueException() : base() { }
+        public NotGoodValueException(string? message) : base(message) { }
+        public NotGoodValueException(string message, Exception inner) : base(message, inner) { }
+        protected NotGoodValueException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+    }
+
+
+
 }

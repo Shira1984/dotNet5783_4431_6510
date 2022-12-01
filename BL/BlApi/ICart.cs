@@ -11,5 +11,5 @@ public interface ICart
 {
     Cart AddProductToCart(Cart cart, int IdProduct);
     Cart UpdateProductInCartCV(Cart cart, int IdProduct, int n);
-    void OrderCart(Cart cart);
+    void OrderCart(Cart cart, string? name, string? email, string? address);
 }
