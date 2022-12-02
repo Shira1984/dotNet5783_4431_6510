@@ -30,9 +30,9 @@ internal class Product : IProduct
         {
             doProduct = dal.Product.GetById(id);
         }
-        catch(BO.NoFindException e)
+        catch (DO.DlNoFindException ex)
         {
-            throw new BO.NoFindException(e.Message);
+            throw new BO.BlNoFindException("There is no product with that id", ex);
         }
         return new BO.Product()
         {
@@ -65,7 +65,7 @@ internal class Product : IProduct
         p.Id > 999999 ||
         p.Name.Length == 0 ||
         p.InStock < 0)
-        throw new BO.NotGoodValueException();
+        throw new BO.BlNotGoodValueException();
        
 
         dal.Product.Add(new DO.Product()
@@ -104,6 +104,6 @@ internal class Product : IProduct
             Category = (DO.Enums.Category)p.Category,
             Price = p.Price
         });
-        throw new BO.NagtiveException();
+        throw new DO.DlNagtiveException("");
     }
 }

@@ -46,12 +46,12 @@ internal class Order : IOrder
         DO.Order order= new DO.Order();
 
         if (orderId < 0)
-            throw new BO.NagtiveException();
+            throw new BO.BlNagtiveException("ID can not be nagtive");
         try
         {
             order = dal.Order.GetById(orderId);
         }
-        catch (BO.NoFindException e) { throw new BO.NoFindException(); }
+        catch (DO.DlNoFindException e) { throw new BO.BlNoFindException("There is no product with that id", e); }
 
         return new BO.Order()
         {
@@ -86,6 +86,39 @@ internal class Order : IOrder
 
     public BO.Order UpdateDeliveryDateM (int orderId)
     {
+        DO.Order order = new DO.Order();
+        try
+        {
+            order = dal.Order.GetById(orderId);
+        }
+        catch(DO.DlNoFindException ex)
+        {
+            throw new BO.BlNoFindException("There is no product with that id", ex);
+        }
+        try
+        {
+            if (order.ShipDate != null) ;
+        }
+        catch (DO.DlNotGoodValueException ex)
+        {
+            throw new BO.BlNotGoodValueException("The order already shiped", ex);
+        }
+        order.ShipDate = DateTime.Now;
+        dal.Order.Update(order);
+        return new BO.Order()
+        {
+            ID = order.ID,
+            CustomerName = order.CustomerName,
+            CustomerAdress = order.CustomerAdress,
+            CustomerEmail = order.CustomerAdress,
+            Status = orderStatus(order),
+            DeliveryDate = order.DeliveryDate,
+            OrderDate = order.OrderDate,
+            ShipDate = order.ShipDate,
+            Items = ListOrderItens(dal.OrderItem.GetAll().Where(x => x.Value.OrderItemID == order.ID)),
+            TotalPrice = ListOrderItens(dal.OrderItem.GetAll().Where(x => x.Value.OrderItemID == order.ID)).Sum(x => x.TotalPrice)
+
+        };
 
     }
 

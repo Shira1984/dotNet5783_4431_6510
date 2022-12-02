@@ -11,47 +11,47 @@ namespace BO
    
     
         [Serializable]
-        public class NagtiveException : Exception
+        public class BlNagtiveException : Exception
         {
-           public NagtiveException() : base() { }
-           public NagtiveException(string? message) : base(message) { }
-           public NagtiveException(string message, Exception inner) : base(message, inner) { }
-           protected NagtiveException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+           public BlNagtiveException() : base() { }
+           public BlNagtiveException(string? message) : base(message) { }
+           public BlNagtiveException(string message, Exception inner) : base(message, inner) { }
+           protected BlNagtiveException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 
     }
 
         [Serializable]
-        public class NotWriteException : Exception
+        public class BlNotWriteException : Exception
         {
-           public NotWriteException() : base() { }
-           public NotWriteException(string? message) : base(message) { }
-           public NotWriteException(string message, Exception inner) : base(message, inner) { }
-           protected NotWriteException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+           public BlNotWriteException() : base() { }
+           public BlNotWriteException(string? message) : base(message) { }
+           public BlNotWriteException(string message, Exception inner) : base(message, inner) { }
+           protected BlNotWriteException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 
         [Serializable]
-        public class NoFindException : Exception
+        public class BlNoFindException : Exception
         {
-          public NoFindException() : base() { }
-          public NoFindException(string? message) : base(message) { }
-          public NoFindException(string message, Exception inner) : base(message, inner) { }
-          protected NoFindException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+          public BlNoFindException() : base() { }
+          public BlNoFindException(string? message) : base(message) { }
+          public BlNoFindException(string message, Exception inner) : base(message, inner) { }
+          protected BlNoFindException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 
     [Serializable]
-    public class AlredyFindException : Exception
+    public class BlAlredyFindException : Exception
     {
-        public AlredyFindException() : base() { }
-        public AlredyFindException(string? message) : base(message) { }
-        public AlredyFindException(string message, Exception inner) : base(message, inner) { }
-        protected AlredyFindException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+        public BlAlredyFindException() : base() { }
+        public BlAlredyFindException(string? message) : base(message) { }
+        public BlAlredyFindException(string message, Exception inner) : base(message, inner) { }
+        protected BlAlredyFindException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
-    public class NotGoodValueException : Exception
+    public class BlNotGoodValueException : Exception
     {
-        public NotGoodValueException() : base() { }
-        public NotGoodValueException(string? message) : base(message) { }
-        public NotGoodValueException(string message, Exception inner) : base(message, inner) { }
-        protected NotGoodValueException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+        public BlNotGoodValueException() : base() { }
+        public BlNotGoodValueException(string? message) : base(message) { }
+        public BlNotGoodValueException(string message, Exception inner) : base(message, inner) { }
+        protected BlNotGoodValueException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 
 

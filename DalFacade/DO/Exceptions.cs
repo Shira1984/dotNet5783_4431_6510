@@ -6,13 +6,25 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    public  class NoFindException : Exception
+    public  class DlNoFindException : Exception
     {
-      public NoFindException(string? message) : base(message) { }
+      public DlNoFindException(string? message) : base(message) { }
     }
-    public class AlredyFindException : Exception
+    public class DlAlredyFindException : Exception
     {
-        public AlredyFindException(string? message) : base(message) { }
+        public DlAlredyFindException(string? message) : base(message) { }
     }
 
+    public class DlNagtiveException : Exception
+    {
+        public DlNagtiveException(string? message) : base(message) { }
+    }
+    public class DlNotWriteException : Exception
+    {
+        public DlNotWriteException(string? message) : base(message) { }
+    }
+    public class DlNotGoodValueException : Exception
+    {
+        public DlNotGoodValueException(string? message) : base(message) { }
+    }
 }
