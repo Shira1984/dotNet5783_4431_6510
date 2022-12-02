@@ -24,7 +24,7 @@ internal class Main
             //DalOrder dalo = new DalOrder();
             //DalOrderItem daloi = new DalOrderItem();
             IDal dal= new DalList();
-            Console.WriteLine(@"Welcom!
+            Console.WriteLine(@"Welcome!
 Enter a to EXIT,
 b for product options,
 c for Order options,

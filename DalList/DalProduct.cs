@@ -60,21 +60,21 @@ internal class DalProduct : IProduct
     }
 
     //get list
-    public IEnumerable<Product?> GetAll<T>(Func<T?, bool>? filter = null)
+    public IEnumerable<Product?> GetAll(Func<T?, bool>? filter = null)
     {
         IEnumerable<Product?> list;
         if (filter == null)
             return list = DataSource.ProductsList.Select(item => item);
         else
-            return list = DataSource.ProductsList.Where(Func());
+            return list = DataSource.ProductsList.Where(filter);
         //List<Product?> list = new List<Product?>();
         //foreach (var item in DataSource.ProductsList)
         //    list.Add(item);
         //return list;
     }
 
-    private Func<Product?, bool> Func() //עקב פוטנשל פיקסס
-    {
-        throw new NotImplementedException();
-    }
+    //private Func<Product?, bool> Func() //עקב פוטנשל פיקסס
+    //{
+    //    throw new NotImplementedException();
+    //}
 }
