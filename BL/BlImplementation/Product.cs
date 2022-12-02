@@ -94,7 +94,7 @@ internal class Product : IProduct
             p.Name.Length == 0 ||
             p.Price < 0 ||
             p.InStock < 1)
-            throw new NotImplementedException();
+            throw new BO.BlNotGoodValueException("The values in product are rong");
 
         dal.Product.Update(new DO.Product()
         {
@@ -104,6 +104,6 @@ internal class Product : IProduct
             Category = (DO.Enums.Category)p.Category,
             Price = p.Price
         });
-        throw new DO.DlNagtiveException("");
+        //throw new BO.BlNagtiveException("The ");
     }
 }

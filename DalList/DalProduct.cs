@@ -60,13 +60,12 @@ internal class DalProduct : IProduct
     }
 
     //get list
-    public IEnumerable<Product?> GetAll(Func<T?, bool>? filter = null)
+    public IEnumerable<Product?> GetAll(Func<Product?, bool>? filter = null)
     {
-        IEnumerable<Product?> list;
-        if (filter == null)
-            return list = DataSource.ProductsList.Select(item => item);
-        else
-            return list = DataSource.ProductsList.Where(filter);
+        if (filter != null)
+            return DataSource.ProductsList.Where(item => filter(item));
+        return DataSource.ProductsList.Select(item => item);
+         
         //List<Product?> list = new List<Product?>();
         //foreach (var item in DataSource.ProductsList)
         //    list.Add(item);

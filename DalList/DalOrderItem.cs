@@ -59,16 +59,22 @@ internal class DalOrderItem : IOrderItem
     }
 
     //get list
-    public IEnumerable<OrderItem?> GetAll()
+    //public IEnumerable<OrderItem?> GetAll()
+    //{
+    //    List<OrderItem?> list = new List<OrderItem?>();
+    //    foreach (var item in DataSource.OrderItemsList)
+    //        list.Add(item);
+    //    return list;
+    //}
+    public IEnumerable<OrderItem?> GetAll(Func<OrderItem?, bool>? filter = null)
     {
-        List<OrderItem?> list = new List<OrderItem?>();
-        foreach (var item in DataSource.OrderItemsList)
-            list.Add(item);
-        return list;
+        if (filter != null)
+            return DataSource.OrderItemsList.Where(item => filter(item));
+        return DataSource.OrderItemsList.Select(item => item);
     }
 
-    //get the order's items
-    public IEnumerable<OrderItem?> ItemsInOrder(int id)
+        //get the order's items
+        public IEnumerable<OrderItem?> ItemsInOrder(int id)
     {
         List<OrderItem?> products0 = DataSource.OrderItemsList.FindAll(it => it?.OrderID == id);
         List<OrderItem?> products1 = products0;

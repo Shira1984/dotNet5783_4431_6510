@@ -15,16 +15,16 @@ namespace DO
         public DlAlredyFindException(string? message) : base(message) { }
     }
 
-    public class DlNagtiveException : Exception
-    {
-        public DlNagtiveException(string? message) : base(message) { }
-    }
-    public class DlNotWriteException : Exception
-    {
-        public DlNotWriteException(string? message) : base(message) { }
-    }
-    public class DlNotGoodValueException : Exception
-    {
-        public DlNotGoodValueException(string? message) : base(message) { }
-    }
+    //public class DlNagtiveException : Exception
+    //{
+    //    public DlNagtiveException(string? message) : base(message) { }
+    //}
+    //public class DlNotWriteException : Exception
+    //{
+    //    public DlNotWriteException(string? message) : base(message) { }
+    //}
+    //public class DlNotGoodValueException : Exception
+    //{
+    //    public DlNotGoodValueException(string? message) : base(message) { }
+    //}
 }

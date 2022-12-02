@@ -99,7 +99,7 @@ internal class Order : IOrder
         {
             if (order.ShipDate != null) ;
         }
-        catch (DO.DlNotGoodValueException ex)
+        catch (DO.DlNoFindException ex)
         {
             throw new BO.BlNotGoodValueException("The order already shiped", ex);
         }
@@ -137,7 +137,7 @@ internal class Order : IOrder
         {
             if (order.DeliveryDate != null) ;
         }
-        catch (DO.DlNotGoodValueException ex)
+        catch (DO.DlNoFindException ex)
         {
             throw new BO.BlNotGoodValueException("The order already shiped", ex);
         }
