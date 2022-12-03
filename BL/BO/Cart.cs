@@ -13,6 +13,6 @@ namespace BO
         public string? CustomerAdress { get; set; }
         public IEnumerable<OrderItem?> Items { get; set; }
         public double? TotalPrice { get; set; }
-
+        public override string ToString() => this.ToStringProperty();
     }
 }

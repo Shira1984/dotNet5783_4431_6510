@@ -2,6 +2,7 @@
 using BlApi;
 using BO;
 using System.Threading.Tasks.Dataflow;
+using System.Runtime.CompilerServices;
 
 namespace BlTest
 {
@@ -14,8 +15,8 @@ namespace BlTest
 
         enum ProductMenu { Main_Menu, Add, Delete, Update, Get_products_list, Get_product_for_manager, Get_product_for_client }
         enum OrderMenu { Main_Menu, Get_orders_list, Get_order_by_id_for_manager, Update_delivery_date_for_manager, Update_ship_date_for_manager, Follow_order_for_manager }
-        enum CartMenu { Main_Menu, Add, Update, Order_cart}
-
+        enum CartMenu { Main_Menu, Add, Update, Order_cart }
+        static Cart cartForFunc = new Cart() {CustomerName=" ", CustomerEmail="", CustomerAdress="", Items=new List<OrderItem>(), TotalPrice=0 };
         static void Main(string[] args)
         {
             IBl bl = new Bl();
@@ -317,7 +318,7 @@ Please press:
                             }
                             break;
                         }
-                    case MenuOptions.CART:
+                    case MenuOptions.CART: //cart
                         {
                             CartMenu cm;
                             Console.WriteLine(@"
@@ -335,16 +336,32 @@ Please press:
                                     break;
                                 case CartMenu.Add:
                                     {
-
+                                        Console.WriteLine("plesse enter product id");
+                                        int pid = int.Parse(Console.ReadLine());
+                                        bl.Cart.AddProductToCart(cartForFunc, pid);
+                                        Console.WriteLine(cartForFunc);
                                         break;
                                     }
                                 case CartMenu.Update:
                                     {
+                                        Console.WriteLine("plesse enter product id");
+                                        int pid = int.Parse(Console.ReadLine());
+                                        Console.WriteLine("plesse enter the amount you want to update");
+                                        int n = int.Parse(Console.ReadLine());
+                                        bl.Cart.UpdateProductInCartCV(cartForFunc, pid,n);
+                                        Console.WriteLine(cartForFunc);
 
                                         break;
                                     }
                                 case CartMenu.Order_cart:
                                     {
+                                        Console.WriteLine("plesse enter product name");
+                                        String name=Console.ReadLine();
+                                        Console.WriteLine("plesse enter email");
+                                        String email = Console.ReadLine();
+                                        Console.WriteLine("plesse enter adress");
+                                        String adress = Console.ReadLine();
+                                        bl.Cart.OrderCart(cartForFunc, name, email, adress);
 
                                         break;
                                     }

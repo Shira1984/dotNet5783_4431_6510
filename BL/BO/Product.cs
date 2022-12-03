@@ -14,10 +14,10 @@ namespace BO
         public double Price { get; set; }
         public Category Category { get; set; }
         public int InStock { get; set; }
-
-        public override string ToString()
-        {
-            return this.ToStringProperty();
-        }
+        public override string ToString() => this.ToStringProperty();
+        //public override string ToString()
+        //{
+        //    return this.ToStringProperty();
+        //}
     }
 }
