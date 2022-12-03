@@ -60,32 +60,208 @@ Enter
                                     break;
                                 case ProductMenu.Add:
                                     {
+                                        Console.WriteLine("Please enter id: ");
+                                        Product p = new Product();
+                                       // flag = true;
+                                      // while (flag)
+                                       // {
+                                            try
+                                            {
+                                                p.Id = int.Parse(Console.ReadLine());
+                                        //        flag = false;
+                                            }
+                                            catch (FormatException)
+                                            {
+                                                BO.BlNotGoodValueException excep = new BlNotGoodValueException();
+                                                Console.WriteLine(excep);
+                                                Console.WriteLine("Please enter id again: ");
+                                            }
+                                        // }
+                                        Console.WriteLine("Please enter name: ");
+                                        p.Name = Console.ReadLine();
 
+                                        Console.WriteLine("Please enter price: ");
+                                       // flag = true;
+                                       // while (flag)
+                                        {
+                                            try
+                                            {
+                                                p.Price = int.Parse(Console.ReadLine());
+                                         //       flag = false;
+                                            }
+                                            catch(FormatException)
+                                            {
+                                                BO.BlNotGoodValueException excep = new BlNotGoodValueException();
+                                                Console.WriteLine(excep);
+                                                Console.WriteLine("Please enter another price: ");
+                                            }
+                                        }
+
+                                        Console.WriteLine("Please enter 0 for Philosophy, 1 for Holocaust, 2 for Psychoanalysis and 3 for Russian literature: ");
+                                        Enums.Category bc;
+                                        int cat = int.Parse(Console.ReadLine());
+                                        bc = (Enums.Category)cat;
+                                        switch (bc)
+                                        {
+                                            case Enums.Category.Philosophy:
+                                                {
+                                                    p.Category = Enums.Category.Philosophy;
+                                                    break;
+                                                }
+                                            case Enums.Category.Holocaust:
+                                                {
+                                                    p.Category = Enums.Category.Holocaust;
+                                                    break;
+                                                }
+                                            case Enums.Category.Psychoanalysis:
+                                                {
+                                                    p.Category = Enums.Category.Psychoanalysis;
+                                                    break;
+                                                }
+                                            case Enums.Category.RussianLiterature:
+                                                {
+                                                    p.Category = Enums.Category.RussianLiterature;
+                                                    break;
+                                                }
+                                            default:
+                                                break;
+                                        }
+
+                                        try
+                                        {
+                                            bl.Product.AddProductM(p);
+                                            Console.WriteLine("Added sucessfully\n");
+                                        }
+                                        catch(BO.BlNotGoodValueException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
+                                        catch (BO.BlAlredyFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
+                                        catch (BO.BlNoFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
                                         break;
                                     }
                                 case ProductMenu.Update:
                                     {
+                                        Product p = new Product();
+                                        Console.WriteLine("Please enter product's id: ");
+                                        //int proId = 000000;
+                                       // flag = true;
+                                       // while(flag)
+                                       // {
+                                            try
+                                            {
+                                                p.Id = int.Parse(Console.ReadLine());
+                                         //       flag = false;
+                                            }
+                                            catch(FormatException)
+                                            {
+                                                BO.BlNotGoodValueException excep = new BlNotGoodValueException();
+                                                Console.WriteLine(excep);
+                                                Console.WriteLine("Please enter another id: ");
+                                            }
+                                        // }
+                                        Console.WriteLine("Please enter product's name: ");
+                                        p.Name = Console.ReadLine();
 
+                                        Console.WriteLine("Please enter price: ");
+                                        // flag = true;
+                                        // while (flag)
+                                        {
+                                            try
+                                            {
+                                                p.Price = int.Parse(Console.ReadLine());
+                                                //       flag = false;
+                                            }
+                                            catch (FormatException)
+                                            {
+                                                BO.BlNotGoodValueException excep = new BlNotGoodValueException();
+                                                Console.WriteLine(excep);
+                                                Console.WriteLine("Please enter another price: ");
+                                            }
+                                        }
+
+                                        Console.WriteLine("Please enter 0 for Philosophy, 1 for Holocaust, 2 for Psychoanalysis and 3 for Russian literature: ");
+                                        Enums.Category bc;
+                                        int cat = int.Parse(Console.ReadLine());
+                                        bc = (Enums.Category)cat;
+                                        switch (bc)
+                                        {
+                                            case Enums.Category.Philosophy:
+                                                {
+                                                    p.Category = Enums.Category.Philosophy;
+                                                    break;
+                                                }
+                                            case Enums.Category.Holocaust:
+                                                {
+                                                    p.Category = Enums.Category.Holocaust;
+                                                    break;
+                                                }
+                                            case Enums.Category.Psychoanalysis:
+                                                {
+                                                    p.Category = Enums.Category.Psychoanalysis;
+                                                    break;
+                                                }
+                                            case Enums.Category.RussianLiterature:
+                                                {
+                                                    p.Category = Enums.Category.RussianLiterature;
+                                                    break;
+                                                }
+                                            default:
+                                                break;
+                                        }
+
+                                        try
+                                        {
+                                            bl.Product.UpdateProductM(p);
+                                            Console.WriteLine("Added sucessfully\n");
+                                        }
+                                        catch (BO.BlNotGoodValueException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
+                                        catch (BO.BlAlredyFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
+                                        catch (BO.BlNoFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
                                         break;
                                     }
-                                case ProductMenu.Delete:
+                                case ProductMenu.Delete: // כאן לא עשיתי חריגות(!)
                                     {
-
+                                        Console.WriteLine("Please enter product's id: ");
+                                        int pid = int.Parse(Console.ReadLine());
+                                        bl.Product.DeleteProductM(pid);
                                         break;
                                     }
-                                case ProductMenu.Get_products_list:
+                                case ProductMenu.Get_products_list: // נראה קל מדי, לבדוק אם נכון
                                     {
-
+                                        bl.Product.GetListedProducts();
                                         break;
                                     }
-                                case ProductMenu.Get_product_for_manager:
+                                case ProductMenu.Get_product_for_manager: // ללא חריגות
                                     {
-
+                                        Console.WriteLine("Please enter product's id: ");
+                                        int pid = int.Parse(Console.ReadLine());
+                                        bl.Product.GetProductM(pid);
                                         break;
                                     }
                                 case ProductMenu.Get_product_for_client:
                                     {
+                                        Console.WriteLine("Please enter product's id: ");
+                                        int pid = int.Parse(Console.ReadLine());
 
+                                        //לעשות חריגות, טריי וקאטצ וכו וכו
+
+                                        Console.WriteLine("Please");
                                         break;
                                     }
                                 default:
