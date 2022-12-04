@@ -16,5 +16,6 @@ namespace BO
         public Category Category { get; set; }
         public int InStock { get; set; }
         public bool Amount { get; set; }
+        public override string ToString() => this.ToStringProperty();
     }
 }

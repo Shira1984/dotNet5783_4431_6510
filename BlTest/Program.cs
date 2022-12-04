@@ -221,7 +221,7 @@ Enter
                                         try
                                         {
                                             bl.Product.UpdateProductM(p);
-                                            Console.WriteLine("Added sucessfully\n");
+                                            Console.WriteLine("Updated sucessfully\n");
                                         }
                                         catch (BO.BlNotGoodValueException ex)
                                         {
@@ -242,28 +242,32 @@ Enter
                                         Console.WriteLine("Please enter product's id: ");
                                         int pid = int.Parse(Console.ReadLine());
                                         bl.Product.DeleteProductM(pid);
+                                        Console.WriteLine("Deleted sueccessfully");
                                         break;
                                     }
                                 case ProductMenu.Get_products_list: // נראה קל מדי, לבדוק אם נכון
                                     {
-                                        bl.Product.GetListedProducts();
+                                        IEnumerable<ProductForList> proF = new List<ProductForList>();
+                                        proF=bl.Product.GetListedProducts();
+                                        Console.WriteLine(proF);
                                         break;
                                     }
                                 case ProductMenu.Get_product_for_manager: // ללא חריגות
                                     {
+                                        Product p = new Product();
                                         Console.WriteLine("Please enter product's id: ");
                                         int pid = int.Parse(Console.ReadLine());
-                                        bl.Product.GetProductM(pid);
+                                        p=bl.Product.GetProductM(pid);
+                                        Console.WriteLine(p);
                                         break;
                                     }
                                 case ProductMenu.Get_product_for_client:
                                     {
+                                        ProductItem p = new ProductItem();
                                         Console.WriteLine("Please enter product's id: ");
                                         int pid = int.Parse(Console.ReadLine());
-
-                                        //לעשות חריגות, טריי וקאטצ וכו וכו
-
-                                        bl.Product.GetProductC(pid, cartForFunc);
+                                        p=bl.Product.GetProductC(pid, cartForFunc);
+                                        Console.WriteLine(p);
                                         break;
                                     }
                                 default:
@@ -300,7 +304,7 @@ Please press:
                                         Console.WriteLine("please enter id of order");
                                         int idO = int.Parse(Console.ReadLine());
                                         BO.Order newO = new BO.Order();
-                                        newO =GetByOrderIdM(idO);
+                                        newO = bl.Order.GetByOrderIdM(idO);
                                         Console.WriteLine("newO");
                                         break;
                                     }
@@ -309,7 +313,7 @@ Please press:
                                         Console.WriteLine("please enter id of order");
                                         int idO = int.Parse(Console.ReadLine());
                                         BO.Order newO = new BO.Order();
-                                        newO = UpdateDeliveryDateM(idO);
+                                        newO = bl.Order.UpdateDeliveryDateM(idO);
                                         Console.WriteLine("newO");
                                         break;
                                     }
@@ -318,7 +322,7 @@ Please press:
                                         Console.WriteLine("please enter id of order");
                                         int idO = int.Parse(Console.ReadLine());
                                         BO.Order newO = new BO.Order();
-                                        newO = UpdateShipDateM(idO);
+                                        newO = bl.Order.UpdateShipDateM(idO);
                                         Console.WriteLine("newO");
                                         break;
                                     }
@@ -328,7 +332,7 @@ Please press:
                                         Console.WriteLine("please enter id of order");
                                         int idO = int.Parse(Console.ReadLine());
                                         BO.OrderTracking ot = new BO.OrderTracking();
-                                        ot = FollowOrderM(idO);
+                                        ot = bl.Order.FollowOrderM(idO);
                                         Console.WriteLine("ot");
                                         break;
                                     }
