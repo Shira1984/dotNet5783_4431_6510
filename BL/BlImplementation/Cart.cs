@@ -1,6 +1,7 @@
 ﻿using BlApi;
 using BO;
 using DalApi;
+using DO;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ internal class Cart : ICart
     public BO.Cart AddProductToCart(BO.Cart cart, int IdProduct)
     {
 
-        List<OrderItem?> list =(List<OrderItem?>) cart.Items;
+        List<BO.OrderItem?> list =(List<BO.OrderItem?>) cart.Items;
         DO.Product P = dal.Product.GetById(IdProduct);
         try
         {
@@ -59,7 +60,8 @@ internal class Cart : ICart
     }
     public BO.Cart UpdateProductInCartCV(BO.Cart cart, int IdProduct, int n)
     {
-        List<OrderItem?> list = (List<OrderItem?>)cart.Items;
+        
+        List<BO.OrderItem?> list = (List<BO.OrderItem?>)cart.Items;
         DO.Product p = new DO.Product();
         try
         {
@@ -69,49 +71,62 @@ internal class Cart : ICart
         {
             throw new BO.BlNoFindException("There is no product with that id", e);
         }
-        
-        int i = list.FindIndex(x => x.ProductID == IdProduct);
-        int j = p.InStock;
-        BO.OrderItem oi= cart.Items.FirstOrDefault(x => x.ProductID == IdProduct);
-        if (list[i].Amount<=n)
+        // int i = list.FindIndex(x => x.ProductID == IdProduct);
+        try
         {
-            int r = list[i].Amount - n;
-             
-                if(p.InStock >=r )
-                {
-
-                   oi.Amount += r;
-                       
-                   oi.TotalPrice += r*p.Price;
-                   p.InStock--;
-                  
-                   cart.TotalPrice += r*p.Price;
-                    
-                }
-                else
-                    throw  new BO.BlNotGoodValueException("we can't add this amount becouse ther is not enaf in the stok");
-            
-              
+            int i = list.FindIndex(x => x.ProductID == IdProduct);
+            int c = list[i].Amount;
         }
-        
-        if (list[i].Amount > n)
+        catch (BO.BlNotGoodValueException ex)
         {
-            int r = n - list[i].Amount;
+            throw new BO.BlNotGoodValueException("The product isnot in the cart");
+
+
+        }
+        int f = list.FindIndex(x => x.ProductID == IdProduct);
+        int k = list[f].Amount;
+        int j = p.InStock;
+        BO.OrderItem oi = cart.Items.FirstOrDefault(x => x.ProductID == IdProduct);
+        if (k <= n)
+        {
+            int r = n - k;
+
+            if (p.InStock >= n)
+            {
+
+                oi.Amount += r;
+
+                oi.TotalPrice += r * p.Price;
+                p.InStock--;
+
+                cart.TotalPrice += r * p.Price;
+
+            }
+            else
+                throw new BO.BlNotGoodValueException("we can't add this amount becouse ther is not enaf in the stok");
+
+
+        }
+
+        if (k > n)
+        {
+            int r = k - n;
             oi.Amount -= r;
-            oi.TotalPrice -= r* p.Price;
+            oi.TotalPrice -= r * p.Price;
             cart.TotalPrice -= r * p.Price;
-            
+
         }
         else if (n == 0)
         {
 
             oi.TotalPrice -= oi.Amount * p.Price;
             cart.TotalPrice -= oi.Amount * p.Price;
-            list[i]= null;
-            list.RemoveAt(i);
+            list[f] = null;
+            list.RemoveAt(f);
         }
-        
+
         return cart;
+
     }
     public void OrderCart(BO.Cart cart, string? name, string? email, string? address)
     {

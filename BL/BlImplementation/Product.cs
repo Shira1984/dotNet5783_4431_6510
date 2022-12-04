@@ -21,6 +21,7 @@ internal class Product : IProduct
                    Category = (BO.Enums.Category?)doProduct?.Category ?? throw new NullReferenceException("Missing Category"),
                    Price = doProduct?.Price ?? 0
                };
+
     }
 
     public BO.Product GetProductM(int id)

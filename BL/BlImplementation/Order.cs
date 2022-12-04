@@ -13,16 +13,16 @@ internal class Order : IOrder
 
     public IEnumerable<BO.OrderForList> GetOrderForListM() //1
     {
-        IEnumerable<DO.Order?> orders = dal.Order.GetAll();
-        IEnumerable<DO.OrderItem?> items = dal.OrderItem.GetAll();
+        IEnumerable<DO.Order?> orders = dal.Order.GetAll();//all the product from do
+        IEnumerable<DO.OrderItem?> items = dal.OrderItem.GetAll();//craete new
 
-        return from DO.Order item in orders
-               let x = items.Where(items => items.Value.OrderItemID == item.ID)
+        return from DO.Order? item in orders
+               let x = items.Where(items => items.Value.OrderItemID == item.Value.ID)
                select new BO.OrderForList()
                {
-                   ID = item.ID,
-                   CustomerName = item.CustomerName,
-                   Status = orderStatus(item),
+                   ID = item.Value.ID,
+                   CustomerName = item.Value.CustomerName,
+                   Status = orderStatus(item.Value),
                    AmountOfItems = x.Count(),
                    TotalPrice = x.Sum(items => items.Value.Amount * items.Value.Price)
                };

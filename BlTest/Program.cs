@@ -152,14 +152,11 @@ Enter
                                     {
                                         Product p = new Product();
                                         Console.WriteLine("Please enter product's id: ");
-                                        //int proId = 000000;
-                                       // flag = true;
-                                       // while(flag)
-                                       // {
+                                       
                                             try
                                             {
                                                 p.Id = int.Parse(Console.ReadLine());
-                                         //       flag = false;
+                                        
                                             }
                                             catch(FormatException)
                                             {
@@ -248,8 +245,12 @@ Enter
                                 case ProductMenu.Get_products_list: // נראה קל מדי, לבדוק אם נכון
                                     {
                                         IEnumerable<ProductForList?> proF = new List<ProductForList?>();
-                                        proF=bl.Product.GetListedProducts();
-                                        Console.WriteLine(proF);
+                                        proF = bl.Product.GetListedProducts();
+                                        foreach (ProductForList p in proF)
+                                        {
+                                            Console.WriteLine(p);
+                                        }
+
                                         break;
                                     }
                                 case ProductMenu.Get_product_for_manager: // ללא חריגות
@@ -304,8 +305,12 @@ Please press:
                                         {
                                             Console.WriteLine(ex);
                                         }
-                                        IEnumerable<BO.OrderForList> li = bl.Order.GetOrderForListM();
-                                        Console.WriteLine(li);
+                                        IEnumerable<OrderForList?> li = bl.Order.GetOrderForListM();
+                                        foreach (BO.OrderForList m in li)
+                                        {
+                                            Console.WriteLine(m);
+                                        }
+                                       
                                         break;
                                     }
                                 case OrderMenu.Get_order_by_id_for_manager:
@@ -419,7 +424,14 @@ Please press:
                                         int pid = int.Parse(Console.ReadLine());
                                         Console.WriteLine("plesse enter the amount you want to update");
                                         int n = int.Parse(Console.ReadLine());
-                                        bl.Cart.UpdateProductInCartCV(cartForFunc, pid,n);
+                                        try
+                                        {
+                                            bl.Cart.UpdateProductInCartCV(cartForFunc, pid, n);
+                                        }
+                                        catch(BO.BlNotGoodValueException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
                                         Console.WriteLine(cartForFunc);
 
                                         break;
@@ -432,6 +444,7 @@ Please press:
                                         String email = Console.ReadLine();
                                         Console.WriteLine("plesse enter adress");
                                         String adress = Console.ReadLine();
+                                        
                                         bl.Cart.OrderCart(cartForFunc, name, email, adress);
                                         Console.WriteLine("Order_cart done");
                                         break;
