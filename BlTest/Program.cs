@@ -3,6 +3,7 @@ using BlApi;
 using BO;
 using System.Threading.Tasks.Dataflow;
 using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 
 namespace BlTest
 {
@@ -290,27 +291,45 @@ Please press:
                                     break;
                                 case OrderMenu.Get_orders_list:
                                     {
-
+                                        IEnumerable<BO.OrderForList> l = bl.Order.GetOrderForListM();
+                                        Console.WriteLine(l);
                                         break;
                                     }
                                 case OrderMenu.Get_order_by_id_for_manager:
                                     {
-
+                                        Console.WriteLine("please enter id of order");
+                                        int idO = int.Parse(Console.ReadLine());
+                                        BO.Order newO = new BO.Order();
+                                        newO =GetByOrderIdM(idO);
+                                        Console.WriteLine("newO");
                                         break;
                                     }
                                 case OrderMenu.Update_delivery_date_for_manager:
                                     {
-
+                                        Console.WriteLine("please enter id of order");
+                                        int idO = int.Parse(Console.ReadLine());
+                                        BO.Order newO = new BO.Order();
+                                        newO = UpdateDeliveryDateM(idO);
+                                        Console.WriteLine("newO");
                                         break;
                                     }
                                 case OrderMenu.Update_ship_date_for_manager:
                                     {
-
+                                        Console.WriteLine("please enter id of order");
+                                        int idO = int.Parse(Console.ReadLine());
+                                        BO.Order newO = new BO.Order();
+                                        newO = UpdateShipDateM(idO);
+                                        Console.WriteLine("newO");
                                         break;
                                     }
                                 case OrderMenu.Follow_order_for_manager:
                                     {
 
+                                        Console.WriteLine("please enter id of order");
+                                        int idO = int.Parse(Console.ReadLine());
+                                        BO.OrderTracking ot = new BO.OrderTracking();
+                                        ot = FollowOrderM(idO);
+                                        Console.WriteLine("ot");
                                         break;
                                     }
                                 default:
@@ -362,7 +381,7 @@ Please press:
                                         Console.WriteLine("plesse enter adress");
                                         String adress = Console.ReadLine();
                                         bl.Cart.OrderCart(cartForFunc, name, email, adress);
-
+                                        Console.WriteLine("Order_cart done");
                                         break;
                                     }
                                 default:
