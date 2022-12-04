@@ -247,7 +247,7 @@ Enter
                                     }
                                 case ProductMenu.Get_products_list: // נראה קל מדי, לבדוק אם נכון
                                     {
-                                        IEnumerable<ProductForList> proF = new List<ProductForList>();
+                                        IEnumerable<ProductForList?> proF = new List<ProductForList?>();
                                         proF=bl.Product.GetListedProducts();
                                         Console.WriteLine(proF);
                                         break;

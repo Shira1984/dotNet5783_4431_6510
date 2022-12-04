@@ -11,10 +11,10 @@ internal class Product : IProduct
 {
     DalApi.IDal dal = new Dal.DalList();
 
-    public IEnumerable<BO.ProductForList> GetListedProducts()
+    public IEnumerable<BO.ProductForList?> GetListedProducts()
     {
         return from DO.Product? doProduct in dal.Product.GetAll()
-               select new BO.ProductForList
+               select new BO.ProductForList()
                {
                    Id = doProduct?.ID ?? throw new NullReferenceException("Missing Id"),
                    Name = doProduct?.Name ?? throw new NullReferenceException("Missing Name"),
