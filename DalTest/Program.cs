@@ -23,7 +23,7 @@ internal class Main
             //DalProduct dalp = new DalProduct();
             //DalOrder dalo = new DalOrder();
             //DalOrderItem daloi = new DalOrderItem();
-            IDal dal= new DalList();
+            IDal dal= new Dal.DalList();
             Console.WriteLine(@"Welcome!
 Enter a to EXIT,
 b for product options,

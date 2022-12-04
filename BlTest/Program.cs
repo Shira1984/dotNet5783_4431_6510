@@ -14,7 +14,7 @@ namespace BlTest
         //enum MainMenu { EXIT, Product, Order, OrderItem }
         //enum OrderItemMenu { Main_Menu, Add, GetById, Update, Delete, GetAll, ItemsInOrder, GetByOrNumNProNum }
 
-        enum ProductMenu { Main_Menu, Add, Delete, Update, Get_products_list, Get_product_for_manager, Get_product_for_client }
+        enum ProductMenu { Main_Menu, Add, Update, Delete, Get_products_list, Get_product_for_manager, Get_product_for_client }
         enum OrderMenu { Main_Menu, Get_orders_list, Get_order_by_id_for_manager, Update_delivery_date_for_manager, Update_ship_date_for_manager, Follow_order_for_manager }
         enum CartMenu { Main_Menu, Add, Update, Order_cart }
         static Cart cartForFunc = new Cart() {CustomerName=" Yehoshua", CustomerEmail= "YehoshuaPfewalla.com", CustomerAdress="Ramot", Items=new List<OrderItem>(), TotalPrice=0 };
