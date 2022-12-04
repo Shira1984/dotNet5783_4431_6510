@@ -295,16 +295,35 @@ Please press:
                                     break;
                                 case OrderMenu.Get_orders_list:
                                     {
-                                        IEnumerable<BO.OrderForList> l = bl.Order.GetOrderForListM();
-                                        Console.WriteLine(l);
+                                        try
+                                        {
+                                            IEnumerable<BO.OrderForList> neli = bl.Order.GetOrderForListM();
+                                        }
+
+                                        catch (BO.BlNoFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
+                                        IEnumerable<BO.OrderForList> li = bl.Order.GetOrderForListM();
+                                        Console.WriteLine(li);
                                         break;
                                     }
                                 case OrderMenu.Get_order_by_id_for_manager:
                                     {
                                         Console.WriteLine("please enter id of order");
-                                        int idO = int.Parse(Console.ReadLine());
                                         BO.Order newO = new BO.Order();
-                                        newO = bl.Order.GetByOrderIdM(idO);
+                                        int idO = int.Parse(Console.ReadLine());
+
+                                        try
+                                        {
+                                            newO = bl.Order.GetByOrderIdM(idO);
+                                        }
+
+                                        catch (BO.BlNoFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
+                                        
                                         Console.WriteLine("newO");
                                         break;
                                     }
@@ -313,7 +332,16 @@ Please press:
                                         Console.WriteLine("please enter id of order");
                                         int idO = int.Parse(Console.ReadLine());
                                         BO.Order newO = new BO.Order();
-                                        newO = bl.Order.UpdateDeliveryDateM(idO);
+                                        
+                                        try
+                                        {
+                                            newO = bl.Order.UpdateDeliveryDateM(idO);
+                                        }
+
+                                        catch (BO.BlNoFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
                                         Console.WriteLine("newO");
                                         break;
                                     }
@@ -322,7 +350,17 @@ Please press:
                                         Console.WriteLine("please enter id of order");
                                         int idO = int.Parse(Console.ReadLine());
                                         BO.Order newO = new BO.Order();
-                                        newO = bl.Order.UpdateShipDateM(idO);
+                                       
+                                        try
+                                        {
+                                            newO = bl.Order.UpdateShipDateM(idO);
+
+                                        }
+
+                                        catch (BO.BlNoFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
                                         Console.WriteLine("newO");
                                         break;
                                     }
@@ -332,7 +370,17 @@ Please press:
                                         Console.WriteLine("please enter id of order");
                                         int idO = int.Parse(Console.ReadLine());
                                         BO.OrderTracking ot = new BO.OrderTracking();
-                                        ot = bl.Order.FollowOrderM(idO);
+                                        
+                                        try
+                                        {
+                                            ot = bl.Order.FollowOrderM(idO);
+
+                                        }
+
+                                        catch (BO.BlNoFindException ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
                                         Console.WriteLine("ot");
                                         break;
                                     }
@@ -378,7 +426,7 @@ Please press:
                                     }
                                 case CartMenu.Order_cart:
                                     {
-                                        Console.WriteLine("plesse enter product name");
+                                        Console.WriteLine("plesse enter name");
                                         String name=Console.ReadLine();
                                         Console.WriteLine("plesse enter email");
                                         String email = Console.ReadLine();

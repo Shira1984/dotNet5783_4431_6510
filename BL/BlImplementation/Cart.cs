@@ -69,9 +69,11 @@ internal class Cart : ICart
         {
             throw new BO.BlNoFindException("There is no product with that id", e);
         }
+        
         int i = list.FindIndex(x => x.ProductID == IdProduct);
+        int j = p.InStock;
         BO.OrderItem oi= cart.Items.FirstOrDefault(x => x.ProductID == IdProduct);
-        if (list[i].Amount <n)
+        if (list[i].Amount<=n)
         {
             int r = list[i].Amount - n;
              
