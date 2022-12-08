@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	<BaseOutputPath>$(SolutionDir)\bin\</BaseOutputPath>
+    <OutputPath>$(SolutionDir)\bin\</OutputPath>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+	<UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="e98e39e07629a857f40a4a3a64ed2d4a.jpg" />
+    <None Remove="Products\ec1e3ec3f54443fd91328f8553c502cf.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="e98e39e07629a857f40a4a3a64ed2d4a.jpg" />
+    <Resource Include="Products\ec1e3ec3f54443fd91328f8553c502cf.jpg" />
+  </ItemGroup>
+
+</Project>
