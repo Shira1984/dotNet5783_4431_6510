@@ -15,6 +15,14 @@ namespace DO
         public DlAlredyFindException(string? message) : base(message) { }
     }
 
+    [Serializable]
+    public class DalConfigException : Exception
+    {
+        public DalConfigException(string msg) : base(msg) { }
+        public DalConfigException(string msg, Exception ex) : base(msg, ex) { }
+    }
+
+
     //public class DlNagtiveException : Exception
     //{
     //    public DlNagtiveException(string? message) : base(message) { }
