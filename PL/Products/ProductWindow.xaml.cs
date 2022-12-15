@@ -1,4 +1,4 @@
-﻿using BlApi;
+﻿//using BlApi;
 using BO;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,8 @@ namespace PL.Products
     /// </summary>
     public partial class ProductWindow : Window
     {
-        private IBl bl = new BlImplementation.Bl();
+        BlApi.IBl bl = BlApi.Factory.Get();
+        //private IBl bl = new BlImplementation.Bl();
 
         /// <summary>
         /// first constractor for add prodact mode

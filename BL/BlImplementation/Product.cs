@@ -9,8 +9,7 @@ namespace BlImplementation;
 
 internal class Product : IProduct
 {
-    DalApi.IDal dal = new Dal.DalList();
-
+    DalApi.IDal dal = DalApi.Factory.Get();
     public IEnumerable<BO.ProductForList?> GetListedProducts()
     {
         return from DO.Product? doProduct in dal.Product.GetAll()

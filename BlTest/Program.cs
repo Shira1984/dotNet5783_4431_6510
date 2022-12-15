@@ -20,7 +20,8 @@ namespace BlTest
         static Cart cartForFunc = new Cart() {CustomerName=" Yehoshua", CustomerEmail= "YehoshuaPfewalla.com", CustomerAdress="Ramot", Items=new List<OrderItem>(), TotalPrice=0 };
         static void Main(string[] args)
         {
-            IBl bl = new Bl();
+            BlApi.IBl bl = BlApi.Factory.Get();
+            //IBl bl = new Bl();
             MenuOptions mo;
 
            // IEnumerable<ProductForList?> productFL = bl.Product.GetListedProducts();
