@@ -9,7 +9,10 @@
     <Grid>
         <Image x:Name="mainBCKGRND" Source="/e98e39e07629a857f40a4a3a64ed2d4a.jpg" Margin="-108,-113,-109,-85"/>
 
-        <Button x:Name="AdminBTN" Content="Admin" BorderBrush="Beige"  Background="Bisque"  Foreground="Navy" FontSize="19" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Click="ShowProductsButton_Click" Height="37" Width="186" MouseEnter="AdminBTN_MouseEnter" MouseLeave="AdminBTN_MouseLeave"/>
+        <Button x:Name="AdminBTN" Content="Admin" BorderBrush="Beige"  Background="Bisque"  Foreground="Navy" FontSize="19" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Click="ShowAdminView_Click" Height="37" Width="186" MouseEnter="AdminBTN_MouseEnter" MouseLeave="AdminBTN_MouseLeave"/>
+        <Button x:Name="OrderBTN" Content="Order" HorizontalAlignment="Left" Margin="342,229,0,0" VerticalAlignment="Top" Height="52" Width="104"/>
+        <Button x:Name ="FollowBTN" Content="Follow After Order" HorizontalAlignment="Left" Margin="143,255,0,0" VerticalAlignment="Top" Height="46" Width="113"/>
+
 
     </Grid>
 </Window>

@@ -104,6 +104,7 @@ namespace PL.Products
                         bl.Product.AddProductM(p);
                         messageBoxResult = MessageBox.Show("Product added succesfully", "Succesfull", MessageBoxButton.OK, MessageBoxImage.None);
                     }
+                    Close();
                 }
                 else //(upadBTN.Content == "Update")
                 {
@@ -118,7 +119,7 @@ namespace PL.Products
                     if (AddCatCOMBox.Text.Length == 0)
                         MessageBox.Show("You chose a problematic category my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
                     else
-                        p.Category = (Enums.Category)AddCatCOMBox.SelectedItem;// fix it
+                        p.Category = (Enums.Category)AddCatCOMBox.SelectedItem;
 
                     if (PriceTextBox.Text.Length == 0)
                         MessageBox.Show("You chose a problematic price my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);

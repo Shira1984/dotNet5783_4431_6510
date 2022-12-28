@@ -27,10 +27,16 @@ namespace PL
         {
             InitializeComponent();
         }
-        private void ShowProductsButton_Click(object sender, RoutedEventArgs e)
+
+        private void ShowAdminView_Click(object sender, RoutedEventArgs e)
         {
-            new PL.Products.ProductListWindow().Show();
+            new PL.AdminView().Show();
         }
+
+        //private void ShowProductsButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    new PL.Products.ProductListWindow().Show();
+        //}
 
         private void AdminBTN_MouseEnter(object sender, MouseEventArgs e)
         {
