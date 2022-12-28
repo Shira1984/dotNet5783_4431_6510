@@ -33,6 +33,11 @@ namespace PL
             new PL.AdminView().Show();
         }
 
+        private void OrderBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //private void ShowProductsButton_Click(object sender, RoutedEventArgs e)
         //{
         //    new PL.Products.ProductListWindow().Show();
@@ -57,5 +62,7 @@ namespace PL
                 b.Width = b.Width / 1.1;
             }
         }
+
+        
     }
 }

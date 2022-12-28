@@ -47,12 +47,12 @@ namespace PL.Orders
                 if (StatusCombo.Text.Length == 0)
                     MessageBox.Show("You chose a problematic category my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
                 else
-                { 
+                {
                     o.Status = (Enums.OrderStatus)StatusCombo.SelectedItem;
-                    if(o.Status == )
-                 
+
                     messageBoxResult = MessageBox.Show("Product updated succesfully", "Succesfull", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
             catch (BO.BlAlredyFindException ex)
             {
                 messageBoxResult = MessageBox.Show(ex.InnerException.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
