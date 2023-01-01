@@ -25,12 +25,12 @@ namespace PL
             OrderStatusComboBox.ItemsSource = Enum.GetValues(typeof(BO.Enums.OrderStatus));
             
         }
-
+      
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBoxResult;
             BO.Order o = new BO.Order() { };
-            o.ID = Config.NextOrderNumber;
+            //o.ID = Config.NextOrderNumber;
             try
             {
                 if (CstNameTextBox.Text.Length == 0)

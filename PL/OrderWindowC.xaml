@@ -15,9 +15,7 @@
         <Label x:Name="OrderDateLBL" Content="Order Date" HorizontalAlignment="Left" Margin="465,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.465,-3.897"/>
         <Label x:Name="ShipDateLBL" Content="Ship Date" HorizontalAlignment="Left" Margin="473,114,0,0" VerticalAlignment="Top"/>
         <Label x:Name="DeliveryDateLBL" Content="Delivery Date" HorizontalAlignment="Left" Margin="465,152,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ItemsLBL" Content="Items" HorizontalAlignment="Left" Margin="486,0,0,0" VerticalAlignment="Center"/>
         <Label x:Name="TotalPriceLBL" Content="Total Price" HorizontalAlignment="Left" Margin="473,262,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="IDTextBox" HorizontalAlignment="Left" Margin="209,94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="IDTextBox_TextChanged"/>
         <TextBox x:Name="CstNameTextBox" HorizontalAlignment="Left" Margin="209,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="CstEmailTextBox" HorizontalAlignment="Left" Margin="209,173,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="CstAdressTextBox" HorizontalAlignment="Left" Margin="209,220,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
