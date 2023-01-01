@@ -35,7 +35,7 @@ namespace PL
 
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            new PL.Orders.Catalog().Show();
         }
 
         //private void ShowProductsButton_Click(object sender, RoutedEventArgs e)
