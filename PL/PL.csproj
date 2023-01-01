@@ -14,7 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="1b1a2af4ff9bf67e5c8280b607cf0f09.jpg" />
+    <None Remove="7ca42e4ff366cf7e8ce6b150bfb7b2d9.jpg" />
     <None Remove="e98e39e07629a857f40a4a3a64ed2d4a.jpg" />
+    <None Remove="Products\8544b9cb949bc8f05a39530cf94ef896.jpg" />
     <None Remove="Products\ec1e3ec3f54443fd91328f8553c502cf.jpg" />
   </ItemGroup>
 
@@ -23,7 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="1b1a2af4ff9bf67e5c8280b607cf0f09.jpg" />
+    <Resource Include="7ca42e4ff366cf7e8ce6b150bfb7b2d9.jpg" />
     <Resource Include="e98e39e07629a857f40a4a3a64ed2d4a.jpg" />
+    <Resource Include="Products\8544b9cb949bc8f05a39530cf94ef896.jpg" />
     <Resource Include="Products\ec1e3ec3f54443fd91328f8553c502cf.jpg" />
   </ItemGroup>
 

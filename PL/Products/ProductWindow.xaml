@@ -5,18 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Products"
         mc:Ignorable="d"
+        DataContext="{Binding p, RelativeSource={RelativeSource Self}}"
         Title="ProductWindow" Height="450" Width="800">
     <Grid>
 
         <Image x:Name="ProBCKGRND" Source="/Products/ec1e3ec3f54443fd91328f8553c502cf.jpg" Margin="-97,-94,-97,-58"/>
 
-        <Button x:Name="upadBTN" BorderBrush="Beige"  Background="Bisque"  Foreground="Navy" FontSize="19" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Height="39" Width="80" Click="DoneButton_Click" MouseEnter="upadBTN_MouseEnter" MouseLeave="upadBTN_MouseLeave"/>
-        <TextBox x:Name="IDTextBox" MaxLength="6" HorizontalAlignment="Left" Margin="177,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168" Height="26"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="177,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168" Height="26"/>
-        <TextBox x:Name="PriceTextBox" HorizontalAlignment="Left" Margin="177,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168" Height="26"/>
-        <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Margin="177,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168" Height="26"/>
+        <Button x:Name="upadBTN" Style="{StaticResource myButtonStyle}" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Height="39" Width="80" Click="DoneButton_Click" MouseEnter="upadBTN_MouseEnter" MouseLeave="upadBTN_MouseLeave"/>
+        <TextBox x:Name="IDTextBox" MaxLength="6" HorizontalAlignment="Left" Margin="177,82,0,0" TextWrapping="Wrap" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" VerticalAlignment="Top" Width="168" Height="26"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="177,120,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" VerticalAlignment="Top" Width="168" Height="26"/>
+        <TextBox x:Name="PriceTextBox" HorizontalAlignment="Left" Margin="177,160,0,0" TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" VerticalAlignment="Top" Width="168" Height="26"/>
+        <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Margin="177,242,0,0" TextWrapping="Wrap" Text="{Binding Amount, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" VerticalAlignment="Top" Width="168" Height="26"/>
 
-        <ComboBox x:Name="AddCatCOMBox" HorizontalAlignment="Left" Margin="177,201,0,0" VerticalAlignment="Top" Width="168" Height="26"/>
+        <ComboBox x:Name="AddCatCOMBox" HorizontalAlignment="Left" Margin="177,201,0,0" VerticalAlignment="Top" Text="{Binding Category, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" Width="168" Height="26"/>
 
         <Label x:Name="IDLabel" Content="ID" FontSize="18" Foreground="Beige" FontWeight="ExtraBold"  HorizontalAlignment="Left" Margin="88,80,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
         <Label x:Name="NameLabel" Content="Name" FontSize="18" Foreground="Beige" FontWeight="ExtraBold" HorizontalAlignment="Left" Margin="88,118,0,0" VerticalAlignment="Top" Width="80" Height="30"/>

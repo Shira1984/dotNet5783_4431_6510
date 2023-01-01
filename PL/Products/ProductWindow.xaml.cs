@@ -23,6 +23,19 @@ namespace PL.Products
     public partial class ProductWindow : Window
     {
         BlApi.IBl bl = BlApi.Factory.Get();
+
+        public BO.Product p
+        {
+            get { return (BO.Product)GetValue(pProperty); }
+            set { SetValue(pProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for p.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty pProperty =
+            DependencyProperty.Register("p", typeof(BO.Product), typeof(Window), new PropertyMetadata(null));
+
+
+
         //private IBl bl = new BlImplementation.Bl();
 
         /// <summary>
@@ -56,7 +69,8 @@ namespace PL.Products
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBoxResult;
-            BO.Product p = new BO.Product() { };
+            //BO.Product p = new BO.Product() { };
+
             try
             {
                 if (upadBTN.Content == "Add")

@@ -17,6 +17,41 @@
                     Value="37"/>
             <Setter Property="Width"
                     Value="186"/>
+            <Setter Property="FontSize"
+                    Value="19"/>
+            <Setter Property="FontWeight"
+                    Value="SemiBold"/>
         </Style>
+
+        <Style x:Key="myLabelStyle" TargetType="Label">
+            <Setter Property= "Foreground"
+                    Value="Beige"/>
+            <Setter Property= "FontWeight"
+                    Value="ExtraBold"/>
+            <Setter Property= "FontSize"
+                    Value="18"/>
+        </Style>
+        
+        <DataTemplate x:Key="MyDataTemplate" DataType="local:MyData">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="First Name: " />
+                <TextBlock Grid.Column="1" Text="{Binding Path=FirstName}" />
+                <TextBlock Grid.Column="2" Text="Last Name: " />
+                <TextBlock Grid.Column="3" Text="{Binding Path=LastName}" />
+                <CheckBox Grid.Column="4" Content="Is Lecturer?"
+IsEnabled="False"
+IsChecked="{Binding Path=IsLecturer}" />
+            </Grid>
+        </DataTemplate>
     </Application.Resources>
 </Application>
