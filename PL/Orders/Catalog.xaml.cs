@@ -19,9 +19,13 @@ namespace PL.Orders
     /// </summary>
     public partial class Catalog : Window
     {
+        BlApi.IBl bl = BlApi.Factory.Get();
+
         public Catalog()
         {
             InitializeComponent();
+            catView.ItemsSource = bl.Product.GetListedProducts();
+
         }
     }
 }

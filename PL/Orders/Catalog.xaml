@@ -7,12 +7,7 @@
         mc:Ignorable="d"
         Title="Catalog" Height="450" Width="800">
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto">
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-                <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">Scrolling is enabled when it is necessary. 
-      Resize the window, making it larger and smaller.</TextBlock>
-                <Rectangle Fill="Red" Width="500" Height="500"></Rectangle>
-            </StackPanel>
-        </ScrollViewer>
+        <DataGrid Name="catView"  d:ItemsSource="{d:SampleData ItemCount=4}"/>
+
     </Grid>
 </Window>
