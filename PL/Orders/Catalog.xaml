@@ -24,14 +24,14 @@
                 <TextBlock Grid.Column="1" Text="{Binding Path=Name}" />
                 <TextBlock Grid.Column="2" Text="Price: " />
                 <TextBlock Grid.Column="3" Text="{Binding Path=Price}" />
-                
+
             </Grid>
         </DataTemplate>
     </Window.Resources>
-        
+
     <Grid>
         <ScrollViewer Grid.Row="1">
-            <ListView x:Name="catView" BorderBrush="HotPink" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" ItemsSource="{Binding}" ItemTemplate="{StaticResource oneProduct}" >
+            <ListView x:Name="catView" BorderBrush="HotPink" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel/>

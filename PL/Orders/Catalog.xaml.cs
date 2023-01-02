@@ -30,6 +30,7 @@ namespace PL.Orders
             InitializeComponent();
             //catView.ItemsSource = bl.Product.GetListedProducts();
             this.DataContext = _myCollection;
+
         }
     }
 }
