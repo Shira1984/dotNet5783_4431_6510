@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,12 +22,14 @@ namespace PL.Orders
     public partial class Catalog : Window
     {
         BlApi.IBl bl = BlApi.Factory.Get();
+        private ObservableCollection<ProductForList> _myCollection = new ObservableCollection<ProductForList>();
+
 
         public Catalog()
         {
             InitializeComponent();
-            catView.ItemsSource = bl.Product.GetListedProducts();
-
+            //catView.ItemsSource = bl.Product.GetListedProducts();
+            this.DataContext = _myCollection;
         }
     }
 }
