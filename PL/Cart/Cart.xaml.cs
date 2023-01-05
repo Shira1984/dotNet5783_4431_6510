@@ -23,16 +23,17 @@ namespace PL.Cart
     {
         BlApi.IBl bl = BlApi.Factory.Get();
         BO.Cart c = new BO.Cart() { };
-        public Cart(ObservableCollection<OrderItem?> mc)
+        public Cart(ObservableCollection<OrderItem?> mc, double d)
         {
-            c.Items = mc.ToList();
+            c.Items = mc;
 
             InitializeComponent();
            
 
             ItemsLSTBX.DataContext = mc.ToList();
-            
-           
+            TotalPriceTextBox.Text = d.ToString();
+
+            c.TotalPrice = d;
         }
 
         private void GoToOrBTN_Click(object sender, RoutedEventArgs e)

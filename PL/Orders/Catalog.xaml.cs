@@ -23,8 +23,8 @@ namespace PL.Orders
     public partial class Catalog : Window
     {
         BlApi.IBl bl = BlApi.Factory.Get();
-        private ObservableCollection<OrderItem?> myCart; 
-
+        private ObservableCollection<OrderItem?> myCart;
+        double topr;
 
         public Catalog()
         {
@@ -50,6 +50,7 @@ namespace PL.Orders
             if (p != null)
             {
                 myCart.Add(p);
+                topr = topr +p.Price;
                 MessageBox.Show("Added!", "", MessageBoxButton.OK);
             }
         }
@@ -57,7 +58,7 @@ namespace PL.Orders
         private void FinishBTN_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<OrderItem?> mc = myCart;
-            new PL.Cart.Cart(mc).Show();
+            new PL.Cart.Cart(mc, topr).Show();
         }
 
         private void FinishBTN_MouseEnter(object sender, MouseEventArgs e)
