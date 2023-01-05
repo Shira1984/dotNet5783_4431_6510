@@ -41,7 +41,9 @@ internal class Product : IProduct
             Category = (BO.Enums.Category)doProduct.Category,
             Price = doProduct.Price,
             Name = doProduct.Name,
-            InStock = doProduct.InStock
+            InStock = doProduct.InStock,
+            ImageRelativeName = @"\pics\IMG" + doProduct?.ID + ".jpg"
+
         };
     }
 
