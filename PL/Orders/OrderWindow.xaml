@@ -7,17 +7,19 @@
         mc:Ignorable="d"
         Title="OrderWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="IDLBL" Content="ID" HorizontalAlignment="Left" Margin="165,114,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CstNameLBL" Content="Customer Name" HorizontalAlignment="Left" Margin="158,145,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="PriceLBL" Content="Total Price" HorizontalAlignment="Left" Margin="161,205,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="AmountLBL" Content="Amount of Items" HorizontalAlignment="Left" Margin="126,236,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatusLBL" Content="Status" HorizontalAlignment="Left" Margin="183,174,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="IDtTextBox" HorizontalAlignment="Left" Margin="278,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="csttTextBox" HorizontalAlignment="Left" Margin="305,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TotalpriceTextBox" HorizontalAlignment="Left" Margin="305,231,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Margin="305,262,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="StatusCombo" HorizontalAlignment="Left" Margin="338,187,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Margin="365,370,0,0" VerticalAlignment="Top" Click="updateBtn_Click"/>
+        <Image x:Name="Obckgrnd" Source="/Orders/צילום מסך 2023-01-05 035404.jpg" Stretch="UniformToFill"/>
+
+        <Label x:Name="IDLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="ID" HorizontalAlignment="Left" Margin="161,58,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="CstNameLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Customer Name" HorizontalAlignment="Left" Margin="161,108,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PriceLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Total Price" HorizontalAlignment="Left" Margin="161,207,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="AmountLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Amount of Items" HorizontalAlignment="Left" Margin="161,256,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatusLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Status" HorizontalAlignment="Left" Margin="161,158,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="IDtTextBox" HorizontalAlignment="Left" Margin="161,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="csttTextBox" HorizontalAlignment="Left" Margin="161,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="TotalpriceTextBox" HorizontalAlignment="Left" Margin="161,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Margin="161,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <ComboBox x:Name="StatusCombo" HorizontalAlignment="Left" Margin="161,179,0,0" VerticalAlignment="Top" Width="165" Height="23"/>
+        <Button x:Name="updateBtn" Style="{StaticResource myButtonStyle}" Content="Update" HorizontalAlignment="Left" Margin="293,343,0,0" VerticalAlignment="Top" Click="updateBtn_Click" MouseEnter="updateBtn_MouseEnter" MouseLeave="updateBtn_MouseLeave"/>
 
     </Grid>
 </Window>

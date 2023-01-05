@@ -9,9 +9,9 @@
     <Grid>
         <Image x:Name="mainBCKGRND" Source="/e98e39e07629a857f40a4a3a64ed2d4a.jpg" Margin="-108,-113,-109,-85"/>
 
-        <Button x:Name="AdminBTN" Style="{StaticResource myButtonStyle}" Content="                                 Admin" HorizontalAlignment="Left" Margin="-21,69,0,0" VerticalAlignment="Top" Click="ShowAdminView_Click" Height="37" Width="328" MouseEnter="AdminBTN_MouseEnter" MouseLeave="AdminBTN_MouseLeave"/>
-        <Button x:Name="OrderBTN" Style="{StaticResource myButtonStyle}" Content="                                 Order" HorizontalAlignment="Left" Margin="-21,135,0,0" VerticalAlignment="Top" Click="OrderBTN_Click" Height="37" Width="328" MouseEnter="OrderBTN_MouseEnter" MouseLeave="OrderBTN_MouseLeave" />
-        <Button x:Name ="FollowBTN" Style="{StaticResource myButtonStyle}" Content="                 Follow After Order" Margin="-21,203,0,0" VerticalAlignment="Top" Height="37" Width="328" HorizontalAlignment="Left"/>
+        <Button x:Name="AdminBTN" FlowDirection="RightToLeft" Style="{StaticResource myButtonStyle}" Content="Admin" HorizontalAlignment="Left" Margin="-21,69,0,0" VerticalAlignment="Top" Click="ShowAdminView_Click" Height="37" Width="328" MouseEnter="AdminBTN_MouseEnter" MouseLeave="AdminBTN_MouseLeave"/>
+        <Button x:Name="OrderBTN" FlowDirection="RightToLeft" Style="{StaticResource myButtonStyle}" Content="Order" HorizontalAlignment="Left" Margin="-21,135,0,0" VerticalAlignment="Top" Click="OrderBTN_Click" Height="37" Width="328" MouseEnter="OrderBTN_MouseEnter" MouseLeave="OrderBTN_MouseLeave" />
+        <Button x:Name ="FollowBTN" FlowDirection="RightToLeft" Style="{StaticResource myButtonStyle}" Content="Follow After Order" Margin="-21,203,0,0" VerticalAlignment="Top" Height="37" Width="328" HorizontalAlignment="Left" Click="FollowBTN_Click" MouseEnter="FollowBTN_MouseEnter" MouseLeave="FollowBTN_MouseLeave"/>
 
 
     </Grid>

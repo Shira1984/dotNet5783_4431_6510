@@ -16,7 +16,16 @@
   <ItemGroup>
     <None Remove="1b1a2af4ff9bf67e5c8280b607cf0f09.jpg" />
     <None Remove="7ca42e4ff366cf7e8ce6b150bfb7b2d9.jpg" />
+    <None Remove="Cart\2edf376ce4991d488518e5f5505ff232.jpg" />
+    <None Remove="Cart\d2f32afde48992b6253a2417e747dbcb.jpg" />
     <None Remove="e98e39e07629a857f40a4a3a64ed2d4a.jpg" />
+    <None Remove="Orders\16daddfb84677a616532b056faa7cefa.jpg" />
+    <None Remove="Orders\2004963b6f8b662951b97bb34dff4c1d.jpg" />
+    <None Remove="Orders\73660d35a956a520d400d2ca465eb02c.jpg" />
+    <None Remove="Orders\d2f32afde48992b6253a2417e747dbcb.jpg" />
+    <None Remove="Orders\e16d75fa4dea1b19aebf6d0b2657c363.jpg" />
+    <None Remove="Orders\f332e47bad7a19aa986e8697ca83eb1c.jpg" />
+    <None Remove="Orders\צילום מסך 2023-01-05 035404.jpg" />
     <None Remove="Products\8544b9cb949bc8f05a39530cf94ef896.jpg" />
     <None Remove="Products\ec1e3ec3f54443fd91328f8553c502cf.jpg" />
   </ItemGroup>
@@ -28,7 +37,16 @@
   <ItemGroup>
     <Resource Include="1b1a2af4ff9bf67e5c8280b607cf0f09.jpg" />
     <Resource Include="7ca42e4ff366cf7e8ce6b150bfb7b2d9.jpg" />
+    <Resource Include="Cart\2edf376ce4991d488518e5f5505ff232.jpg" />
+    <Resource Include="Cart\d2f32afde48992b6253a2417e747dbcb.jpg" />
     <Resource Include="e98e39e07629a857f40a4a3a64ed2d4a.jpg" />
+    <Resource Include="Orders\16daddfb84677a616532b056faa7cefa.jpg" />
+    <Resource Include="Orders\2004963b6f8b662951b97bb34dff4c1d.jpg" />
+    <Resource Include="Orders\73660d35a956a520d400d2ca465eb02c.jpg" />
+    <Resource Include="Orders\d2f32afde48992b6253a2417e747dbcb.jpg" />
+    <Resource Include="Orders\e16d75fa4dea1b19aebf6d0b2657c363.jpg" />
+    <Resource Include="Orders\f332e47bad7a19aa986e8697ca83eb1c.jpg" />
+    <Resource Include="Orders\צילום מסך 2023-01-05 035404.jpg" />
     <Resource Include="Products\8544b9cb949bc8f05a39530cf94ef896.jpg" />
     <Resource Include="Products\ec1e3ec3f54443fd91328f8553c502cf.jpg" />
   </ItemGroup>

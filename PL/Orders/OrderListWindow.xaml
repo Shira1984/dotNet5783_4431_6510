@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="OrderListWindow" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="OrderListView" Foreground="Navy" d:ItemsSource="{d:SampleData ItemCount=5}" PreviewMouseDoubleClick="ShowOrder"> 
+        <ListView x:Name="OrderListView" Foreground="Navy" FontWeight="Bold" FontStyle="Italic" d:ItemsSource="{d:SampleData ItemCount=5}" PreviewMouseDoubleClick="ShowOrder">
+            <ListView.Background>
+                <ImageBrush ImageSource="/Orders/73660d35a956a520d400d2ca465eb02c.jpg"/>
+            </ListView.Background>
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

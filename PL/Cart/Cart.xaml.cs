@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,68 @@ namespace PL.Cart
     /// </summary>
     public partial class Cart : Window
     {
-        public Cart()
+        BlApi.IBl bl = BlApi.Factory.Get();
+
+        public Cart(ObservableCollection<OrderItem?> mc)
         {
             InitializeComponent();
+            BO.Cart c = new BO.Cart() { };
+
+            c.Items = mc.ToList();
+
+            ItemsLSTBX.DataContext = c.Items;
+            if  (c.Items == null)
+            { 
+              MessageBox.Show("You don't have any items my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);              
+            }
+            else
+            {
+                MessageBoxResult messageBoxResult;
+                try
+                {
+                    if (CstNameTextBox.Text.Length == 0)
+                        MessageBox.Show("You chose a problematic Customer Name my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else
+                        c.CustomerName = CstNameTextBox.Text;
+                    if (CstEmailTextBox.Text.Length == 0)
+                        MessageBox.Show("You chose a problematic Customer Email my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else
+                        c.CustomerEmail = CstEmailTextBox.Text;
+                    if (CstAdressTextBox.Text.Length == 0)
+                        MessageBox.Show("You chose a problematic Customer Email my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else
+                        c.CustomerAdress = CstAdressTextBox.Text;
+                }
+                catch (BO.BlAlredyFindException ex)
+                {
+                    messageBoxResult = MessageBox.Show(ex.InnerException.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void GoToOrBTN_Click(object sender, RoutedEventArgs e)
+        {
+            //new PL.OrderWindowC(BO.Cart c).Show();
+        }
+
+        private void GoToOrBTN_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height * 1.1;
+                b.Width = b.Width * 1.1;
+            }
+        }
+
+        private void GoToOrBTN_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height / 1.1;
+                b.Width = b.Width / 1.1;
+            }
         }
     }
 }

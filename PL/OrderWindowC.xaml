@@ -15,16 +15,17 @@
         <Label x:Name="OrderDateLBL" Content="Order Date" HorizontalAlignment="Left" Margin="465,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.465,-3.897"/>
         <Label x:Name="ShipDateLBL" Content="Ship Date" HorizontalAlignment="Left" Margin="473,114,0,0" VerticalAlignment="Top"/>
         <Label x:Name="DeliveryDateLBL" Content="Delivery Date" HorizontalAlignment="Left" Margin="465,152,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TotalPriceLBL" Content="Total Price" HorizontalAlignment="Left" Margin="473,262,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="TotalPriceLBL" Content="Total Price" HorizontalAlignment="Left" Margin="465,182,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="CstNameTextBox" HorizontalAlignment="Left" Margin="209,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="CstEmailTextBox" HorizontalAlignment="Left" Margin="209,173,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="CstAdressTextBox" HorizontalAlignment="Left" Margin="209,220,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="OrderDateTextBox" HorizontalAlignment="Left" Margin="611,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="ShipDateTextBox" HorizontalAlignment="Left" Margin="611,126,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="DeliveryDateTextBox" HorizontalAlignment="Left" Margin="611,173,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" Margin="611,266,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" Margin="611,212,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="OrderStatusComboBox" HorizontalAlignment="Left" Margin="209,264,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="OrderButton" Content="Finish" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Click="OrderButton_Click"/>
+        <ListBox x:Name="ItemsLSTBX" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="473,262,37,24"/>
 
     </Grid>
 </Window>

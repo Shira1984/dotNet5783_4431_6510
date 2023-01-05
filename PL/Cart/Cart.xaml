@@ -7,14 +7,27 @@
         mc:Ignorable="d"
         Title="Cart" Height="450" Width="800">
     <Grid>
-        <Label x:Name="CstNameLBL" Content="Custumer Name" HorizontalAlignment="Left" Margin="121,124,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CstEmailLBL" Content="Custumer Email" HorizontalAlignment="Left" Margin="121,155,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CstAdressLBL" Content="Custumer Adress" HorizontalAlignment="Left" Margin="121,209,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CstNameTextBox" HorizontalAlignment="Left" Margin="235,128,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="CstEmailTextBox" HorizontalAlignment="Left" Margin="235,168,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="CstAdressTextBox" HorizontalAlignment="Left" Margin="235,217,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="TotalPriceLBL" Content="Total Price" HorizontalAlignment="Left" Margin="476,137,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" Margin="574,141,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Image x:Name="CartBCKSRND" Source="/Cart/2edf376ce4991d488518e5f5505ff232.jpg" Stretch="UniformToFill"/>
+
+        <Label x:Name="CstNameLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Custumer Name" HorizontalAlignment="Left" Margin="250,25,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="CstEmailLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Custumer Email" HorizontalAlignment="Left" Margin="246,78,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="CstAdressLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Custumer Adress" HorizontalAlignment="Left" Margin="246,132,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CstNameTextBox" HorizontalAlignment="Left" Margin="246,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="CstEmailTextBox" HorizontalAlignment="Left" Margin="246,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="CstAdressTextBox" HorizontalAlignment="Left" Margin="245,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <Label x:Name="TotalPriceLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Total Price" HorizontalAlignment="Left" Margin="244,186,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" Margin="246,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <ListView x:Name="ItemsLSTBX" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="503,28,34,85">
+            <ListView.Background>
+                <ImageBrush ImageSource="/Cart/d2f32afde48992b6253a2417e747dbcb.jpg"/>
+            </ListView.Background>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="GoToOrBTN" Style="{StaticResource ResourceKey=myButtonStyle}" Content="Order It!" HorizontalAlignment="Center" Margin="0,374,0,0" VerticalAlignment="Top" Click="GoToOrBTN_Click" MouseEnter="GoToOrBTN_MouseEnter" MouseLeave="GoToOrBTN_MouseLeave"/>
 
     </Grid>
 </Window>

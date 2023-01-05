@@ -33,5 +33,45 @@ namespace PL
         {
             new PL.Orders.OrderListWindow().Show();
         }
+
+        private void ProductListViewBTN_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height * 1.1;
+                b.Width = b.Width * 1.1;
+            }
+        }
+
+        private void ProductListViewBTN_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height / 1.1;
+                b.Width = b.Width / 1.1;
+            }
+        }
+
+        private void OrdersListViewBTN_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height * 1.1;
+                b.Width = b.Width * 1.1;
+            }
+        }
+
+        private void OrdersListViewBTN_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height / 1.1;
+                b.Width = b.Width / 1.1;
+            }
+        }
     }
 }
