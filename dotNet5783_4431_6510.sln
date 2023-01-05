@@ -27,6 +27,50 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{B229ECC3-595
 		xml\dal-config.xml = xml\dal-config.xml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pics", "pics", "{520E017D-95F9-488C-935D-5F3E29F2D387}"
+	ProjectSection(SolutionItems) = preProject
+		pics\IMG (1).jpg = pics\IMG (1).jpg
+		pics\IMG (10).jpg = pics\IMG (10).jpg
+		pics\IMG (11).jpg = pics\IMG (11).jpg
+		pics\IMG (12).jpg = pics\IMG (12).jpg
+		pics\IMG (13).jpg = pics\IMG (13).jpg
+		pics\IMG (14).jpg = pics\IMG (14).jpg
+		pics\IMG (15).jpg = pics\IMG (15).jpg
+		pics\IMG (16).jpg = pics\IMG (16).jpg
+		pics\IMG (17).jpg = pics\IMG (17).jpg
+		pics\IMG (18).jpg = pics\IMG (18).jpg
+		pics\IMG (19).jpg = pics\IMG (19).jpg
+		pics\IMG (2).jpg = pics\IMG (2).jpg
+		pics\IMG (20).jpg = pics\IMG (20).jpg
+		pics\IMG (21).jpg = pics\IMG (21).jpg
+		pics\IMG (22).jpg = pics\IMG (22).jpg
+		pics\IMG (23).jpg = pics\IMG (23).jpg
+		pics\IMG (24).jpg = pics\IMG (24).jpg
+		pics\IMG (25).jpg = pics\IMG (25).jpg
+		pics\IMG (26).jpg = pics\IMG (26).jpg
+		pics\IMG (27).jpg = pics\IMG (27).jpg
+		pics\IMG (28).jpg = pics\IMG (28).jpg
+		pics\IMG (29).jpg = pics\IMG (29).jpg
+		pics\IMG (3).jpg = pics\IMG (3).jpg
+		pics\IMG (30).jpg = pics\IMG (30).jpg
+		pics\IMG (4).jpg = pics\IMG (4).jpg
+		pics\IMG (5).jpg = pics\IMG (5).jpg
+		pics\IMG (6).jpg = pics\IMG (6).jpg
+		pics\IMG (7).jpg = pics\IMG (7).jpg
+		pics\IMG (8).jpg = pics\IMG (8).jpg
+		pics\IMG (9).jpg = pics\IMG (9).jpg
+		pics\IMG22.jpg = pics\IMG22.jpg
+		pics\IMG33.jpg = pics\IMG33.jpg
+		pics\IMG44.jpg = pics\IMG44.jpg
+		pics\IMG458712.jpg = pics\IMG458712.jpg
+		pics\IMG55.jpg = pics\IMG55.jpg
+		pics\IMG55548.jpg = pics\IMG55548.jpg
+		pics\IMG66.jpg = pics\IMG66.jpg
+		pics\IMG6985.jpg = pics\IMG6985.jpg
+		pics\IMG77.jpg = pics\IMG77.jpg
+		pics\‏‏IMG.jpg = pics\‏‏IMG.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
