@@ -22,18 +22,24 @@ namespace PL.Cart
     public partial class Cart : Window
     {
         BlApi.IBl bl = BlApi.Factory.Get();
-
+        BO.Cart c = new BO.Cart() { };
         public Cart(ObservableCollection<OrderItem?> mc)
         {
-            InitializeComponent();
-            BO.Cart c = new BO.Cart() { };
-
             c.Items = mc.ToList();
 
-            ItemsLSTBX.DataContext = c.Items;
-            if  (c.Items == null)
-            { 
-              MessageBox.Show("You don't have any items my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);              
+            InitializeComponent();
+           
+
+            ItemsLSTBX.DataContext = mc.ToList();
+            
+           
+        }
+
+        private void GoToOrBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (c.Items == null)
+            {
+                MessageBox.Show("You don't have any items my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -58,11 +64,8 @@ namespace PL.Cart
                     messageBoxResult = MessageBox.Show(ex.InnerException.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-        }
+                new PL.OrderWindowC(c).Show();
 
-        private void GoToOrBTN_Click(object sender, RoutedEventArgs e)
-        {
-            //new PL.OrderWindowC(BO.Cart c).Show();
         }
 
         private void GoToOrBTN_MouseEnter(object sender, MouseEventArgs e)

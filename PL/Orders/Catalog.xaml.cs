@@ -38,8 +38,15 @@ namespace PL.Orders
 
         private void addTCBTN_Click(object sender, RoutedEventArgs e)
         {
-            OrderItem p = (sender as Button).DataContext as OrderItem;
+            BO.ProductForList item = (BO.ProductForList)((sender as Button).DataContext);
+            BO.OrderItem p = new BO.OrderItem
+            {
+                Name = item.Name,
+                Price = item.Price,
+                ProductID=item.Id,
+                
 
+            };
             if (p != null)
             {
                 myCart.Add(p);

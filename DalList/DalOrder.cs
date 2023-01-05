@@ -24,11 +24,20 @@ internal class DalOrder : IOrder
     //request
     public Order GetById(int id)
     {
-        Order? o = DataSource.OrdersList.Find(or => or?.ID == id);
-        if (o == null)
-            throw new Exception("Order not exist");
-        else
-            return (Order)o;
+        
+        try
+        {
+            Order? o = DataSource.OrdersList.Find(or => or?.ID == id);
+            if (o == null)
+
+                throw new Exception("Order not exist");
+            else
+                return (Order)o;
+        }
+        catch(Exception ex)
+        {
+            throw new DO.DlNoFindException("There is no order founded");
+        }
     }
 
     //update

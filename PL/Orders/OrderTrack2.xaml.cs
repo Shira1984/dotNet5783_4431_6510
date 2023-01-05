@@ -24,14 +24,22 @@ namespace PL.Orders
         
         MessageBoxResult messageBoxResult;
 
-      
+        BO.Order o;
         public OrderTrack2(int t)
         {
             InitializeComponent();
-            BO.OrderTracking ot = bl.Order.FollowOrderM(t);
+            try
+            {
+                BO.OrderTracking ot = bl.Order.FollowOrderM(t);
+                ordertrarktxt.Text = ot.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
            
-            ordertrarktxt.Text= ot.ToString();
-            BO.Order o = bl.Order.GetByOrderIdM(t);
+            
+            o = bl.Order.GetByOrderIdM(t);
         }
 
         //private void orderDetailsBTN_Click(object sender, RoutedEventArgs e)
@@ -41,7 +49,7 @@ namespace PL.Orders
 
         private void orderDetailsBTN_Click(object sender, RoutedEventArgs e)
         {
-            //new PL.Orders.FollowOrder(BO.Order o);
+            new PL.Orders.FollowOrder(o);
         }
 
         private void orderDetailsBTN_MouseEnter(object sender, MouseEventArgs e)
