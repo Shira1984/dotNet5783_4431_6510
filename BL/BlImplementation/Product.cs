@@ -42,7 +42,7 @@ internal class Product : IProduct
             Price = doProduct.Price,
             Name = doProduct.Name,
             InStock = doProduct.InStock,
-            ImageRelativeName = @"\pics\IMG" + doProduct?.ID + ".jpg"
+            ImageRelativeName = @"\pics\IMG" + doProduct.ID + ".jpg"
 
         };
     }
