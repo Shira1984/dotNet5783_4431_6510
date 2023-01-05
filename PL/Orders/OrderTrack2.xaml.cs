@@ -49,7 +49,7 @@ namespace PL.Orders
 
         private void orderDetailsBTN_Click(object sender, RoutedEventArgs e)
         {
-            new PL.Orders.FollowOrder(o);
+            new PL.Orders.FollowOrder(o).Show();
         }
 
         private void orderDetailsBTN_MouseEnter(object sender, MouseEventArgs e)
