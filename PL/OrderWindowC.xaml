@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
+        DataContext="{Binding mc, RelativeSource={RelativeSource self}}"
         mc:Ignorable="d"
         Title="OrderWindowC" Height="450" Width="800">
     <Grid>
@@ -18,7 +19,7 @@
         <Label x:Name="ShipDateLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Ship Date" HorizontalAlignment="Left" Margin="324,92,0,0" VerticalAlignment="Top"/>
         <Label x:Name="DeliveryDateLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Delivery Date" HorizontalAlignment="Left" Margin="324,138,0,0" VerticalAlignment="Top"/>
         <Label x:Name="TotalPriceLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Total Price" HorizontalAlignment="Left" Margin="324,185,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CstNameTextBox" HorizontalAlignment="Left" Margin="75,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="CstNameTextBox" HorizontalAlignment="Left" Margin="75,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23" />
         <TextBox x:Name="CstEmailTextBox" HorizontalAlignment="Left" Margin="75,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="22"/>
         <TextBox x:Name="CstAdressTextBox" HorizontalAlignment="Left" Margin="75,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="165" Height="24"/>
         <TextBox x:Name="OrderDateTextBox" HorizontalAlignment="Left" Margin="324,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
@@ -26,12 +27,15 @@
         <TextBox x:Name="DeliveryDateTextBox" HorizontalAlignment="Left" Margin="324,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
         <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" Margin="324,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="165" Height="23"/>
         <ComboBox x:Name="OrderStatusComboBox" HorizontalAlignment="Left" Margin="75,254,0,0" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Margin="75,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="19"/>
         <Button x:Name="OrderButton" Style="{StaticResource ResourceKey=myButtonStyle}" Content="Finish" HorizontalAlignment="Left" Margin="273,345,0,0" VerticalAlignment="Top" Click="OrderButton_Click"/>
-        <ListBox x:Name="ItemsLSTBX" ItemsSource="{Binding}" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="534,37,29,52" FontWeight="Bold" FontSize="14" Foreground="Black">
+        <ListBox x:Name="ItemsLSTBX" ItemsSource="{Binding}"  Margin="534,37,29,52" FontWeight="Bold" FontSize="14" Foreground="Black">
             <ListBox.Background>
                 <ImageBrush ImageSource="/e16d75fa4dea1b19aebf6d0b2657c363.jpg"/>
             </ListBox.Background>
         </ListBox>
+
+
 
     </Grid>
 </Window>
