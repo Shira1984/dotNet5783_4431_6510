@@ -6,6 +6,46 @@
         xmlns:local="clr-namespace:PL.Products"
         mc:Ignorable="d"
         Title="ProductListWindow" Height="640" Width="800">
+
+    <Window.Resources>
+        <DataTemplate x:Key="eachProduct" DataType="local: ProductForList">
+            <Grid>
+                
+                <Grid.RowDefinitions>
+                    <!--<RowDefinition Height="180" />-->
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                
+                <!--<Grid.ColumnDefinitions>-->
+                    <!--<ColumnDefinition Width="150" />-->
+                    <!--<ColumnDefinition Width="150" />-->
+                <!--</Grid.ColumnDefinitions>-->
+
+                <!--<Grid>
+                    <Grid Name="SGrid" Grid.Column="0"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    
+                </Grid>-->
+                
+                <Image x:Name="ProductIMG" Grid.Row="0" Stretch="UniformToFill" Source="{Binding ImageRelativeName, Converter={StaticResource ResourceKey=ImagePathToBitmap}}" Height="60" Width="40"/>
+                <TextBlock Grid.Row="1" Foreground="Navy" FontSize="12" Text="{Binding Path=Id}" />
+                <TextBlock Grid.Row="2" Foreground="Navy" FontSize="12" Text="{Binding Path=Name}" />
+                <TextBlock Grid.Row="3" Foreground="Navy" FontSize="12" Text="{Binding Path=Price}" />
+                <TextBlock Grid.Row="4" Foreground="Navy" FontSize="12" Text="{Binding Path=Category}" />
+
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid Name="MainGrid"/>
         <Grid Name="UpGrid" Height="auto" Grid.Row="0" Background="Bisque" Width="auto">
@@ -27,7 +67,7 @@
                    VerticalAlignment="Center"
                    Grid.Column="0" Width="317"/>
         </Grid>
-        <ListView Name ="ProductListView" Foreground="Navy" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,46,0,0" Grid.RowSpan="4" PreviewMouseDoubleClick="update" FontWeight="Bold" FontStyle="Italic" Width="800" HorizontalAlignment="Left">
+        <ListView Name ="ProductListView" Foreground="Navy" ItemsSource="{Binding}" ItemTemplate="{StaticResource eachProduct}" Margin="0,46,0,0" Grid.RowSpan="4" PreviewMouseDoubleClick="update" FontWeight="Bold" FontStyle="Italic" Width="800" HorizontalAlignment="Left">
             <ListView.Background>
                 <ImageBrush ImageSource="/Products/8544b9cb949bc8f05a39530cf94ef896.jpg"/>
             </ListView.Background>
@@ -36,7 +76,8 @@
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
-
+            
+            
         </ListView>
         <Button x:Name="AddProBTN" Style="{StaticResource myButtonStyle}" Content="Add new Product" Grid.Row="2" HorizontalAlignment="Right" Margin="5" Padding="5" Click="AddProWinButton_Click" Width="160" Height="35" MouseEnter="AddProBTN_MouseEnter" MouseLeave="AddProBTN_MouseLeave"/>
 
