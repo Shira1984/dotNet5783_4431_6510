@@ -23,7 +23,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="280" />
                 </Grid.ColumnDefinitions>
-                <Image x:Name="ProductIMG" Grid.Row="0" Grid.Column="0" Stretch="UniformToFill" Source="{Binding ImageRelativeName, Converter={StaticResource ResourceKey=ImagePathToBitmap}}" Height="180" Width="110"/>
+                <Image x:Name="ProductIMG" Grid.Row="0" Grid.Column="0" Stretch="UniformToFill" Source="{Binding ImageRelativeName, Converter={StaticResource ResourceKey=ImagePathToBitmap}}" Height="180" Width="120"/>
                 <TextBlock Grid.Row="1"  Grid.Column="0" Foreground="Navy" FontSize="12" Text="{Binding Path=Name}" />
                 <TextBlock Grid.Row="2"  Grid.Column="0" Foreground="Navy" FontSize="12" Text="{Binding Path=Price}" />
                 <Button x:Name="addTCBTN" Style="{StaticResource myButtonStyle}" FontSize="12" Height="20" Width="70" Grid.Row="3" Content="Add To Cart" Click="addTCBTN_Click" MouseEnter="addTCBTN_MouseEnter" MouseLeave="addTCBTN_MouseLeave"/>
