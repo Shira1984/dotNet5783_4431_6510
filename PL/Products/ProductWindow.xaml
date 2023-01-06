@@ -9,7 +9,7 @@
         Title="ProductWindow" Height="450" Width="800">
     <Grid>
 
-        <Image x:Name="ProBCKGRND" Source="/Products/ec1e3ec3f54443fd91328f8553c502cf.jpg" Margin="-97,-94,-97,-58"/>
+        <Image x:Name="ProBCKGRND" Source="/Products/e4660e5c3a3a17925502b475d65ca3a0.jpg" Stretch="UniformToFill" HorizontalAlignment="Stretch" Height="NaN" VerticalAlignment="Stretch" Width="NaN"/>
 
         <Button x:Name="upadBTN" Style="{StaticResource myButtonStyle}" HorizontalAlignment="Center" Margin="0,366,0,0" VerticalAlignment="Top" Height="39" Width="80" Click="DoneButton_Click" MouseEnter="upadBTN_MouseEnter" MouseLeave="upadBTN_MouseLeave"/>
         <TextBox x:Name="IDTextBox" MaxLength="6" HorizontalAlignment="Left" Margin="177,82,0,0" TextWrapping="Wrap" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" VerticalAlignment="Top" Width="168" Height="26"/>
@@ -24,6 +24,7 @@
         <Label x:Name="PriceLabel" Content="Price" FontSize="18" Foreground="Beige" FontWeight="ExtraBold" HorizontalAlignment="Left" Margin="88,158,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
         <Label x:Name="CatLabel" Content="Category" FontSize="18" Foreground="Beige" FontWeight="ExtraBold" HorizontalAlignment="Left" Margin="88,194,0,0" VerticalAlignment="Top" Width="90" Height="40"/>
         <Label x:Name="AmountLabel" Content="Amount" FontSize="18" Foreground="Beige" FontWeight="ExtraBold" HorizontalAlignment="Left" Margin="88,239,0,0" VerticalAlignment="Top" Width="85" Height="30"/>
+        <Image x:Name="ProductIMG" Source="{Binding ImageRelativeName, Converter={StaticResource ResourceKey=ImagePathToBitmap}}" HorizontalAlignment="Left" Height="252" Margin="535,47,0,0" VerticalAlignment="Top" Width="178" Stretch="UniformToFill"/>
 
     </Grid>
 </Window>

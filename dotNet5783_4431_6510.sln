@@ -65,10 +65,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pics", "pics", "{520E017D-9
 		pics\IMG300004.jpg = pics\IMG300004.jpg
 		pics\IMG200009.jpg = pics\IMG200009.jpg
 		pics\IMG400009.jpg = pics\IMG400009.jpg
+		pics\IMG400006.jpg = pics\IMG400006.jpg
 		pics\IMG400007.jpg = pics\IMG400007.jpg
 		pics\IMG400008.jpg = pics\IMG400008.jpg
 		pics\IMG400005.jpg = pics\IMG400005.jpg
-		pics\‏‏IMG400006.jpg = pics\‏‏IMG400006.jpg
+		pics\IMG_FAILURE.jpg = pics\IMG_FAILURE.jpg
 	EndProjectSection
 EndProject
 Global

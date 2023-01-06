@@ -45,13 +45,32 @@ namespace PL.Orders
                 Price = item.Price,
                 ProductID=item.Id,
                 
-
             };
             if (p != null)
             {
                 myCart.Add(p);
                 topr = topr +p.Price;
                 MessageBox.Show("Added!", "", MessageBoxButton.OK);
+            }
+        }
+
+        private void addTCBTN_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height * 1.1;
+                b.Width = b.Width * 1.1;
+            }
+        }
+
+        private void addTCBTN_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height / 1.1;
+                b.Width = b.Width / 1.1;
             }
         }
 

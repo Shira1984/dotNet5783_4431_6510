@@ -7,25 +7,26 @@
         xmlns:BO="clr-namespace:BO;assembly=BL"
 
         mc:Ignorable="d"
-        Title="Catalog" Height="450" Width="800">
-    
+        Title="Catalog" Height="750" Width="1200">
+
     <Window.Resources>
         <DataTemplate x:Key="oneProduct" DataType="local: OrderItem">
             <Grid>
-                
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
+                    <RowDefinition Height="180" />
                     <RowDefinition Height="20" />
                     <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
+                    <RowDefinition Height="30" />
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="280" />
                 </Grid.ColumnDefinitions>
+                <Image x:Name="ProductIMG" Grid.Row="0" Grid.Column="0" Stretch="UniformToFill" Source="{Binding ImageRelativeName, Converter={StaticResource ResourceKey=ImagePathToBitmap}}" Height="180" Width="110"/>
                 <TextBlock Grid.Row="1"  Grid.Column="0" Foreground="Navy" FontSize="12" Text="{Binding Path=Name}" />
                 <TextBlock Grid.Row="2"  Grid.Column="0" Foreground="Navy" FontSize="12" Text="{Binding Path=Price}" />
-                <Button x:Name="addTCBTN" Style="{StaticResource myButtonStyle}" FontSize="12" Height="20" Width="70" Grid.Row="3" Content="Add To Cart" Click="addTCBTN_Click"/>
+                <Button x:Name="addTCBTN" Style="{StaticResource myButtonStyle}" FontSize="12" Height="20" Width="70" Grid.Row="3" Content="Add To Cart" Click="addTCBTN_Click" MouseEnter="addTCBTN_MouseEnter" MouseLeave="addTCBTN_MouseLeave"/>
 
 
             </Grid>
@@ -33,26 +34,32 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Orders/ec1e3ec3f54443fd91328f8553c502cf.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="600" />
         </Grid.RowDefinitions>
 
-        <Button x:Name="FinishBTN" Grid.Row="0" Content="Go To Cart" Style="{StaticResource myButtonStyle}" Click="FinishBTN_Click" Margin="545,0,69,3"/>
+        <Button x:Name="FinishBTN" Grid.Row="0" Content="Go To Cart" Style="{StaticResource myButtonStyle}" Click="FinishBTN_Click" MouseEnter="FinishBTN_MouseEnter" MouseLeave="FinishBTN_MouseLeave" Margin="874,35,140,598" Grid.RowSpan="2"/>
 
-        <ScrollViewer Grid.Row="1" Height="400" Margin="0,0,0,-144">
-            <ListView x:Name="catView" Grid.Row="1" ItemsSource="{Binding}" BorderBrush="HotPink" ItemTemplate="{StaticResource oneProduct}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" >
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ListView>
-            
-        </ScrollViewer>
+        <!--<ScrollViewer Grid.Row="1" Height="Auto" Margin="0,71,0,-64">-->
+        <ListView x:Name="catView" Grid.Row="1" ItemsSource="{Binding}" Foreground="Navy" FontWeight="DemiBold" BorderBrush="Gray" ItemTemplate="{StaticResource oneProduct}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" Margin="0,42,0,-65" >
+            <ListView.Background>
+                <ImageBrush ImageSource="/Orders/55fc121f1efbaa0b88afc174aefd5a17.jpg" Stretch="UniformToFill"/>
+            </ListView.Background>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ListView>
 
-        
-                  
+        <!--</ScrollViewer>-->
+
+
+
 
     </Grid>
 </Window>
