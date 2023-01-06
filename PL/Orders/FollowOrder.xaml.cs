@@ -32,7 +32,7 @@ namespace PL.Orders
             ShipDateTextBox.Text=o.ShipDate.ToString();
             DeliveryDateTextBox.Text =(o.DeliveryDate.ToString());
             TotalPriceTextBox.Text =(o.TotalPrice.ToString());
-            //statusTXTBX.Text = o.Status;
+            statusTXTBX.Text=o.Status.ToString();
             //ItemsListV
 
 
