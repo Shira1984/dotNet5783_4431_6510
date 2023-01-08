@@ -21,8 +21,10 @@ namespace PL
     /// </summary>
     public partial class OrderWindowC : Window
     {
+        BlApi.IBl bl = BlApi.Factory.Get();
         DateTime mydate = DateTime.Today;
         double d = 3.0;
+        BO.OrderForList orderList = new BO.OrderForList();
         public OrderWindowC(BO.Cart c)
         {
             InitializeComponent();
@@ -45,15 +47,23 @@ namespace PL
             o.OrderDate = mydate;
             o.Status = BO.Enums.OrderStatus.Ordered;
 
-
             o.TotalPrice = c.TotalPrice.Value;
             o.ShipDate = null;
             o.DeliveryDate = null;
+            
+            orderList.CustomerName=c.CustomerName;
+            orderList.Status = BO.Enums.OrderStatus.Ordered;
+            orderList.TotalPrice = c.TotalPrice.Value;
+            orderList.ID = o.ID;
         }
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
 
+            //IEnumerable<BO.OrderForList?> items = (IEnumerable<BO.OrderForList?>)orderList;
+            //items.Union(orderList);
+            //bl.Order.GetOrderForListM().Union(items);
+            MessageBox.Show("Yor order complited");
         }
 
        

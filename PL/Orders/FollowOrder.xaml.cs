@@ -33,6 +33,8 @@ namespace PL.Orders
             DeliveryDateTextBox.Text =(o.DeliveryDate.ToString());
             TotalPriceTextBox.Text =(o.TotalPrice.ToString());
             statusTXTBX.Text=o.Status.ToString();
+            
+            ItemsListV.DataContext = o.Items.ToList();
             //ItemsListV
 
 
