@@ -25,52 +25,57 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{B229ECC3-5954-4BD7-93E5-29173A2FB557}"
 	ProjectSection(SolutionItems) = preProject
 		xml\dal-config.xml = xml\dal-config.xml
+		Order.xml = Order.xml
+		OrderItem.xml = OrderItem.xml
+		Product.xml = Product.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pics", "pics", "{520E017D-95F9-488C-935D-5F3E29F2D387}"
 	ProjectSection(SolutionItems) = preProject
-		pics\IMG100007.jpg = pics\IMG100007.jpg
-		pics\IMG100004.jpg = pics\IMG100004.jpg
-		pics\IMG100003.jpg = pics\IMG100003.jpg
-		pics\IMG100006.jpg = pics\IMG100006.jpg
-		pics\IMG100002.jpg = pics\IMG100002.jpg
-		pics\IMG100001.jpg = pics\IMG100001.jpg
-		pics\IMG100005.jpg = pics\IMG100005.jpg
 		pics\IMG100000.jpg = pics\IMG100000.jpg
-		pics\IMG200001.jpg = pics\IMG200001.jpg
-		pics\IMG200000.jpg = pics\IMG200000.jpg
-		pics\IMG100009.jpg = pics\IMG100009.jpg
+		pics\IMG100001.jpg = pics\IMG100001.jpg
+		pics\IMG100002.jpg = pics\IMG100002.jpg
+		pics\IMG100003.jpg = pics\IMG100003.jpg
+		pics\IMG100004.jpg = pics\IMG100004.jpg
+		pics\IMG100005.jpg = pics\IMG100005.jpg
+		pics\IMG100006.jpg = pics\IMG100006.jpg
+		pics\IMG100007.jpg = pics\IMG100007.jpg
 		pics\IMG100008.jpg = pics\IMG100008.jpg
-		pics\IMG200005.jpg = pics\IMG200005.jpg
+		pics\IMG100009.jpg = pics\IMG100009.jpg
+		pics\IMG200000.jpg = pics\IMG200000.jpg
+		pics\IMG200001.jpg = pics\IMG200001.jpg
 		pics\IMG200002.jpg = pics\IMG200002.jpg
 		pics\IMG200003.jpg = pics\IMG200003.jpg
 		pics\IMG200004.jpg = pics\IMG200004.jpg
-		pics\IMG200008.jpg = pics\IMG200008.jpg
-		pics\IMG200007.jpg = pics\IMG200007.jpg
+		pics\IMG200005.jpg = pics\IMG200005.jpg
 		pics\IMG200006.jpg = pics\IMG200006.jpg
-		pics\IMG400004.jpg = pics\IMG400004.jpg
-		pics\IMG400003.jpg = pics\IMG400003.jpg
-		pics\IMG400000.jpg = pics\IMG400000.jpg
+		pics\IMG200007.jpg = pics\IMG200007.jpg
+		pics\IMG200008.jpg = pics\IMG200008.jpg
+		pics\IMG200009.jpg = pics\IMG200009.jpg
+		pics\IMG300000.jpg = pics\IMG300000.jpg
+		pics\IMG300001.jpg = pics\IMG300001.jpg
+		pics\IMG300002.jpg = pics\IMG300002.jpg
+		pics\IMG300003.jpg = pics\IMG300003.jpg
+		pics\IMG300004.jpg = pics\IMG300004.jpg
+		pics\IMG300005.jpg = pics\IMG300005.jpg
 		pics\IMG300006.jpg = pics\IMG300006.jpg
+		pics\IMG300007.jpg = pics\IMG300007.jpg
+		pics\IMG300008.jpg = pics\IMG300008.jpg
+		pics\IMG300009.jpg = pics\IMG300009.jpg
+		pics\IMG400000.jpg = pics\IMG400000.jpg
 		pics\IMG400001.jpg = pics\IMG400001.jpg
 		pics\IMG400002.jpg = pics\IMG400002.jpg
-		pics\IMG300001.jpg = pics\IMG300001.jpg
-		pics\IMG300005.jpg = pics\IMG300005.jpg
-		pics\IMG300003.jpg = pics\IMG300003.jpg
-		pics\IMG300000.jpg = pics\IMG300000.jpg
-		pics\IMG300009.jpg = pics\IMG300009.jpg
-		pics\IMG300008.jpg = pics\IMG300008.jpg
-		pics\IMG300007.jpg = pics\IMG300007.jpg
-		pics\IMG300002.jpg = pics\IMG300002.jpg
-		pics\IMG300004.jpg = pics\IMG300004.jpg
-		pics\IMG200009.jpg = pics\IMG200009.jpg
-		pics\IMG400009.jpg = pics\IMG400009.jpg
+		pics\IMG400003.jpg = pics\IMG400003.jpg
+		pics\IMG400004.jpg = pics\IMG400004.jpg
+		pics\IMG400005.jpg = pics\IMG400005.jpg
 		pics\IMG400006.jpg = pics\IMG400006.jpg
 		pics\IMG400007.jpg = pics\IMG400007.jpg
 		pics\IMG400008.jpg = pics\IMG400008.jpg
-		pics\IMG400005.jpg = pics\IMG400005.jpg
+		pics\IMG400009.jpg = pics\IMG400009.jpg
 		pics\IMG_FAILURE.jpg = pics\IMG_FAILURE.jpg
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalXml", "DalXml\DalXml.csproj", "{E3B04059-6569-4249-946F-7EBC5A2E62EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,6 +111,10 @@ Global
 		{589725B9-AB2C-4EDE-AE03-BA274911EB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{589725B9-AB2C-4EDE-AE03-BA274911EB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{589725B9-AB2C-4EDE-AE03-BA274911EB20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B04059-6569-4249-946F-7EBC5A2E62EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B04059-6569-4249-946F-7EBC5A2E62EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B04059-6569-4249-946F-7EBC5A2E62EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B04059-6569-4249-946F-7EBC5A2E62EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
