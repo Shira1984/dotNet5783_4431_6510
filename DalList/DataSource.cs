@@ -47,6 +47,11 @@ internal sealed class DataSource
         createAndInitProducts();
         createAndInitOrders();
         createAndInitOrderItems();
+
+
+    //    XMLTools.SaveListToXMLSerializer(ProductsList ,"products");
+    //    XMLTools.SaveListToXMLSerializer(OrdersList, "orders");
+    //    XMLTools.SaveListToXMLSerializer(OrderItemsList, "orderItems");
     }
 
     /// <summary>

@@ -9,16 +9,17 @@ internal class DalOrder : IOrder
     //craete
     public int Add(Order order)
     {
+        order.ID = DataSource.Config.NextOrderNumber;
         bool a = DataSource.OrdersList.Any(or => or?.ID == order.ID);
-        if (a == true)
+        while (a == true)
         {
-            throw new Exception("ID not exist");
+            order.ID = DataSource.Config.NextOrderNumber;
+            a = DataSource.OrdersList.Any(or => or?.ID == order.ID);
         }
-        else
-        {
-            DataSource.OrdersList.Add(order);
-            return order.ID;
-        }
+       
+       DataSource.OrdersList.Add(order);
+       return order.ID;
+        
     }
     
     //request

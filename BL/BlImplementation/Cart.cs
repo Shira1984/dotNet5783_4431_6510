@@ -127,11 +127,11 @@ internal class Cart : ICart
         return cart;
 
     }
-    public void OrderCart(BO.Cart cart, string? name, string? email, string? address)
+    public int OrderCart(BO.Cart cart, string? name, string? email, string? address)
     {
-        if (name == null || new EmailAddressAttribute().IsValid(email) || address == null)
+        if (name == null || address == null)
             throw new BO.BlNoFindException("the values not exist in the system");
-        DO.Order order = new DO.Order() {CustomerName= name, CustomerEmail= email, CustomerAdress=address,
+        DO.Order order = new DO.Order() {  CustomerName = name, CustomerEmail= email, CustomerAdress=address,
         OrderDate=DateTime.Now, DeliveryDate=null, ShipDate=null};
         int oId= dal.Order.Add(order);
         DO.Product p = new DO.Product();
@@ -146,10 +146,12 @@ internal class Cart : ICart
             dal.Product.Update(p);
 
         }
-
+        int oid=dal.Order.Add(order);
+        return oid;
     }
-   
+
 }
+//new EmailAddressAttribute().(email) ||
 
 
 
