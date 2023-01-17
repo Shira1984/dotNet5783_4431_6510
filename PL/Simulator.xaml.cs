@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +31,8 @@ namespace PL
             worker.DoWork += Worker_DoWork;
             worker.ProgressChanged += Worker_ProgressChanged;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            worker.WorkerReportsProgress = true;
+
         }
 
         private void Worker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
@@ -44,7 +47,14 @@ namespace PL
 
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
         {
-            throw new NotImplementedException();
+            for (int i ...)
+            {
+                object obj = e.Argument;
+                Thread.Sleep(2000);
+                worker.ReportProgress(i);
+                e.Result = "finished ok!";
+            }
+
         }
     }
 }
