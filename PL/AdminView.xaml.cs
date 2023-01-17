@@ -73,5 +73,10 @@ namespace PL
                 b.Width = b.Width / 1.1;
             }
         }
+
+        private void SimulatorBTN_Click(object sender, RoutedEventArgs e)
+        {
+            new PL.Simulator().Show();
+        }
     }
 }

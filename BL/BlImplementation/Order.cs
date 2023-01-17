@@ -16,7 +16,7 @@ internal class Order : IOrder
         IEnumerable<DO.OrderItem?> items = dal.OrderItem.GetAll();//craete new
 
         return from DO.Order? item in orders
-               let x = items.Where(items => items.Value.OrderItemID == item.Value.ID)
+               let x = items.Where(items => items.Value.OrderID == item.Value.ID)
                select new BO.OrderForList()
                {
                    ID = item.Value.ID,
