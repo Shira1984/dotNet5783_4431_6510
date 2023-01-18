@@ -217,8 +217,8 @@ internal sealed class DataSource
             o.CustomerEmail = CustomersNames[i] + "walla.com";
             o.CustomerAdress = CustomerAdresses[i];
             o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i);
-            o.DeliveryDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i + s_rand.Next(4, 8));
-            o.ShipDate = null; //Date of arrivial
+            o.ShipDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i + s_rand.Next(4, 8));
+            o.DeliveryDate = null; //Date of arrivial
 
            OrdersList.Add(o);
         }
@@ -232,8 +232,8 @@ internal sealed class DataSource
                 o.CustomerAdress = CustomerAdresses[i];
 
                 o.OrderDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i);
-                o.DeliveryDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i + s_rand.Next(2, 5));
-                o.ShipDate = o.DeliveryDate.GetValueOrDefault().AddDays(s_rand.Next(1, 3));
+                o.ShipDate = new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(-i + s_rand.Next(2, 5));
+                o.DeliveryDate = o.DeliveryDate.GetValueOrDefault().AddDays(s_rand.Next(1, 3));
 
                 OrdersList.Add(o);
 

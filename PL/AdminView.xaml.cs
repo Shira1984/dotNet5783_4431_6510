@@ -78,5 +78,25 @@ namespace PL
         {
             new PL.Simulator().Show();
         }
+
+        private void SimulatorBTN_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height * 1.1;
+                b.Width = b.Width * 1.1;
+            }
+        }
+
+        private void SimulatorBTN_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height / 1.1;
+                b.Width = b.Width / 1.1;
+            }
+        }
     }
 }

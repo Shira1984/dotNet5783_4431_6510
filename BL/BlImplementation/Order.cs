@@ -31,11 +31,18 @@ internal class Order : IOrder
     {
         BO.Enums.OrderStatus status;
         if (order.DeliveryDate != null)
+        {
             status = BO.Enums.OrderStatus.Delivered;
-        if (order.ShipDate != null)
-            status = BO.Enums.OrderStatus.Shipped;
+        }
         else
-            status = BO.Enums.OrderStatus.Ordered;
+        {
+            if (order.ShipDate != null)
+            {
+                status = BO.Enums.OrderStatus.Shipped;
+            }
+            else
+                status = BO.Enums.OrderStatus.Ordered;
+        }
         return status;
 
     }

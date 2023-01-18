@@ -6,8 +6,66 @@
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
         Title="Simulator" Height="450" Width="800">
+
+    <Window.Resources>
+        <DataTemplate x:Key="oneOrder" DataType="local: OrderForList">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"  Grid.Column="0" Foreground="Navy" FontSize="12" Text="{Binding Path=ID}" />
+                <TextBlock Grid.Row="0"  Grid.Column="1" Foreground="Navy" FontSize="12" Text="{Binding Path=CustomerName}" />
+                <TextBlock Grid.Row="0"  Grid.Column="2" Foreground="Navy" FontSize="12" Text="{Binding Path=Status}" />
+                <TextBlock Grid.Row="0"  Grid.Column="3" Foreground="Navy" FontSize="12" Text="{Binding Path=TotalPrice}" />
+                <TextBlock Grid.Row="0"  Grid.Column="4" Foreground="Navy" FontSize="12" Text="{Binding Path=AmountOfItems}" />
+                <Button x:Name="otBTN" Grid.Row="0"  Grid.Column="5" Style="{StaticResource myButtonStyle}" FontSize="10" Height="30" Width="120" Content="Watch Order Tracking" Click="otBTN_Click"/>
+                <ProgressBar x:Name="orderPBAR" Grid.Row="0"  Grid.Column="6"/>
+
+
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
-        <DataGrid Name="SimulatorDG" ItemsSource="{Binding}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ListView Name="SimulatorDG" Grid.Row="2" ItemsSource="{Binding}" ItemTemplate="{StaticResource oneOrder}" BorderThickness="1,1,1,1" UseLayoutRounding="False"/>
+        <Button x:Name="startTrBTN" Style="{StaticResource myButtonStyle}" Content="Start Tracking" HorizontalAlignment="Left" Margin="357,3,0,0" VerticalAlignment="Top" Click="startTrBTN_Click"/>
+        <Button x:Name="stopTrBTN" Style="{StaticResource myButtonStyle}" Content="Stop Tracking" HorizontalAlignment="Left" Margin="566,3,0,0" VerticalAlignment="Top" Click="stopTrBTN_Click"/>
+        
+        <Grid Grid.Row="1" Background="#FFECF9B8" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="160" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            
+            <Label x:Name="IdLBL" Grid.Column="0" Content="ID" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="NameLBL" Grid.Column="1" Content="Customer Name" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="StatusLBL" Grid.Column="2" Content="Status" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="TPriceLBL" Grid.Column="3" Content="Total Price" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="AmountOILBL" Grid.Column="4" Content="Amount of Items" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="BtnLBL" Grid.Column="5" Content="Show Order Tracking" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="PbarLBL" Grid.Column="6" Content="Progress Bar" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
 
     </Grid>
 </Window>
