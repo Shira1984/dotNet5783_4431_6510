@@ -42,8 +42,7 @@ namespace PL
             InitializeComponent();
             OrderStatusComboBox.ItemsSource = Enum.GetValues(typeof(BO.Enums.OrderStatus));
             
-            //o.Items = c.Items;
-            //IdTextBox.Text=
+            
             ItemsLSTBX.DataContext = c.Items.ToList();
             //IdTextBox.Text=o.ID.ToString();
             CstNameTextBox.Text=c.CustomerName;
@@ -74,10 +73,13 @@ namespace PL
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            int k;
+
+
             try
             {
-               int k= bl.Cart.OrderCart(cart, CstNameTextBox.Text, CstEmailTextBox.Text, CstAdressTextBox.Text);
+                k= bl.Cart.OrderCart(cart, CstNameTextBox.Text, CstEmailTextBox.Text, CstAdressTextBox.Text);
+                
             }
             catch (BO.BlNoFindException ex)
             {
@@ -89,9 +91,10 @@ namespace PL
                 MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            //string s = "k{}";
+            MessageBox.Show($" Your order is finished seccessfuly, " +
+                $"your order number is{ k}.");
             
-            MessageBox.Show(" Your order is finished seccessfuly");
-            //MessageBox.Show((string)k);
         }
 
        

@@ -25,8 +25,8 @@ internal class Order : IOrder
                    //AmountOfItems = x.Count(),
                    //TotalPrice = x.Sum(items => items.Value.Amount * items.Value.Price)
                    //TotalPrice=dal.
-                   AmountOfItems = dal.OrderItem.GetAll(x => x?.OrderID == item?.ID).Sum(x => x?.Amount) ?? 0,
-                   TotalPrice = dal.OrderItem.GetAll(x => (x?.OrderID == item?.ID)).Sum(x => x?.Amount * x?.Price) ?? 0,
+                   AmountOfItems = dal.OrderItem.GetAll().Where(x => x?.OrderID == item?.ID).Sum(x => x?.Amount) ?? 0,
+                   TotalPrice = dal.OrderItem.GetAll().Where(x => (x?.OrderID == item?.ID)).Sum(x => x?.Amount * x?.Price) ?? 0,
                };
 
     }
@@ -71,15 +71,15 @@ internal class Order : IOrder
                 DeliveryDate = order.DeliveryDate,
                 OrderDate = order.OrderDate,
                 ShipDate = order.ShipDate,
-                Items = ListOrderItens(dal.OrderItem.GetAll().Where(x => x.Value.OrderItemID == order.ID)),
-                TotalPrice = ListOrderItens(dal.OrderItem.GetAll().Where(x => x.Value.OrderItemID == order.ID)).Sum(x => x.TotalPrice)
+                Items = ListOrderItens(dal.OrderItem.GetAll().Where(x => x?.OrderID == order.ID)),
+                TotalPrice = ListOrderItens(dal.OrderItem.GetAll().Where(x => x.Value.OrderID == order.ID)).Sum(x => x.TotalPrice),
 
             };
         }
         catch (DO.DlNoFindException e) { throw new BO.BlNoFindException("There is no product with that id", e); }
 
-        
-
+        //Items = ListOrderItens(dal.OrderItem.GetAll().Where(x => x?.OrderItemID == order.ID)) 
+        //TotalPrice = ListOrderItens(dal.OrderItem.GetAll().Where(x => x.Value.OrderItemID == order.ID)).Sum(x => x.TotalPrice)
 
     }
     private IEnumerable<BO.OrderItem?> ListOrderItens(IEnumerable<DO.OrderItem?> list) //func for help

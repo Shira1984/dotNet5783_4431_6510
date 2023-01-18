@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Printing.IndexedProperties;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,23 +26,25 @@ namespace PL.Orders;
 /// </summary>
 public partial class FollowOrder : Window
 {
+    //public BO.Order order;
     public BO.Order? order
     {
         get { return (BO.Order?)GetValue(orderProperty); }
         set { SetValue(orderProperty, value); }
     }
 
-    // Using a DependencyProperty as the backing store for order.  This enables animation, styling, binding, etc...
+    // Using a DependencyProperty as the backing store for order.This enables animation, styling, binding, etc...
     public static readonly DependencyProperty orderProperty =
         DependencyProperty.Register("order", typeof(BO.Order), typeof(Window), new PropertyMetadata(null));
 
 
     BlApi.IBl bl = BlApi.Factory.Get();
-    double dd;
+    //double dd;
     public FollowOrder(BO.Order o)
     {
+        order = o;
         InitializeComponent();
-
+        
         OrderIdTXTBX.Text =o.ID.ToString();
         CstNameTextBox.Text = o.CustomerName;
         CstEmailTextBox.Text = o.CustomerEmail;
@@ -49,22 +52,9 @@ public partial class FollowOrder : Window
         OrderDateTextBox.Text = o.OrderDate.ToString();
         ShipDateTextBox.Text=o.ShipDate.ToString();
         DeliveryDateTextBox.Text =(o.DeliveryDate.ToString());
-        
+        TotalPriceTextBox.Text =(o.TotalPrice.ToString());
         statusTXTBX.Text=o.Status.ToString();
+        ItemsLSTBX.ItemsSource=o.Items.ToList();
 
-        //ObservableCollection<BO.OrderItem?> mc = (BO.OrderItem?)o.Items?.ToList();
-
-
-        //var mc = 
-        //from score in o.Items?.ToList()
-        //select score;
-        //foreach (var item in mc)
-        //{
-        //    dd=dd+ item.Price;
-        //}
-        //ItemsListV.DataContext = mc.ToList();
-        order=o;
-        ItemsListV.ItemsSource=order.Items;
-        TotalPriceTextBox.Text =dd.ToString();
     }
 }

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Orders"
-        DataContext="{Binding order, RelativeSource={RelativeSource self}}"
+        DataContext="{Binding RelativeSource={RelativeSource self}}"
         mc:Ignorable="d"
         Title="FollowOrder" Height="450" Width="800">
     <Grid>
@@ -29,18 +29,13 @@
         <TextBox x:Name="OrderDateTextBox" HorizontalAlignment="Left" Margin="345,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
         <TextBox x:Name="ShipDateTextBox" HorizontalAlignment="Left" Margin="345,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
         <TextBox x:Name="DeliveryDateTextBox" HorizontalAlignment="Left" Margin="345,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
-        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" Margin="554,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="TotalPriceTextBox"  HorizontalAlignment="Left" Margin="554,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
         <TextBox x:Name="statusTXTBX" HorizontalAlignment="Left" Margin="345,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
-        <ListView x:Name="ItemsListV" ItemsSource="{Binding}" Margin="580,56,22,128">
-            <ListView.Background>
-                <ImageBrush ImageSource="/Orders/d2f32afde48992b6253a2417e747dbcb.jpg"/>
-            </ListView.Background>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <ListBox x:Name="ItemsLSTBX" ItemsSource="{Binding}"  Margin="534,65,29,105" FontWeight="Bold" FontSize="14" Foreground="Black">
+            <ListBox.Background>
+                <ImageBrush ImageSource="/e16d75fa4dea1b19aebf6d0b2657c363.jpg"/>
+            </ListBox.Background>
+        </ListBox>
 
 
     </Grid>

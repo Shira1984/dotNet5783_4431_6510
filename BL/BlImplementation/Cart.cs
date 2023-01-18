@@ -129,24 +129,39 @@ internal class Cart : ICart
     }
     public int OrderCart(BO.Cart cart, string? name, string? email, string? address)
     {
-        
+        double total;
         //if (name == null || address == null)
         //    throw new BO.BlNoFindException("the values not exist in the system");
         DO.Order order = new DO.Order() 
         {  CustomerName = name, CustomerEmail= email, CustomerAdress=address,
         OrderDate=DateTime.Now, DeliveryDate=null, ShipDate=null};
         int oId= dal.Order.Add(order);
-        DO.Product p = new DO.Product();
+        //DO.Product p = new DO.Product();
+        
         foreach (BO.OrderItem oi in cart.Items)
         {
-            new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price };
+            DO.OrderItem noi= new DO.OrderItem () { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price };
             
-            int oidd= dal.OrderItem.Add(new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price });
-            p = dal.Product.GetById(oi.ProductID);
-            p.InStock -= oi.Amount;
+            dal.OrderItem.Add(noi);
+            DO.Product p = dal.Product.GetById(oi.ProductID);
+            p.InStock = p.InStock-1;
             dal.Product.Update(p);
-
+            
         }
+
+        //BO.Order order1 = new BO.Order()
+        //{
+        //    CustomerName = order.CustomerName,
+        //    CustomerEmail = order.CustomerEmail,
+        //    CustomerAdress = order.CustomerAdress,
+        //    OrderDate = DateTime.Now,
+        //    DeliveryDate = null,
+        //    ShipDate = null,
+        //    ID = oId,
+        //    Items = (IEnumerable<BO.OrderItem?>)(dal.OrderItem.GetAll().Where(x => x?.OrderID == order.ID)),
+        //    TotalPrice = dal.OrderItem.GetAll(x => (x?.OrderID == order.ID)).Sum(x => x?.Amount * x?.Price) ?? 0,
+
+        //};
         int oid=dal.Order.Add(order);
         return oid;
     }
