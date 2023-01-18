@@ -115,7 +115,7 @@ internal class Order : IOrder
         {
             throw new BO.BlNotGoodValueException("The order already shiped", ex);
         }
-        order.ShipDate = DateTime.Now;
+        order.DeliveryDate = DateTime.Now;
         dal.Order.Update(order);
         return new BO.Order()
         {
@@ -147,13 +147,13 @@ internal class Order : IOrder
         }
         try
         {
-            if (order.DeliveryDate != null) ;
+            if (order.OrderDate != null) ;
         }
         catch (DO.DlNoFindException ex)
         {
             throw new BO.BlNotGoodValueException("The order already shiped", ex);
         }
-        order.DeliveryDate = DateTime.Now;
+        order.ShipDate = DateTime.Now;
         dal.Order.Update(order);
         return new BO.Order()
         {

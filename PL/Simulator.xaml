@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="Simulator" Height="450" Width="800">
+        Title="Simulator" Height="600" Width="800">
 
     <Window.Resources>
         <DataTemplate x:Key="oneOrder" DataType="local: OrderForList">
@@ -18,17 +18,17 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60" />
                     <ColumnDefinition Width="90" />
-                    <ColumnDefinition Width="70" />
-                    <ColumnDefinition Width="60" />
                     <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="70" />
                     <ColumnDefinition Width="160" />
                     <ColumnDefinition Width="200" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0"  Grid.Column="0" Foreground="Navy" FontSize="12" Text="{Binding Path=ID}" />
                 <TextBlock Grid.Row="0"  Grid.Column="1" Foreground="Navy" FontSize="12" Text="{Binding Path=CustomerName}" />
-                <TextBlock Grid.Row="0"  Grid.Column="2" Foreground="Navy" FontSize="12" Text="{Binding Path=Status}" />
+                <TextBlock Grid.Row="0"  Grid.Column="2" Foreground="Navy" FontSize="12" Text="{Binding Path=AmountOfItems}" />
                 <TextBlock Grid.Row="0"  Grid.Column="3" Foreground="Navy" FontSize="12" Text="{Binding Path=TotalPrice}" />
-                <TextBlock Grid.Row="0"  Grid.Column="4" Foreground="Navy" FontSize="12" Text="{Binding Path=AmountOfItems}" />
+                <TextBlock Grid.Row="0"  Grid.Column="4" Foreground="Navy" FontSize="12" Text="{Binding Path=Status}" />
                 <Button x:Name="otBTN" Grid.Row="0"  Grid.Column="5" Style="{StaticResource myButtonStyle}" FontSize="10" Height="30" Width="120" Content="Watch Order Tracking" Click="otBTN_Click"/>
                 <ProgressBar x:Name="orderPBAR" Grid.Row="0"  Grid.Column="6"/>
 
@@ -51,19 +51,19 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60" />
                 <ColumnDefinition Width="90" />
-                <ColumnDefinition Width="70" />
-                <ColumnDefinition Width="60" />
                 <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="70" />
                 <ColumnDefinition Width="160" />
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
             
             <Label x:Name="IdLBL" Grid.Column="0" Content="ID" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="NameLBL" Grid.Column="1" Content="Customer Name" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="StatusLBL" Grid.Column="2" Content="Status" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="AmountOILBL" Grid.Column="2" Content="Amount of Items" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="TPriceLBL" Grid.Column="3" Content="Total Price" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="AmountOILBL" Grid.Column="4" Content="Amount of Items" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="BtnLBL" Grid.Column="5" Content="Show Order Tracking" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="StatusLBL" Grid.Column="4" Content="Status" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label x:Name="BtnLBL" Grid.Column="5" Content="Show Order Tracking" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="BtnLBL_MouseEnter" MouseLeave="BtnLBL_MouseLeave"/>
             <Label x:Name="PbarLBL" Grid.Column="6" Content="Progress Bar" FontSize="10" FontWeight="DemiBold" Foreground="Navy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
 

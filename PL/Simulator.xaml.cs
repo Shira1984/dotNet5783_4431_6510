@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -61,32 +62,33 @@ namespace PL
 
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            try
             {
-                try
+                while (flag == true)//if its false-> we go "Worker_RunWorkerCompleted" func 
                 {
-                    while (flag == true)//if its false-> we go "Worker_RunWorkerCompleted" func 
+                    if (worker.CancellationPending == true)
                     {
-                        if (worker.CancellationPending == true)
-                        {
-                            e.Cancel = true;
-                            break;
-                        }
-                        else
-                        {
-                            Thread.Sleep(3000);
-                            time = time.AddHours(4);
-                            if (worker.WorkerReportsProgress == true)
-                                worker.ReportProgress(11);//call "Worker_ProgressChanged" func
+                        e.Cancel = true;
+                        break;
+                    }
+                    else
+                    {
+                        Thread.Sleep(2000);
+                        time = time.AddHours(4);
+                        if (worker.WorkerReportsProgress == true)
+                            worker.ReportProgress(11);//call "Worker_ProgressChanged" func
 
 
-                        }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "ERROR", MessageBoxButton.OK);
-                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButton.OK);
+            }
+
 
         }
 
@@ -117,6 +119,26 @@ namespace PL
             if (worker.WorkerSupportsCancellation == true)
                 worker.CancelAsync();
             this.Cursor = Cursors.Arrow;
+        }
+
+        private void BtnLBL_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height * 1.1;
+                b.Width = b.Width * 1.1;
+            }
+        }
+
+        private void BtnLBL_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button? b = sender as Button;
+            if (b != null)
+            {
+                b.Height = b.Height / 1.1;
+                b.Width = b.Width / 1.1;
+            }
         }
     }
 }
