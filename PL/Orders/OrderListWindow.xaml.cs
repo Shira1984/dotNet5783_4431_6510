@@ -2,6 +2,7 @@
 using PL.Products;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +26,10 @@ namespace PL.Orders
         public OrderListWindow()
         {
             InitializeComponent();
-            OrderListView.ItemsSource = bl.Order.GetOrderForListM();
+            //ObservableCollection<BO.OrderForList> obs= (ObservableCollection<BO.OrderForList>)bl.Order.GetOrderForListM();
+            //OrderListView.ItemsSource = obs;
 
-            
+           OrderListView.ItemsSource= bl.Order.GetOrderForListM();
         }
 
         void ShowOrder(object sender, MouseButtonEventArgs e)

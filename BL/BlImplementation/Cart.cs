@@ -129,7 +129,7 @@ internal class Cart : ICart
     }
     public int OrderCart(BO.Cart cart, string? name, string? email, string? address)
     {
-        double total;
+       
         //if (name == null || address == null)
         //    throw new BO.BlNoFindException("the values not exist in the system");
         DO.Order order = new DO.Order() 
@@ -149,21 +149,7 @@ internal class Cart : ICart
             
         }
 
-        //BO.Order order1 = new BO.Order()
-        //{
-        //    CustomerName = order.CustomerName,
-        //    CustomerEmail = order.CustomerEmail,
-        //    CustomerAdress = order.CustomerAdress,
-        //    OrderDate = DateTime.Now,
-        //    DeliveryDate = null,
-        //    ShipDate = null,
-        //    ID = oId,
-        //    Items = (IEnumerable<BO.OrderItem?>)(dal.OrderItem.GetAll().Where(x => x?.OrderID == order.ID)),
-        //    TotalPrice = dal.OrderItem.GetAll(x => (x?.OrderID == order.ID)).Sum(x => x?.Amount * x?.Price) ?? 0,
-
-        //};
-        int oid=dal.Order.Add(order);
-        return oid;
+        return oId;
     }
 
 }
