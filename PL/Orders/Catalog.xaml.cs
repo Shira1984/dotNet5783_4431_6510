@@ -39,21 +39,32 @@ namespace PL.Orders
         private void addTCBTN_Click(object sender, RoutedEventArgs e)
         {
             BO.ProductForList item = (BO.ProductForList)((sender as Button).DataContext);
-            BO.OrderItem p = new BO.OrderItem
+            BO.Product pro = bl.Product.GetProductM(item.Id);
+            if (pro.InStock >= 1)
             {
-                Name = item.Name,
-                Price = item.Price,
-                ProductID=item.Id,
-                
-            };
-            if (p != null)
+                BO.OrderItem p = new BO.OrderItem
+                {
+                    Name = item.Name,
+                    Price = item.Price,
+                    ProductID = item.Id,
+
+                };
+                if (p != null)
+                {
+
+                    myCart.Add(p);
+                    topr = topr + p.Price;
+                    MessageBox.Show("Added!", "", MessageBoxButton.OK);
+
+                }
+            }
+
+            else
             {
-                myCart.Add(p);
-                topr = topr +p.Price;
-                MessageBox.Show("Added!", "", MessageBoxButton.OK);
+                MessageBox.Show("Out of stok", "", MessageBoxButton.OK);
+
             }
         }
-
         private void addTCBTN_MouseEnter(object sender, MouseEventArgs e)
         {
             Button? b = sender as Button;

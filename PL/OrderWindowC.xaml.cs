@@ -51,8 +51,10 @@ namespace PL
             CstAdressTextBox.Text=c.CustomerAdress;
             TotalPriceTextBox.Text = c.TotalPrice.ToString();
             OrderStatusComboBox.Text = BO.Enums.OrderStatus.Ordered.ToString();
+            OrderDateTextBox.Text = DateTime.Now.ToString();
+
             //ShipDateTextBox.Text= new DateTime(mydate.Year, mydate.Month, mydate.Day).AddDays(d);
-           
+
             //OrderDateTextBox.Text = DateTime.Today.ToString();
             //o.CustomerName=c.CustomerName;
             //o.CustomerAdress=c.CustomerAdress;
@@ -63,7 +65,7 @@ namespace PL
             //o.TotalPrice = c.TotalPrice.Value;
             //o.ShipDate = null;
             //o.DeliveryDate = null;
-            
+
             //orderList.CustomerName=c.CustomerName;
             //orderList.Status = BO.Enums.OrderStatus.Ordered;
             //orderList.TotalPrice = c.TotalPrice.Value;
@@ -87,7 +89,9 @@ namespace PL
                 MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            
             MessageBox.Show(" Your order is finished seccessfuly");
+            //MessageBox.Show((string)k);
         }
 
        

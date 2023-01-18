@@ -129,18 +129,19 @@ internal class Cart : ICart
     }
     public int OrderCart(BO.Cart cart, string? name, string? email, string? address)
     {
-        if (name == null || address == null)
-            throw new BO.BlNoFindException("the values not exist in the system");
-        DO.Order order = new DO.Order() {  CustomerName = name, CustomerEmail= email, CustomerAdress=address,
+        
+        //if (name == null || address == null)
+        //    throw new BO.BlNoFindException("the values not exist in the system");
+        DO.Order order = new DO.Order() 
+        {  CustomerName = name, CustomerEmail= email, CustomerAdress=address,
         OrderDate=DateTime.Now, DeliveryDate=null, ShipDate=null};
         int oId= dal.Order.Add(order);
         DO.Product p = new DO.Product();
         foreach (BO.OrderItem oi in cart.Items)
         {
-            //new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price });
-            if (p.InStock == 0)
-                throw new BO.BlNotGoodValueException("The product in the cart are not in stock");
-            dal.OrderItem.Add(new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price });
+            new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price };
+            
+            int oidd= dal.OrderItem.Add(new DO.OrderItem() { OrderID = oId, ProductID = oi.ProductID, Amount = oi.Amount, Price = oi.Price });
             p = dal.Product.GetById(oi.ProductID);
             p.InStock -= oi.Amount;
             dal.Product.Update(p);

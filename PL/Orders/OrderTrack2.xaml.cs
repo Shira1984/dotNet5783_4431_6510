@@ -40,6 +40,7 @@ namespace PL.Orders
            
             
             o = bl.Order.GetByOrderIdM(t);
+            //o.Items=
         }
 
         //private void orderDetailsBTN_Click(object sender, RoutedEventArgs e)
