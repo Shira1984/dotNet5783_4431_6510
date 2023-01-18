@@ -24,6 +24,21 @@ internal class Product : IProduct
 
     }
 
+    public IEnumerable<BO.Product?> GetListedProductsM(Func<BO.Product?, bool>? filter = null)
+    {
+        return from DO.Product? doProduct in dal.Product.GetAll()
+               select new BO.Product()
+               {
+                   Id = doProduct?.ID ?? throw new NullReferenceException("Missing Id"),
+                   Name = doProduct?.Name ?? throw new NullReferenceException("Missing Name"),
+                   Category = (BO.Enums.Category?)doProduct?.Category ?? throw new NullReferenceException("Missing Category"),
+                   Price = doProduct?.Price ?? 0,
+                   ImageRelativeName = @"\pics\IMG" + doProduct?.ID + ".jpg",
+                   InStock=doProduct?.InStock ?? 0
+               };
+
+    }
+
     public BO.Product GetProductM(int id)
     {
         DO.Product doProduct = new DO.Product();

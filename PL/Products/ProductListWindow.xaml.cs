@@ -29,7 +29,7 @@ namespace PL.Products
         public ProductListWindow()
         {
             InitializeComponent();
-            ProductListView.ItemsSource = bl.Product.GetListedProducts();
+            ProductListView.ItemsSource = bl.Product.GetListedProductsM();
             CategorySelector.ItemsSource = Enum.GetValues(typeof(BO.Enums.Category));
         }
 
