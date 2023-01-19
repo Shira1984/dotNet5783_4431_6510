@@ -24,7 +24,7 @@ internal class Order : IOrder
                    Status = orderStatus(item.Value),
                    //AmountOfItems = x.Count(),
                    //TotalPrice = x.Sum(items => items.Value.Amount * items.Value.Price)
-                   //TotalPrice=dal.
+                 
                    AmountOfItems = dal.OrderItem.GetAll().Where(x => x?.OrderID == item?.ID).Sum(x => x?.Amount) ?? 0,
                    TotalPrice = dal.OrderItem.GetAll().Where(x => (x?.OrderID == item?.ID)).Sum(x => x?.Amount * x?.Price) ?? 0,
                };
