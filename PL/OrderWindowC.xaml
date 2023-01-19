@@ -11,23 +11,19 @@
         <Image x:Name="bckgrndC" Stretch="UniformToFill" Source="/16daddfb84677a616532b056faa7cefa.jpg"/>
 
         <Label x:Name="CstNameLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Custumer Name" HorizontalAlignment="Left" Margin="75,92,0,0" VerticalAlignment="Top"/>
-        
+
         <Label x:Name="CstEmaillLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Custumer Email" HorizontalAlignment="Left" Margin="75,138,0,0" VerticalAlignment="Top"/>
         <Label x:Name="CstAdressLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Custumer Adress" HorizontalAlignment="Left" Margin="75,199,0,0" VerticalAlignment="Top"/>
         <Label x:Name="OrderStatusLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Order Status" HorizontalAlignment="Left" Margin="75,268,0,0" VerticalAlignment="Top"/>
         <Label x:Name="OrderDateLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Order Date" HorizontalAlignment="Left" Margin="324,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.465,-3.897"/>
-        <Label x:Name="ShipDateLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Ship Date" HorizontalAlignment="Left" Margin="324,92,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="DeliveryDateLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Delivery Date" HorizontalAlignment="Left" Margin="324,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TotalPriceLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Total Price" HorizontalAlignment="Left" Margin="324,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="TotalPriceLBL" FontSize="12" Foreground="Navy" FontWeight="DemiBold" Content="Total Price" HorizontalAlignment="Left" Margin="318,114,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="CstNameTextBox" HorizontalAlignment="Left" Margin="75,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23" />
         <TextBox x:Name="CstEmailTextBox" HorizontalAlignment="Left" Margin="75,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="22"/>
         <TextBox x:Name="CstAdressTextBox" HorizontalAlignment="Left" Margin="75,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="24"/>
         <TextBox x:Name="OrderDateTextBox" HorizontalAlignment="Left" Margin="324,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
-        <TextBox x:Name="ShipDateTextBox" HorizontalAlignment="Left" Margin="324,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
-        <TextBox x:Name="DeliveryDateTextBox" HorizontalAlignment="Left" Margin="324,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
-        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Center" Margin="0,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
+        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" Margin="324,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="23"/>
         <ComboBox x:Name="OrderStatusComboBox" HorizontalAlignment="Left" Margin="75,299,0,0" VerticalAlignment="Top" Width="165" Height="23"/>
-       
+
         <Button x:Name="OrderButton" Style="{StaticResource ResourceKey=myButtonStyle}" Content="Finish" HorizontalAlignment="Left" Margin="273,345,0,0" VerticalAlignment="Top" Click="OrderButton_Click"/>
         <ListBox x:Name="ItemsLSTBX" ItemsSource="{Binding}"  Margin="534,37,29,52" FontWeight="Bold" FontSize="14" Foreground="Black">
             <ListBox.Background>

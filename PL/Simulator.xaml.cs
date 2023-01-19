@@ -27,6 +27,7 @@ namespace PL
         DateTime time = DateTime.Now;
 
         DateTime GlobalTime;
+        //DateTime GlobalTime = DateTime.Now;
         bool flag = true;
         Order order;
         BackgroundWorker worker;
@@ -97,10 +98,10 @@ namespace PL
                 foreach (var item in tmp)
                 {
                     BO.Order demoOrder = bl.Order.GetByOrderIdM(item?.ID ?? throw new NullReferenceException());
-                    if (GlobalTime - demoOrder.OrderDate >= new TimeSpan(2, 0, 0, 0) && demoOrder.Status == BO.Enums.OrderStatus.Ordered)
-                        bl.Order.UpdateShipDateM(demoOrder.ID);
-                    if (GlobalTime - demoOrder.OrderDate >= new TimeSpan(7, 0, 0, 0) && demoOrder.Status == BO.Enums.OrderStatus.Shipped)
-                        bl.Order.UpdateDeliveryDateM(demoOrder.ID);
+                    if (GlobalTime - demoOrder.OrderDate >= new TimeSpan(0, 0, 0, 5) && demoOrder.Status == BO.Enums.OrderStatus.Ordered)
+                        demoOrder = bl.Order.UpdateShipDateM(demoOrder.ID);
+                    else if (GlobalTime - demoOrder.OrderDate >= new TimeSpan(0, 0, 0, 10) && demoOrder.Status == BO.Enums.OrderStatus.Shipped)
+                        demoOrder = bl.Order.UpdateDeliveryDateM(demoOrder.ID);
                     //int i =PValue(demoOrder);
                     //orderPBAR.Value = i;
                 }
@@ -116,13 +117,13 @@ namespace PL
        
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
         {
-            GlobalTime = DateTime.Now;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             try
             {
                 while (flag == true)//if its false-> we go "Worker_RunWorkerCompleted" func 
                 {
+                    GlobalTime = DateTime.Now;
                     if (worker.CancellationPending == true)
                     {
                         e.Cancel = true;
@@ -131,7 +132,7 @@ namespace PL
                     else
                     {
                         //time = time.AddHours(4);
-                        GlobalTime = GlobalTime.AddHours(4);
+                        //GlobalTime = GlobalTime.AddHours(4);
 
                         if (worker.WorkerReportsProgress == true)
                         {
@@ -140,7 +141,7 @@ namespace PL
 
                         }
                     }
-                    Thread.Sleep(2000);
+                    Thread.Sleep(5000);
 
                 }
 

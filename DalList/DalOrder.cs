@@ -48,13 +48,16 @@ internal class DalOrder : IOrder
         if (a == true)
         {
             Order oldO = (Order)DataSource.OrdersList.Find(pro => pro?.ID == order.ID);
-            oldO.ID = order.ID;
-            oldO.OrderDate = order.OrderDate;
-            oldO.ShipDate = order.ShipDate;
-            oldO.CustomerAdress = order.CustomerAdress;
-            oldO.CustomerEmail = order.CustomerEmail;
-            oldO.CustomerName = order.CustomerName;
-            oldO.DeliveryDate = order.DeliveryDate;
+            DataSource.OrdersList.Remove(oldO);
+            //oldO.ID = order.ID;
+            //oldO.OrderDate = order.OrderDate;
+            //oldO.ShipDate = order.ShipDate;
+            //oldO.CustomerAdress = order.CustomerAdress;
+            //oldO.CustomerEmail = order.CustomerEmail;
+            //oldO.CustomerName = order.CustomerName;
+            //oldO.DeliveryDate = order.DeliveryDate;
+            DataSource.OrdersList.Add(order);
+
         }
         else
             throw new Exception("No Product to update");

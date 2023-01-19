@@ -42,16 +42,34 @@ namespace PL.Orders
             BO.Product pro = bl.Product.GetProductM(item.Id);
             if (pro.InStock >= 1)
             {
+
+                //if()
+                //     if(chek1.ProductID== pro.Id)
+                //     {
+                //         chek1.Amount++;
+                //         chek1.Price= chek1.Price+pro.Price;
+                //     }
+                //bool a = DataSource.OrdersList.Any(or => or?.ID == order.ID);
+
                 BO.OrderItem p = new BO.OrderItem
                 {
                     Name = item.Name,
                     Price = item.Price,
                     ProductID = item.Id,
-
+                    //Amount = (int)myCart.Where(x => x.ProductID == p.ProductID).Sum() ?? 0,
+                    
                 };
+                foreach (var chek in myCart)
+                {
+                    if(chek.ProductID==p.ProductID)
+                    {
+                        p.Amount++;
+                        
+                    }
+                }
                 if (p != null)
                 {
-
+                    
                     myCart.Add(p);
                     topr = topr + p.Price;
                     MessageBox.Show("Added!", "", MessageBoxButton.OK);

@@ -25,8 +25,8 @@ internal class Order : IOrder
                    //AmountOfItems = x.Count(),
                    //TotalPrice = x.Sum(items => items.Value.Amount * items.Value.Price)
                  
-                   AmountOfItems = dal.OrderItem.GetAll().Where(x => x?.OrderID == item?.ID).Sum(x => x?.Amount) ?? 0,
-                   TotalPrice = dal.OrderItem.GetAll().Where(x => (x?.OrderID == item?.ID)).Sum(x => x?.Amount * x?.Price) ?? 0,
+                   AmountOfItems = dal.OrderItem.GetAll().Where(x => x?.OrderID == item.Value.ID).Sum(x => x?.Amount) ?? 0,
+                   TotalPrice = dal.OrderItem.GetAll().Where(x => (x?.OrderID == item.Value.ID)).Sum(x => x?.Amount * x?.Price) ?? 0,
                };
 
     }
@@ -66,7 +66,7 @@ internal class Order : IOrder
                 ID = order.ID,
                 CustomerName = order.CustomerName,
                 CustomerAdress = order.CustomerAdress,
-                CustomerEmail = order.CustomerAdress,
+                CustomerEmail = order.CustomerEmail,
                 Status = orderStatus(order),
                 DeliveryDate = order.DeliveryDate,
                 OrderDate = order.OrderDate,
