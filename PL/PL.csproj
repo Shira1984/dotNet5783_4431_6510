@@ -11,6 +11,7 @@
 	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 	<UseCommonOutputDirectory>true</UseCommonOutputDirectory>
 	<PackageIcon></PackageIcon>
+	<ApplicationIcon>sigmund.ico</ApplicationIcon>
 
   </PropertyGroup>
 
@@ -36,6 +37,10 @@
     <None Remove="Products\b410f31ddcad231275a591002b6a465e.jpg" />
     <None Remove="Products\e4660e5c3a3a17925502b475d65ca3a0.jpg" />
     <None Remove="Products\ec1e3ec3f54443fd91328f8553c502cf.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="sigmund.ico" />
   </ItemGroup>
 
   <ItemGroup>
