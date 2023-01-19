@@ -25,9 +25,12 @@ namespace PL
     {
         BlApi.IBl bl = BlApi.Factory.Get();
         DateTime time = DateTime.Now;
+
+        DateTime GlobalTime;
         bool flag = true;
         Order order;
         BackgroundWorker worker;
+        private int d;
 
         public List<OrderForList?> OrderForLists
         {
@@ -41,56 +44,79 @@ namespace PL
         public Simulator()
         {
             InitializeComponent();
-            SimulatorDG.ItemsSource = bl.Order.GetOrderForListM();
+            SimulatorDG.ItemsSource =  bl.Order.GetOrderForListM();
             worker = new BackgroundWorker();
             worker.DoWork += Worker_DoWork;
             worker.ProgressChanged += Worker_ProgressChanged;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             worker.WorkerReportsProgress = true;
             worker.WorkerSupportsCancellation = true;
-            OrderForLists = new List<OrderForList>(bl!.Order.GetOrderForListM());
+            
+           
+            OrderForLists = new List<OrderForList?>(bl!.Order.GetOrderForListM());
 
         }
+        private int PValue(BO.Order o)
+        {
+
+            if (o.Status == BO.Enums.OrderStatus.Ordered)
+            {
+                d = 25;
+                return d;
+            }
+            if (o.Status == BO.Enums.OrderStatus.Ordered)
+            {
+                d = 50;
+                return d;
+            }
+            else
+            {
+
+                d = 100;
+                return d;
+
+            }
+        }
+
 
         private void Worker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.Cancelled != true)
+            {
+                MessageBox.Show("the upddate order stoped");
+            }
         }
 
         private void Worker_ProgressChanged(object? sender, ProgressChangedEventArgs e)
         {
-            //OrderForLists = new List<OrderForList>(bl!.Order.GetOrderForListM());
-            IEnumerable<OrderForList> orders;
+            //IEnumerable<OrderForList> orders;
+            var tmp = bl.Order.GetOrderForListM().ToList();
 
             try
             {
-                foreach (var item in OrderForLists)
+                foreach (var item in tmp)
                 {
-                    if (item.Status != BO.Enums.OrderStatus.Delivered)
-                        order = bl.Order.GetByOrderIdM(item.ID) ?? throw new Exception("order is null");
-                    //is it created?
-                    if (item.Status == BO.Enums.OrderStatus.Ordered)
-                    {
-                        order = bl.Order.UpdateShipDateM(item.ID);
-                    }
-                    else if (item.Status == BO.Enums.OrderStatus.Shipped)
-                    {
-                        order = bl.Order.UpdateDeliveryDateM(item.ID);
-                    }
-                    OrderForLists = new List<OrderForList>(bl!.Order.GetOrderForListM());
+                    BO.Order demoOrder = bl.Order.GetByOrderIdM(item?.ID ?? throw new NullReferenceException());
+                    if (GlobalTime - demoOrder.OrderDate >= new TimeSpan(2, 0, 0, 0) && demoOrder.Status == BO.Enums.OrderStatus.Ordered)
+                        bl.Order.UpdateShipDateM(demoOrder.ID);
+                    if (GlobalTime - demoOrder.OrderDate >= new TimeSpan(7, 0, 0, 0) && demoOrder.Status == BO.Enums.OrderStatus.Shipped)
+                        bl.Order.UpdateDeliveryDateM(demoOrder.ID);
+                    //int i =PValue(demoOrder);
+                    //orderPBAR.Value = i;
                 }
-                //if (order.Status==BO.Enums.OrderStatus.Ordered)
-                    //orderPBAR.pr
-                    
+                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButton.OK);
             }
+            SimulatorDG.ItemsSource = bl.Order.GetOrderForListM().ToList();
         }
-
+       
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
         {
+            GlobalTime = DateTime.Now;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             try
@@ -104,14 +130,20 @@ namespace PL
                     }
                     else
                     {
-                        Thread.Sleep(2000);
-                        time = time.AddHours(4);
+                        //time = time.AddHours(4);
+                        GlobalTime = GlobalTime.AddHours(4);
+
                         if (worker.WorkerReportsProgress == true)
-                            worker.ReportProgress(11);//call "Worker_ProgressChanged" func
+                        {
 
+                            worker.ReportProgress(111);//call "Worker_ProgressChanged" func
 
+                        }
                     }
+                    Thread.Sleep(2000);
+
                 }
+
             }
             catch (Exception ex)
             {

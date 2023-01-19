@@ -55,8 +55,8 @@
 IsEnabled="False"
 IsChecked="{Binding Path=IsLecturer}" />
             </Grid>
-        </DataTemplate>                <local:ConvertImagePathToBitmap x:Key="ImagePathToBitmap" />
-
+        </DataTemplate>        <local:ConvertImagePathToBitmap x:Key="ImagePathToBitmap"/>
+        <local:ConvertPTrack x:Key="PTrack" />
     </Application.Resources>
 
 </Application>
