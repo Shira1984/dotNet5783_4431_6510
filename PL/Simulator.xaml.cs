@@ -26,6 +26,7 @@ namespace PL
         BlApi.IBl bl = BlApi.Factory.Get();
         DateTime time = DateTime.Now;
         bool flag = true;
+        Order order;
         BackgroundWorker worker;
 
         public List<OrderForList?> OrderForLists
@@ -47,6 +48,7 @@ namespace PL
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             worker.WorkerReportsProgress = true;
             worker.WorkerSupportsCancellation = true;
+            OrderForLists = new List<OrderForList>(bl!.Order.GetOrderForListM());
 
         }
 
@@ -57,7 +59,34 @@ namespace PL
 
         private void Worker_ProgressChanged(object? sender, ProgressChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            //OrderForLists = new List<OrderForList>(bl!.Order.GetOrderForListM());
+            IEnumerable<OrderForList> orders;
+
+            try
+            {
+                foreach (var item in OrderForLists)
+                {
+                    if (item.Status != BO.Enums.OrderStatus.Delivered)
+                        order = bl.Order.GetByOrderIdM(item.ID) ?? throw new Exception("order is null");
+                    //is it created?
+                    if (item.Status == BO.Enums.OrderStatus.Ordered)
+                    {
+                        order = bl.Order.UpdateShipDateM(item.ID);
+                    }
+                    else if (item.Status == BO.Enums.OrderStatus.Shipped)
+                    {
+                        order = bl.Order.UpdateDeliveryDateM(item.ID);
+                    }
+                    OrderForLists = new List<OrderForList>(bl!.Order.GetOrderForListM());
+                }
+                //if (order.Status==BO.Enums.OrderStatus.Ordered)
+                    //orderPBAR.pr
+                    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButton.OK);
+            }
         }
 
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
