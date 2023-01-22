@@ -84,5 +84,11 @@ namespace PL.Products
                 b.Width = b.Width / 1.1;
             }
         }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            ProductListView.ItemsSource = bl.Product.GetListedProducts();
+
+        }
     }
 }

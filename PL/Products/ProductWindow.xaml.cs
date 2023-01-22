@@ -44,6 +44,7 @@ namespace PL.Products
         public ProductWindow()
         {
             InitializeComponent();
+            p=new BO.Product();
             AddCatCOMBox.ItemsSource = Enum.GetValues(typeof(BO.Enums.Category));
             upadBTN.Content = "Add";
         }
@@ -79,7 +80,7 @@ namespace PL.Products
                         MessageBox.Show("You chose a problematic ID my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
                     else
                     {
-                        p.Id = int.Parse(IDTextBox.Text);
+                        p.Id = int.Parse(IDTextBox.Text.ToString());
 
                         if (IDTextBox.Text.Length!=6)
                             MessageBox.Show("You chose a problematic ID my dear...", "Hey, there is a problem", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -116,6 +117,7 @@ namespace PL.Products
                     if ((IDTextBox.Text.Length == 6) && (NameTextBox.Text.Length != 0) && (PriceTextBox.Text.Length > 0) && (AmountTextBox.Text.Length > 0) && (AddCatCOMBox.Text.Length != 0))
                     {
                         bl.Product.AddProductM(p);
+                        
                         messageBoxResult = MessageBox.Show("Product added succesfully", "Succesfull", MessageBoxButton.OK, MessageBoxImage.None);
                     }
                     Close();

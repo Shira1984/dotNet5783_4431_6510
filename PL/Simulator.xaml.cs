@@ -104,6 +104,8 @@ namespace PL
                         demoOrder = bl.Order.UpdateDeliveryDateM(demoOrder.ID);
                     //int i =PValue(demoOrder);
                     //orderPBAR.Value = i;
+                    //Thread.Sleep(500);
+                    SimulatorDG.ItemsSource = bl.Order.GetOrderForListM().ToList();
                 }
                 
 
@@ -112,7 +114,7 @@ namespace PL
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButton.OK);
             }
-            SimulatorDG.ItemsSource = bl.Order.GetOrderForListM().ToList();
+            
         }
        
         private void Worker_DoWork(object? sender, DoWorkEventArgs e)
