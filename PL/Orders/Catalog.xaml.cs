@@ -54,19 +54,12 @@ namespace PL.Orders
                 BO.OrderItem p = new BO.OrderItem
                 {
                     Name = item.Name,
-                    Price = item.Price,
+                    Price = pro.Price,
                     ProductID = item.Id,
-                    //Amount = (int)myCart.Where(x => x.ProductID == p.ProductID).Sum() ?? 0,
-                    
+                    Amount = 1,
+                    TotalPrice= pro.Price,
                 };
-                foreach (var chek in myCart)
-                {
-                    if(chek.ProductID==p.ProductID)
-                    {
-                        p.Amount++;
-                        
-                    }
-                }
+                
                 if (p != null)
                 {
                     
